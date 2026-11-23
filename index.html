@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlunoTec - Em Breve</title>
+  <meta name="description" content="AlunoTec - Tecnologia e Educação. Nosso novo site está em construção.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Background Glow FX -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="w-full border-b border-slate-800/80 backdrop-blur-md bg-slate-950/60 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-blue-500/20">
+          A
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+          Aluno<span class="text-blue-500">Tec</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Ambiente Ativo
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Content -->
+  <main class="flex-1 flex items-center justify-center px-6 py-16">
+    <div class="max-w-3xl mx-auto text-center space-y-8">
+      
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium">
+        <span>🚀 Olá Mundo!</span>
+        <span class="text-slate-500">•</span>
+        <span>alunotec.com.br</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+        Conectando alunos à <br class="hidden sm:inline" />
+        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
+          tecnologia do futuro
+        </span>
+      </h1>
+
+      <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto font-normal leading-relaxed">
+        Nosso novo portal está sendo construído. Em breve você terá acesso a uma experiência completa em tecnologia e aprendizado.
+      </p>
+
+      <!-- Status Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 text-left">
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
+          <div class="text-blue-400 font-semibold text-sm mb-1">Domínio</div>
+          <div class="text-white font-bold text-base">alunotec.com.br</div>
+          <p class="text-xs text-slate-400 mt-1">Configurado e apontado</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
+          <div class="text-indigo-400 font-semibold text-sm mb-1">Hospedagem</div>
+          <div class="text-white font-bold text-base">Hostinger</div>
+          <p class="text-xs text-slate-400 mt-1">Infraestrutura ativa</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
+          <div class="text-purple-400 font-semibold text-sm mb-1">Desenvolvimento</div>
+          <div class="text-white font-bold text-base">Antigravity</div>
+          <p class="text-xs text-slate-400 mt-1">Em produção contínua</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full border-t border-slate-800/60 py-6 text-center text-sm text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 AlunoTec. Todos os direitos reservados.</p>
+      <p class="text-xs text-slate-600">Desenvolvido com Antigravity</p>
+    </div>
+  </footer>
+
+</body>
+</html>
