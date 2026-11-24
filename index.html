@@ -6,12 +6,12 @@
   <title>AlunoTec - Polo Autorizado Cruzeiro do Sul Virtual & Cefe Educa EJA</title>
   <meta name="description" content="Polo AlunoTec Araranguá - SC. Cursos de Graduação e Pós-Graduação EAD e Semipresencial Cruzeiro do Sul e EJA Ensino Fundamental e Médio Cefe Educa. Bolsas de estudo de até 70%.">
   
-  <!-- Fontes Google (Plus Jakarta Sans & Inter no estilo universitário da Cruzeiro do Sul) -->
+  <!-- Fontes Google (Plus Jakarta Sans & Montserrat) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS CDN com paleta harmônica da AlunoTec e Cruzeiro do Sul -->
+  <!-- Tailwind CSS CDN com paleta harmônica Verde AlunoTec e Azul Cruzeiro do Sul -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -22,13 +22,14 @@
             display: ['"Montserrat"', 'sans-serif'],
           },
           colors: {
-            // Paleta extraída da Logo da AlunoTec e Cruzeiro do Sul
-            alunoVermelho: '#E30613',  // Vermelho da Logo AlunoTec & Barra Cards Claretiano
-            alunoVerde: '#A8CF04',     // Verde-limão 'Tec'
+            // Paleta extraída da Logo da AlunoTec
+            alunoVerde: '#A8CF04',     // Verde-limão oficial AlunoTec
+            alunoVerdeEscuro: '#7EA600', // Verde AlunoTec com mais contraste para textos/botões
+            alunoVerdeHover: '#6D9100',
             alunoAzul: '#009EE2',      // Azul ciano da Logo AlunoTec
             cruzeiroAzul: '#002B7F',   // Azul Marinho Oficial Cruzeiro do Sul
             cruzeiroNavy: '#001A4E',   // Azul Noturno Institucional
-            cruzeiroLight: '#0047BA',  // Azul Real Acentuado
+            cruzeiroLight: '#0047BA',  // Azul Real
             cinzaTexto: '#334155',
             fundoSite: '#F8FAFC'
           }
@@ -63,7 +64,7 @@
       animation: pulse-ring 2.5s infinite;
     }
 
-    /* Barra Vermelha dos Cards no estilo Claretiano */
+    /* Barra Verde dos Cards no estilo Claretiano */
     .card-claretiano {
       position: relative;
       overflow: hidden;
@@ -76,7 +77,7 @@
       left: 0;
       right: 0;
       height: 6px;
-      background: linear-gradient(90deg, #E30613 0%, #B91C1C 100%);
+      background: linear-gradient(90deg, #A8CF04 0%, #7EA600 100%);
       z-index: 10;
       transition: height 0.2s ease;
     }
@@ -105,7 +106,7 @@
         </span>
         <span class="hidden md:inline text-slate-500">•</span>
         <a href="https://wa.me/5548996191212" target="_blank" class="hidden md:flex items-center gap-1 hover:text-white transition-colors">
-          <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
+          <svg class="w-3.5 h-3.5 text-alunoVerde" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
           (48) 99619-1212
         </a>
       </div>
@@ -180,7 +181,7 @@
                 <h4 class="text-xl font-extrabold text-cruzeiroNavy font-display">Catálogo de Cursos do Polo AlunoTec</h4>
                 <p class="text-xs text-slate-500">Graduação e Pós-Graduação Cruzeiro do Sul Virtual (EAD e Semipresencial) e EJA Cefe Educa.</p>
               </div>
-              <a href="#catalogo" class="text-xs font-bold text-alunoVermelho hover:underline flex items-center gap-1">
+              <a href="#catalogo" class="text-xs font-bold text-alunoVerdeEscuro hover:underline flex items-center gap-1">
                 Ver todos os cursos na página &rarr;
               </a>
             </div>
@@ -194,15 +195,15 @@
                   <span>Computação & TICs</span>
                 </div>
                 <ul class="space-y-1.5 text-slate-600">
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Análise e Desenvolvimento de Sistemas')" class="hover:text-alunoVermelho transition-colors block">Análise e Desenv. de Sistemas</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Ciência da Computação')" class="hover:text-alunoVermelho transition-colors block">Ciência da Computação</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Engenharia de Software')" class="hover:text-alunoVermelho transition-colors block">Engenharia de Software</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Cibersegurança')" class="hover:text-alunoVermelho transition-colors block">Cibersegurança</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Inteligência Artificial')" class="hover:text-alunoVermelho transition-colors block">Inteligência Artificial</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Ciência de Dados')" class="hover:text-alunoVermelho transition-colors block">Ciência de Dados</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Desenvolvimento Full Stack')" class="hover:text-alunoVermelho transition-colors block">Desenvolvimento Full Stack</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Computação em Nuvem')" class="hover:text-alunoVermelho transition-colors block">Computação em Nuvem</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Redes de Computadores')" class="hover:text-alunoVermelho transition-colors block">Redes de Computadores</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Análise e Desenvolvimento de Sistemas')" class="hover:text-alunoVerdeEscuro transition-colors block">Análise e Desenv. de Sistemas</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Ciência da Computação')" class="hover:text-alunoVerdeEscuro transition-colors block">Ciência da Computação</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Engenharia de Software')" class="hover:text-alunoVerdeEscuro transition-colors block">Engenharia de Software</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Cibersegurança')" class="hover:text-alunoVerdeEscuro transition-colors block">Cibersegurança</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Inteligência Artificial')" class="hover:text-alunoVerdeEscuro transition-colors block">Inteligência Artificial</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Ciência de Dados')" class="hover:text-alunoVerdeEscuro transition-colors block">Ciência de Dados</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Desenvolvimento Full Stack')" class="hover:text-alunoVerdeEscuro transition-colors block">Desenvolvimento Full Stack</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Computação em Nuvem')" class="hover:text-alunoVerdeEscuro transition-colors block">Computação em Nuvem</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Redes de Computadores')" class="hover:text-alunoVerdeEscuro transition-colors block">Redes de Computadores</a></li>
                 </ul>
               </div>
 
@@ -213,15 +214,15 @@
                   <span>Negócios & Gestão</span>
                 </div>
                 <ul class="space-y-1.5 text-slate-600">
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Ciências Contábeis')" class="hover:text-alunoVermelho transition-colors block">Ciências Contábeis</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão de Recursos Humanos')" class="hover:text-alunoVermelho transition-colors block">Gestão de Recursos Humanos</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Marketing Digital')" class="hover:text-alunoVermelho transition-colors block">Marketing Digital</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Logística')" class="hover:text-alunoVermelho transition-colors block">Logística</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão Financeira')" class="hover:text-alunoVermelho transition-colors block">Gestão Financeira</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Serviços Jurídicos e Notariais')" class="hover:text-alunoVermelho transition-colors block">Serviços Jurídicos e Notariais</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão Pública')" class="hover:text-alunoVermelho transition-colors block">Gestão Pública</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão Comercial')" class="hover:text-alunoVermelho transition-colors block">Gestão Comercial</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Administração Pública')" class="hover:text-alunoVermelho transition-colors block">Administração Pública</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Ciências Contábeis')" class="hover:text-alunoVerdeEscuro transition-colors block">Ciências Contábeis</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão de Recursos Humanos')" class="hover:text-alunoVerdeEscuro transition-colors block">Gestão de Recursos Humanos</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Marketing Digital')" class="hover:text-alunoVerdeEscuro transition-colors block">Marketing Digital</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Logística')" class="hover:text-alunoVerdeEscuro transition-colors block">Logística</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão Financeira')" class="hover:text-alunoVerdeEscuro transition-colors block">Gestão Financeira</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Serviços Jurídicos e Notariais')" class="hover:text-alunoVerdeEscuro transition-colors block">Serviços Jurídicos e Notariais</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão Pública')" class="hover:text-alunoVerdeEscuro transition-colors block">Gestão Pública</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão Comercial')" class="hover:text-alunoVerdeEscuro transition-colors block">Gestão Comercial</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Administração Pública')" class="hover:text-alunoVerdeEscuro transition-colors block">Administração Pública</a></li>
                 </ul>
               </div>
 
@@ -232,14 +233,14 @@
                   <span>Educação & Licenciaturas</span>
                 </div>
                 <ul class="space-y-1.5 text-slate-600">
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Pedagogia')" class="hover:text-alunoVermelho transition-colors block font-semibold text-cruzeiroAzul">Pedagogia (Semipresencial)</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Educação Especial')" class="hover:text-alunoVermelho transition-colors block">Educação Especial</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Educação Física')" class="hover:text-alunoVermelho transition-colors block">Educação Física</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Letras - Libras')" class="hover:text-alunoVermelho transition-colors block">Letras - Libras</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Matemática')" class="hover:text-alunoVermelho transition-colors block">Matemática</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Design Gráfico')" class="hover:text-alunoVermelho transition-colors block">Design Gráfico</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gastronomia')" class="hover:text-alunoVermelho transition-colors block">Gastronomia</a></li>
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Segurança Pública')" class="hover:text-alunoVermelho transition-colors block">Segurança Pública</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Pedagogia')" class="hover:text-alunoVerdeEscuro transition-colors block font-semibold text-cruzeiroAzul">Pedagogia (Semipresencial)</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Educação Especial')" class="hover:text-alunoVerdeEscuro transition-colors block">Educação Especial</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Educação Física')" class="hover:text-alunoVerdeEscuro transition-colors block">Educação Física</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Letras - Libras')" class="hover:text-alunoVerdeEscuro transition-colors block">Letras - Libras</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Matemática')" class="hover:text-alunoVerdeEscuro transition-colors block">Matemática</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Design Gráfico')" class="hover:text-alunoVerdeEscuro transition-colors block">Design Gráfico</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gastronomia')" class="hover:text-alunoVerdeEscuro transition-colors block">Gastronomia</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Segurança Pública')" class="hover:text-alunoVerdeEscuro transition-colors block">Segurança Pública</a></li>
                 </ul>
               </div>
 
@@ -251,8 +252,8 @@
                     <span>EJA Cefe Educa</span>
                   </div>
                   <ul class="space-y-1 text-slate-700">
-                    <li><a href="#catalogo" onclick="trocarCategoria('eja')" class="hover:text-alunoVermelho font-semibold block">EJA Ensino Médio (1°, 2°, 3° Ano)</a></li>
-                    <li><a href="#catalogo" onclick="trocarCategoria('eja')" class="hover:text-alunoVermelho font-semibold block">EJA Fundamental (6° ao 9° Ano)</a></li>
+                    <li><a href="#catalogo" onclick="trocarCategoria('eja')" class="hover:text-alunoVerdeEscuro font-semibold block">EJA Ensino Médio (1°, 2°, 3° Ano)</a></li>
+                    <li><a href="#catalogo" onclick="trocarCategoria('eja')" class="hover:text-alunoVerdeEscuro font-semibold block">EJA Fundamental (6° ao 9° Ano)</a></li>
                   </ul>
                 </div>
 
@@ -262,9 +263,9 @@
                     <span>Pós-Graduação & MBA</span>
                   </div>
                   <ul class="space-y-1 text-slate-700">
-                    <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-alunoVermelho block">Gestão Escolar e Coordenação</a></li>
-                    <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-alunoVermelho block">Psicopedagogia Clínica</a></li>
-                    <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-alunoVermelho block">MBA Liderança e RH</a></li>
+                    <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-alunoVerdeEscuro block">Gestão Escolar e Coordenação</a></li>
+                    <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-alunoVerdeEscuro block">Psicopedagogia Clínica</a></li>
+                    <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-alunoVerdeEscuro block">MBA Liderança e RH</a></li>
                   </ul>
                 </div>
               </div>
@@ -280,10 +281,10 @@
         <a href="#contato" class="hover:text-cruzeiroAzul transition-colors">Contato & Horários</a>
       </nav>
 
-      <!-- BOTÃO DE INSCRIÇÃO / BOLSA -->
+      <!-- BOTÃO DE INSCRIÇÃO / BOLSA COM VERDE ALUNOTEC -->
       <div class="flex items-center gap-3">
         <button onclick="abrirModalLead('Header CTA - Garantir Bolsa')" 
-                class="px-5 py-3 rounded-lg bg-gradient-to-r from-alunoVermelho to-red-700 hover:from-red-600 hover:to-red-800 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 uppercase tracking-wide">
+                class="px-5 py-3 rounded-lg bg-gradient-to-r from-alunoVerde to-alunoVerdeEscuro hover:from-alunoVerdeEscuro hover:to-alunoVerdeHover text-slate-950 font-extrabold text-xs sm:text-sm shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 uppercase tracking-wide">
           Inscreva-se com Bolsa
         </button>
 
@@ -304,7 +305,7 @@
       <a href="#polo" class="block py-2 text-slate-800 font-medium">Polo Físico Araranguá</a>
       <a href="#contato" class="block py-2 text-slate-800 font-medium">Endereço e Horários</a>
       <div class="pt-2">
-        <button onclick="abrirModalLead('Mobile Menu')" class="w-full py-3 bg-alunoVermelho text-white font-bold rounded-lg text-sm text-center">
+        <button onclick="abrirModalLead('Mobile Menu')" class="w-full py-3 bg-alunoVerde text-slate-950 font-extrabold rounded-lg text-sm text-center">
           Quero Minha Bolsa pelo WhatsApp
         </button>
       </div>
@@ -327,7 +328,7 @@
         <div class="absolute inset-0 bg-gradient-to-r from-cruzeiroNavy via-cruzeiroNavy/90 to-transparent md:bg-opacity-40 flex items-center">
           <div class="max-w-7xl mx-auto px-6 sm:px-12 w-full">
             <div class="max-w-xl text-white space-y-4">
-              <span class="inline-block px-3 py-1 rounded bg-alunoVermelho text-white text-xs font-bold uppercase tracking-wider">
+              <span class="inline-block px-3 py-1 rounded bg-alunoVerde text-slate-950 text-xs font-extrabold uppercase tracking-wider">
                 Bolsas de até 70% pelo Polo AlunoTec
               </span>
               <h1 class="text-3xl sm:text-5xl font-extrabold font-display leading-tight text-white drop-shadow-md">
@@ -337,7 +338,7 @@
                 Estude em casa com a tradição da Cruzeiro do Sul Virtual. Diplomas reconhecidos pelo MEC, flexibilidade total e suporte presencial no polo em Araranguá.
               </p>
               <div class="pt-2 flex flex-wrap gap-3">
-                <a href="#catalogo" class="px-6 py-3.5 rounded-lg bg-alunoVermelho hover:bg-red-700 text-white font-bold text-sm transition-all shadow-lg hover:shadow-red-600/30">
+                <a href="#catalogo" class="px-6 py-3.5 rounded-lg bg-alunoVerde hover:bg-alunoVerdeEscuro text-slate-950 font-extrabold text-sm transition-all shadow-lg hover:shadow-lime-600/30">
                   Ver Cursos Disponíveis &rarr;
                 </a>
                 <button onclick="abrirModalLead('Banner 1 - Cruzeiro EAD')" class="px-6 py-3.5 rounded-lg bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-bold text-sm border border-white/30 transition-all">
@@ -357,7 +358,7 @@
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent md:bg-transparent flex items-center">
           <div class="max-w-7xl mx-auto px-6 sm:px-12 w-full">
             <div class="max-w-lg text-slate-900 md:text-slate-900 space-y-4">
-              <span class="inline-block px-3 py-1 rounded bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider">
+              <span class="inline-block px-3 py-1 rounded bg-alunoVerde text-slate-950 text-xs font-extrabold uppercase tracking-wider">
                 Polo Oficial Cefe Educa
               </span>
               <h2 class="text-3xl sm:text-5xl font-extrabold font-display leading-tight text-white md:text-slate-950">
@@ -367,7 +368,7 @@
                 Supletivo do Ensino Médio e Fundamental 100% online. Certificado oficial válido para faculdades, concursos e empregos.
               </p>
               <div class="pt-2 flex flex-wrap gap-3">
-                <button onclick="abrirModalLead('Banner 2 - EJA Cefe Educa', 'EJA Ensino Médio')" class="px-6 py-3.5 rounded-lg bg-alunoVermelho hover:bg-red-700 text-white font-bold text-sm transition-all shadow-lg">
+                <button onclick="abrirModalLead('Banner 2 - EJA Cefe Educa', 'EJA Ensino Médio')" class="px-6 py-3.5 rounded-lg bg-alunoVerde hover:bg-alunoVerdeEscuro text-slate-950 font-extrabold text-sm transition-all shadow-lg">
                   Concluir Meus Estudos Agora &rarr;
                 </button>
               </div>
@@ -425,15 +426,15 @@
   </section>
 
   <!-- ========================================================= -->
-  <!-- 5. CATÁLOGO DE CURSOS (ESTILO CLARETIANO COM BARRA VERMELHA) -->
+  <!-- 5. CATÁLOGO DE CURSOS (ESTILO CLARETIANO COM BARRA VERDE ALUNOTEC) -->
   <!-- ========================================================= -->
   <section id="catalogo" class="py-16 px-4 sm:px-6 max-w-7xl mx-auto">
     
     <!-- Cabeçalho do Catálogo -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 border-b border-slate-200 pb-6">
       <div>
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-red-50 text-alunoVermelho text-xs font-bold uppercase tracking-wider mb-2">
-          <span class="w-2 h-2 rounded-full bg-alunoVermelho"></span>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-lime-100 text-alunoVerdeEscuro text-xs font-extrabold uppercase tracking-wider mb-2">
+          <span class="w-2 h-2 rounded-full bg-alunoVerde"></span>
           Cursos Autorizados no Polo AlunoTec
         </div>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-cruzeiroNavy font-display">
@@ -457,8 +458,8 @@
       
       <!-- BOTÃO DESTAQUE "CURSOS EM ALTA" -->
       <button onclick="filtrarEmAlta(this)" id="btnEmAlta" 
-              class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-alunoVermelho transition-all whitespace-nowrap flex items-center gap-1.5 shadow-sm">
-        <span class="text-alunoVermelho">🔥</span>
+              class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-alunoVerde transition-all whitespace-nowrap flex items-center gap-1.5 shadow-sm">
+        <span class="text-alunoVerdeEscuro">🔥</span>
         <span>Cursos em Alta</span>
       </button>
 
@@ -497,7 +498,7 @@
 
     </div>
 
-    <!-- GRID DE CARDS COM BARRA VERMELHA (ESTILO CLARETIANO) -->
+    <!-- GRID DE CARDS COM BARRA VERDE (ESTILO CLARETIANO) -->
     <div id="gridCursos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Renderizado via JavaScript -->
     </div>
@@ -513,13 +514,13 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-emerald-100 text-emerald-800 font-bold text-xs uppercase tracking-wide">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-lime-100 text-alunoVerdeEscuro font-extrabold text-xs uppercase tracking-wide">
             <span>🎓</span> Polo Oficial Cefe Educa - Araranguá
           </div>
           
           <h2 class="text-3xl sm:text-4xl font-extrabold text-cruzeiroNavy font-display leading-tight">
             EJA Supletivo a Distância:<br />
-            <span class="text-emerald-600">Conclua seus estudos no seu tempo</span>
+            <span class="text-alunoVerdeEscuro">Conclua seus estudos no seu tempo</span>
           </h2>
 
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -544,7 +545,7 @@
 
           <div class="pt-2">
             <button onclick="abrirModalLead('Seção EJA Cefe Educa', 'EJA Ensino Médio')" 
-                    class="px-8 py-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md transition-all flex items-center gap-2">
+                    class="px-8 py-4 rounded-lg bg-alunoVerde hover:bg-alunoVerdeEscuro text-slate-950 font-extrabold text-sm shadow-md transition-all flex items-center gap-2">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
               Quero Me Inscrever no EJA pelo WhatsApp
             </button>
@@ -611,7 +612,7 @@
           <!-- Botão de Visita ou Contato -->
           <div class="pt-2 flex flex-wrap gap-3">
             <a href="https://wa.me/5548996191212" target="_blank" 
-               class="px-6 py-3 rounded-lg bg-alunoVermelho hover:bg-red-700 text-white font-bold text-xs sm:text-sm transition-all shadow-md">
+               class="px-6 py-3 rounded-lg bg-alunoVerde hover:bg-alunoVerdeEscuro text-slate-950 font-extrabold text-xs sm:text-sm transition-all shadow-md">
               Falar no WhatsApp do Polo &rarr;
             </a>
             <a href="#contato" class="px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition-all">
@@ -634,7 +635,7 @@
       
       <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200 text-center">
         
-        <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-alunoVermelho text-xs font-bold uppercase tracking-wider mb-2">
+        <span class="inline-block px-3 py-1 rounded-full bg-lime-100 text-alunoVerdeEscuro text-xs font-extrabold uppercase tracking-wider mb-2">
           Bolsas Especiais do Polo AlunoTec
         </span>
 
@@ -684,8 +685,8 @@
 
           <div class="sm:col-span-2 pt-2">
             <button type="submit" 
-                    class="w-full py-4 rounded-xl bg-gradient-to-r from-alunoVermelho to-red-700 hover:from-red-600 hover:to-red-800 text-white font-extrabold text-sm sm:text-base shadow-lg transition-all hover:shadow-red-600/30 uppercase tracking-wider flex items-center justify-center gap-2">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
+                    class="w-full py-4 rounded-xl bg-gradient-to-r from-alunoVerde to-alunoVerdeEscuro hover:from-alunoVerdeEscuro hover:to-alunoVerdeHover text-slate-950 font-extrabold text-sm sm:text-base shadow-lg transition-all hover:shadow-lime-500/30 uppercase tracking-wider flex items-center justify-center gap-2">
+              <svg class="w-5 h-5 text-slate-950" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
               Quero Minha Bolsa com o Polo AlunoTec
             </button>
           </div>
@@ -719,7 +720,7 @@
         </div>
 
         <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-          <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg mb-3">📱</div>
+          <div class="w-10 h-10 rounded-lg bg-lime-100 text-alunoVerdeEscuro flex items-center justify-center font-bold text-lg mb-3">📱</div>
           <h4 class="font-extrabold text-slate-900 text-base mb-1">WhatsApp & Telefone</h4>
           <p class="text-xs text-slate-600 leading-relaxed mb-2">
             Fale diretamente com nossa consultoria do polo:
@@ -730,7 +731,7 @@
         </div>
 
         <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-          <div class="w-10 h-10 rounded-lg bg-red-100 text-alunoVermelho flex items-center justify-center font-bold text-lg mb-3">✉️</div>
+          <div class="w-10 h-10 rounded-lg bg-blue-100 text-cruzeiroAzul flex items-center justify-center font-bold text-lg mb-3">✉️</div>
           <h4 class="font-extrabold text-slate-900 text-base mb-1">E-mail Oficial</h4>
           <p class="text-xs text-slate-600 leading-relaxed mb-2">
             Envio de dúvidas e documentações de matrícula:
@@ -748,7 +749,7 @@
   <!-- ========================================================= -->
   <!-- 10. RODAPÉ INSTITUCIONAL (PADRÃO CRUZEIRO DO SUL) -->
   <!-- ========================================================= -->
-  <footer class="bg-cruzeiroNavy text-white py-14 border-t-4 border-alunoVermelho text-xs">
+  <footer class="bg-cruzeiroNavy text-white py-14 border-t-4 border-alunoVerde text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
@@ -826,7 +827,7 @@
        target="_blank" rel="noopener noreferrer" 
        class="pulse-btn relative w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl shadow-[#25D366]/50 transition-transform hover:scale-110"
        title="Fale Conosco no WhatsApp">
-      <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-alunoVermelho text-white text-[10px] font-bold flex items-center justify-center border-2 border-white">
+      <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-alunoVerde text-slate-950 text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
         1
       </span>
       <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
@@ -839,13 +840,13 @@
   <!-- 12. MODAL DE CAPTURA DE LEAD (BLINDAGEM DE COMISSÃO) -->
   <!-- ========================================================= -->
   <div id="modalLead" class="fixed inset-0 z-50 hidden bg-cruzeiroNavy/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl border-t-8 border-alunoVermelho">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl border-t-8 border-alunoVerde">
       <button onclick="fecharModalLead()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 p-2 font-bold text-lg">
         ✕
       </button>
 
       <div class="text-center mb-6">
-        <span class="inline-block px-3 py-1 rounded bg-red-100 text-alunoVermelho text-xs font-bold uppercase tracking-wider mb-2">
+        <span class="inline-block px-3 py-1 rounded bg-lime-100 text-alunoVerdeEscuro text-xs font-extrabold uppercase tracking-wider mb-2">
           Polo AlunoTec
         </span>
         <h3 class="text-xl sm:text-2xl font-extrabold text-cruzeiroNavy font-display" id="modalTitulo">
@@ -879,7 +880,7 @@
         </div>
 
         <button type="submit" 
-                class="w-full py-4 rounded-xl bg-gradient-to-r from-alunoVermelho to-red-700 hover:from-red-600 hover:to-red-800 text-white font-extrabold text-sm uppercase tracking-wide shadow-md transition-all flex items-center justify-center gap-2">
+                class="w-full py-4 rounded-xl bg-gradient-to-r from-alunoVerde to-alunoVerdeEscuro hover:from-alunoVerdeEscuro hover:to-alunoVerdeHover text-slate-950 font-extrabold text-sm uppercase tracking-wide shadow-md transition-all flex items-center justify-center gap-2">
           <span>Receber Bolsa no WhatsApp</span> &rarr;
         </button>
       </form>
@@ -984,7 +985,7 @@
         const isSemipresencial = curso.modalidade.includes('Semipresencial');
         const badgeModalidade = isSemipresencial 
           ? `<span class="px-2.5 py-1 rounded bg-blue-100 text-blue-800 text-[10px] font-extrabold uppercase">Semipresencial</span>`
-          : `<span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 text-[10px] font-extrabold uppercase">100% EAD</span>`;
+          : `<span class="px-2.5 py-1 rounded bg-lime-100 text-alunoVerdeEscuro text-[10px] font-extrabold uppercase">100% EAD</span>`;
 
         const isCruzeiro = curso.polo.includes('Cruzeiro');
         const poloBadge = isCruzeiro 
@@ -997,7 +998,7 @@
               <!-- Topo do Card -->
               <div class="flex items-center justify-between gap-2 mb-3 pt-1">
                 ${badgeModalidade}
-                ${curso.emAlta ? `<span class="px-2 py-0.5 rounded bg-red-50 text-alunoVermelho text-[10px] font-extrabold uppercase flex items-center gap-1">🔥 Em Alta</span>` : ''}
+                ${curso.emAlta ? `<span class="px-2 py-0.5 rounded bg-lime-100 text-alunoVerdeEscuro text-[10px] font-extrabold uppercase flex items-center gap-1 border border-lime-300">🔥 Em Alta</span>` : ''}
               </div>
 
               <!-- Instituição -->
@@ -1006,7 +1007,7 @@
               </div>
 
               <!-- Título do Curso -->
-              <h3 class="text-lg font-extrabold text-cruzeiroNavy font-display leading-snug hover:text-alunoVermelho transition-colors mb-2">
+              <h3 class="text-lg font-extrabold text-cruzeiroNavy font-display leading-snug hover:text-alunoVerdeEscuro transition-colors mb-2">
                 ${curso.nome}
               </h3>
 
@@ -1031,7 +1032,7 @@
             <!-- Botão de Ação -->
             <div>
               <button onclick="abrirModalLead('Card Curso', '${curso.nome}', '${curso.modalidade}')" 
-                      class="w-full py-3 rounded-lg bg-cruzeiroNavy hover:bg-alunoVermelho text-white font-extrabold text-xs transition-colors shadow-sm uppercase tracking-wider flex items-center justify-center gap-2">
+                      class="w-full py-3 rounded-lg bg-cruzeiroNavy hover:bg-alunoVerde hover:text-slate-950 text-white font-extrabold text-xs transition-all shadow-sm uppercase tracking-wider flex items-center justify-center gap-2">
                 <span>Garantir Bolsa no Polo</span> &rarr;
               </button>
             </div>
@@ -1043,7 +1044,7 @@
     function trocarCategoria(cat, btn) {
       categoriaSelecionada = cat;
       somenteEmAlta = false;
-      document.getElementById('btnEmAlta').classList.remove('bg-alunoVermelho', 'text-white', 'border-alunoVermelho');
+      document.getElementById('btnEmAlta').classList.remove('bg-alunoVerde', 'text-slate-950', 'border-alunoVerde');
       document.getElementById('btnEmAlta').classList.add('bg-white', 'text-slate-700', 'border-slate-300');
 
       document.querySelectorAll('.btn-filtro').forEach(b => {
@@ -1062,10 +1063,10 @@
     function filtrarEmAlta(btn) {
       somenteEmAlta = !somenteEmAlta;
       if (somenteEmAlta) {
-        btn.classList.add('bg-alunoVermelho', 'text-white', 'border-alunoVermelho');
+        btn.classList.add('bg-alunoVerde', 'text-slate-950', 'border-alunoVerde');
         btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
       } else {
-        btn.classList.remove('bg-alunoVermelho', 'text-white', 'border-alunoVermelho');
+        btn.classList.remove('bg-alunoVerde', 'text-slate-950', 'border-alunoVerde');
         btn.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
       }
       renderizarCards();
