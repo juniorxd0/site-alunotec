@@ -27,9 +27,12 @@ const AlunoTecCursos = [
     tipo: 'EJA',
     modalidade: '100% EAD',
     duracao: 'Conclusão rápida no seu ritmo',
-    descricao: 'Conclua o Ensino Médio a distância com flexibilidade total. Certificado oficial reconhecido pelo MEC e publicação em Diário Oficial, válido para faculdades, cursos técnicos e concursos.',
+    descricao: 'Finalize o Ensino Médio de forma acessível e flexível, ampliando suas oportunidades para o mercado de trabalho, cursos técnicos, concursos e ingresso no ensino superior.',
     emAlta: true,
-    tag: 'Mais Procurado'
+    tag: 'Mais Procurado',
+    imagem: 'Design/curso-eja-medio.jpg',
+    link: 'eja-medio.html',
+    botaoTexto: 'Ensino Médio'
   },
   {
     id: 'eja-fundamental',
@@ -39,9 +42,12 @@ const AlunoTecCursos = [
     tipo: 'EJA',
     modalidade: '100% EAD',
     duracao: 'Conclusão rápida no seu ritmo',
-    descricao: 'Recupere seus estudos com aulas online fáceis de acompanhar no celular. Ideal para quem tem a partir de 15 anos e deseja obter o certificado do Ensino Fundamental com segurança.',
+    descricao: 'Conclua o Ensino Fundamental com uma metodologia flexível, prática e voltada para jovens e adultos que desejam retomar os estudos e avançar em sua formação.',
     emAlta: true,
-    tag: 'Início Imediato'
+    tag: 'Início Imediato',
+    imagem: 'Design/curso-eja-fundamental.jpg',
+    link: 'eja-fundamental.html',
+    botaoTexto: 'Ensino Fundamental'
   },
 
   // ==========================================

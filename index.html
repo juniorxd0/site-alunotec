@@ -536,17 +536,23 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             
-            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-              <span class="text-xs font-bold text-emerald-700 uppercase">Ensino Fundamental</span>
-              <h4 class="text-base font-extrabold text-slate-900 mt-1">6° ao 9° Ano</h4>
+            <a href="eja-fundamental.html" class="p-4 rounded-xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-red-400 hover:shadow-md transition-all block group">
+              <span class="text-xs font-bold text-red-600 uppercase">Ensino Fundamental</span>
+              <h4 class="text-base font-extrabold text-slate-900 group-hover:text-red-700 mt-1 flex items-center justify-between">
+                <span>6° ao 9° Ano</span>
+                <span class="text-xs text-red-600 font-bold">&rarr;</span>
+              </h4>
               <p class="text-xs text-slate-500 mt-1">A partir de 15 anos. Material didático simples e interativo direto no celular.</p>
-            </div>
+            </a>
 
-            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-              <span class="text-xs font-bold text-emerald-700 uppercase">Ensino Médio</span>
-              <h4 class="text-base font-extrabold text-slate-900 mt-1">1°, 2° e 3° Ano</h4>
-              <p class="text-xs text-slate-500 mt-1">A partir de 18 anos. Certificado publicado em Diário Oficial, válido para faculdades e concursos.</p>
-            </div>
+            <a href="eja-medio.html" class="p-4 rounded-xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-red-400 hover:shadow-md transition-all block group">
+              <span class="text-xs font-bold text-red-600 uppercase">Ensino Médio</span>
+              <h4 class="text-base font-extrabold text-slate-900 group-hover:text-red-700 mt-1 flex items-center justify-between">
+                <span>1°, 2° e 3° Ano</span>
+                <span class="text-xs text-red-600 font-bold">&rarr;</span>
+              </h4>
+              <p class="text-xs text-slate-500 mt-1">A partir de 18 anos. Certificado reconhecido pelo CEE-SC, válido para faculdades e concursos.</p>
+            </a>
 
           </div>
 
@@ -791,8 +797,8 @@
             Cefe Educa EJA
           </h5>
           <ul class="space-y-1.5 text-slate-300">
-            <li><a href="#eja" class="hover:text-white transition-colors">EJA Ensino Fundamental</a></li>
-            <li><a href="#eja" class="hover:text-white transition-colors">EJA Ensino Médio</a></li>
+            <li><a href="eja-fundamental.html" class="hover:text-white transition-colors">EJA Ensino Fundamental</a></li>
+            <li><a href="eja-medio.html" class="hover:text-white transition-colors">EJA Ensino Médio</a></li>
             <li><a href="https://avacefe.com.br/login/index.php" target="_blank" class="text-emerald-300 hover:underline">Portal do Aluno EJA</a></li>
           </ul>
         </div>
@@ -1034,8 +1040,16 @@
 
       grid.innerHTML = filtrados.map(curso => {
         const isSemipresencial = (curso.modalidade || '').toLowerCase().includes('semipresencial');
-        const textoBotao = isSemipresencial ? 'Semipresencial' : 'EAD';
-        const linkDestino = curso.link || (curso.id === 'pedagogia' ? 'pedagogia-semipresencial.html' : `curso.html?id=${curso.id}`);
+        let textoBotao = isSemipresencial ? 'Semipresencial' : 'EAD';
+        if (curso.botaoTexto) {
+          textoBotao = curso.botaoTexto;
+        } else if (curso.id === 'eja-medio') {
+          textoBotao = 'Ensino Médio';
+        } else if (curso.id === 'eja-fundamental') {
+          textoBotao = 'Ensino Fundamental';
+        }
+
+        const linkDestino = curso.link || (curso.id === 'pedagogia' ? 'pedagogia-semipresencial.html' : (curso.id === 'eja-medio' ? 'eja-medio.html' : (curso.id === 'eja-fundamental' ? 'eja-fundamental.html' : `curso.html?id=${curso.id}`)));
         const isCruzeiro = (curso.polo || '').includes('Cruzeiro');
         const poloLogo = isCruzeiro 
           ? `<div class="h-6 flex items-center"><img src="Design/logo cruzeiro do sul PNG.png" alt="Cruzeiro do Sul Virtual" class="h-4.5 sm:h-5 w-auto object-contain max-w-[125px]" loading="lazy"></div>`

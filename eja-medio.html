@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EJA - Ensino Médio | CEFE Educa & Polo AlunoTec Araranguá</title>
+  <meta name="description" content="Finalize o Ensino Médio de forma acessível e flexível pelo Cefe Educa no Polo AlunoTec Araranguá. Certificação oficial CEE/SC, 100% online, videoaulas e apostila digital.">
+  <link rel="icon" type="image/png" href="Design/logo aluno tec PNG.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alunoVerde: '#A8CF04',
+            alunoVerdeHover: '#95BA03',
+            alunoVerdeEscuro: '#7EA600',
+            cruzeiroAzul: '#004A99',
+            cruzeiroNavy: '#002855',
+            cruzeiroDeep: '#001A38',
+            cruzeiroAmarelo: '#F5A623',
+            cefeRed: '#E53935',
+            cefeRedDark: '#C62828',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease-out, opacity 0.25s ease-in;
+      opacity: 0;
+    }
+    .accordion-content.aberto {
+      max-height: 800px;
+      opacity: 1;
+    }
+    .accordion-icon {
+      transition: transform 0.3s ease;
+    }
+    .accordion-icon.rotacionado {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-alunoVerde selection:text-slate-950">
+
+  <!-- ========================================================= -->
+  <!-- 1. TOPBAR INSTITUCIONAL -->
+  <!-- ========================================================= -->
+  <div class="bg-cruzeiroNavy text-white py-2.5 px-4 sm:px-6 text-xs border-b border-blue-900/60 relative z-50">
+    <div class="max-w-[1560px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      
+      <!-- Informações Rápidas -->
+      <div class="flex items-center gap-4 text-[11px] sm:text-xs text-blue-200">
+        <span class="flex items-center gap-1.5 font-medium">
+          <span class="w-2 h-2 rounded-full bg-alunoVerde animate-pulse"></span>
+          Polo Oficial Araranguá - SC
+        </span>
+        <span class="text-blue-400">•</span>
+        <a href="https://wa.me/5548996191212?text=Ol%C3%A1!%20Tenho%20interesse%20no%20curso%3A%20EJA%20-%20Ensino%20M%C3%A9dio%20pelo%20Polo%20AlunoTec.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" class="hover:text-white transition-colors flex items-center gap-1 font-semibold">
+          <span>💬</span> (48) 99619-1212
+        </a>
+      </div>
+
+      <!-- Links Diretos aos Portais do Aluno -->
+      <div class="flex items-center gap-2.5 sm:gap-4 text-xs">
+        <span class="text-slate-300 font-bold hidden lg:inline text-xs">Ambiente Virtual:</span>
+        
+        <a href="https://avacefe.com.br/login/index.php" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          <span class="bg-white p-0.5 sm:p-1 rounded flex items-center justify-center shrink-0 shadow-xs">
+            <img src="Design/cefe-educa logo.png" alt="Cefe Educa" class="h-4 sm:h-5 w-auto object-contain">
+          </span>
+          <span>Portal do Aluno EJA</span>
+        </a>
+
+        <a href="https://novoportal.cruzeirodosul.edu.br/" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-blue-700 hover:bg-blue-600 text-white text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          <span class="bg-white p-0.5 sm:p-1 rounded flex items-center justify-center shrink-0 shadow-xs">
+            <img src="Design/logo cruzeiro do sul PNG.png" alt="Cruzeiro do Sul" class="h-4 sm:h-5 w-auto object-contain">
+          </span>
+          <span>Portal do Aluno Cruzeiro</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 2. HEADER PRINCIPAL -->
+  <!-- ========================================================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm relative">
+    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 h-20 sm:h-24 lg:h-26 flex items-center justify-between">
+      
+      <!-- LOGOS PARCEIRAS: ALUNOTEC + CRUZEIRO + CEFE EDUCA -->
+      <div class="flex items-center gap-4 sm:gap-6">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <img src="Design/logo aluno tec PNG.png" alt="AlunoTec - Centro de Ensino a Distância" class="h-14 sm:h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105">
+        </a>
+
+        <div class="hidden sm:block h-10 w-px bg-slate-300"></div>
+
+        <div class="hidden sm:flex flex-col items-center justify-center">
+          <span class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 whitespace-nowrap mb-1">Polo Autorizado</span>
+          <div class="flex items-center gap-3.5">
+            <img src="Design/cefe-educa logo.png" alt="Cefe Educa EJA" class="h-8 sm:h-9 w-auto object-contain">
+            <div class="h-5 w-px bg-slate-300"></div>
+            <img src="Design/logo cruzeiro do sul PNG.png" alt="Cruzeiro do Sul Virtual" class="h-7 w-auto object-contain">
+          </div>
+        </div>
+      </div>
+
+      <!-- NAVEGAÇÃO -->
+      <nav class="hidden xl:flex items-center gap-6 2xl:gap-8 text-sm font-semibold text-slate-700">
+        <a href="index.html#catalogo" class="hover:text-cruzeiroAzul transition-colors flex items-center gap-1">
+          <span>&larr;</span> <span>Todos os Cursos</span>
+        </a>
+        <a href="index.html#eja" class="text-red-600 font-bold hover:text-red-700 transition-colors whitespace-nowrap">EJA Supletivo</a>
+        <a href="index.html#catalogo" class="hover:text-cruzeiroAzul transition-colors whitespace-nowrap">Graduação & Pós</a>
+        <a href="index.html#polo" class="hover:text-cruzeiroAzul transition-colors whitespace-nowrap">O Polo AlunoTec</a>
+        <a href="index.html#contato" class="hover:text-cruzeiroAzul transition-colors whitespace-nowrap">Contato & Horários</a>
+      </nav>
+
+      <!-- BOTÃO INSCREVA-SE -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/5548996191212?text=Ol%C3%A1!%20Quero%20me%20inscrever%20no%20EJA%20Ensino%20M%C3%A9dio%20pelo%20Polo%20AlunoTec." 
+           target="_blank"
+           class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-alunoVerde hover:bg-alunoVerdeHover text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          Matricule-se Agora
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- 3. BREADCRUMBS -->
+  <!-- ========================================================= -->
+  <div class="bg-slate-100 border-b border-slate-200 py-3 px-4 sm:px-6 text-xs text-slate-600">
+    <div class="max-w-7xl mx-auto flex items-center gap-2 flex-wrap">
+      <a href="index.html" class="hover:text-cruzeiroAzul font-semibold">Início</a>
+      <span>/</span>
+      <a href="index.html#eja" class="hover:text-cruzeiroAzul font-semibold">EJA Supletivo Cefe Educa</a>
+      <span>/</span>
+      <span class="text-red-700 font-bold">EJA - Ensino Médio</span>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 4. HERO SECTION DO CURSO -->
+  <!-- ========================================================= -->
+  <section class="bg-gradient-to-b from-[#002855] via-[#00346B] to-[#002855] text-white py-10 sm:py-14 lg:py-16 px-4 sm:px-6 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
+      
+      <!-- COLUNA ESQUERDA: APRESENTAÇÃO DO CURSO -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- SELOS E BADGES -->
+        <div class="flex items-center gap-2.5 flex-wrap">
+          <span class="px-3 py-1 rounded-full bg-red-600 text-white font-black text-[11px] uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+            Educação de Jovens e Adultos
+          </span>
+          <span class="px-3 py-1 rounded-full bg-amber-400 text-slate-950 font-black text-[11px] uppercase tracking-wider shadow-sm">
+            🔥 MAIS PROCURADO
+          </span>
+          <span class="px-3 py-1 rounded-full bg-blue-500/30 text-blue-200 border border-blue-400/30 font-bold text-xs uppercase">
+            100% EAD
+          </span>
+          <span class="px-3 py-1 rounded-full bg-lime-400/20 text-lime-300 border border-lime-400/30 font-bold text-xs">
+            ✓ Autorizado CEE-SC
+          </span>
+        </div>
+
+        <!-- TÍTULO -->
+        <div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display tracking-tight text-white leading-tight">
+            EJA - Ensino Médio <span class="text-alunoVerde block text-2xl sm:text-3xl lg:text-4xl font-extrabold mt-1">Completo (1°, 2° e 3° Ano)</span>
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+            Finalize o Ensino Médio de forma acessível e flexível, ampliando suas oportunidades para o mercado de trabalho, cursos técnicos, concursos e ingresso no ensino superior.
+          </p>
+        </div>
+
+        <!-- FOTO OFICIAL DO CURSO DO SITE CEFE EDUCA -->
+        <div class="rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 aspect-[16/10] bg-slate-900 group relative">
+          <img src="Design/curso-eja-medio.jpg" alt="EJA - Ensino Médio - CEFE Educa" 
+               class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
+            <img src="Design/cefe-educa logo.png" alt="Cefe Educa" class="h-4 w-auto object-contain">
+            <span class="text-[11px] text-white font-bold">Certificação Oficial Cefe Educa</span>
+          </div>
+        </div>
+
+        <!-- GRID DE CARDS COM METADADOS DO CURSO (OFICIAIS CEFE EDUCA) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+          
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10 text-center">
+            <span class="block text-blue-200 text-xs font-medium">Modalidade</span>
+            <span class="block text-white font-extrabold text-sm sm:text-base mt-0.5">100% EAD</span>
+            <span class="block text-slate-400 text-[10px]">Estude no seu ritmo</span>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10 text-center">
+            <span class="block text-blue-200 text-xs font-medium">Ambiente Virtual</span>
+            <span class="block text-alunoVerde font-extrabold text-sm sm:text-base mt-0.5">AVA Plataforma</span>
+            <span class="block text-slate-400 text-[10px]">Acesso pelo celular</span>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10 text-center">
+            <span class="block text-blue-200 text-xs font-medium">Material Incluso</span>
+            <span class="block text-white font-extrabold text-sm sm:text-base mt-0.5">Videoaulas</span>
+            <span class="block text-slate-400 text-[10px]">+ Apostila Digital</span>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10 text-center">
+            <span class="block text-blue-200 text-xs font-medium">Certificação</span>
+            <span class="block text-white font-extrabold text-sm sm:text-base mt-0.5">Válida no MEC</span>
+            <span class="block text-slate-400 text-[10px]">Conselho Est. de Educ. SC</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- COLUNA DIREITA: CARD LATERAL DE MATRÍCULA E WHATSAPP POLO -->
+      <div class="lg:col-span-5 sticky top-28">
+        <div class="bg-white text-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl border-4 border-alunoVerde/40 relative">
+          
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white font-black text-xs uppercase px-4 py-1 rounded-full shadow-md whitespace-nowrap">
+            Matrículas Abertas • Polo Araranguá
+          </div>
+
+          <div class="text-center mt-2 mb-6">
+            <div class="flex items-center justify-center gap-2 mb-2">
+              <img src="Design/cefe-educa logo.png" alt="Cefe Educa" class="h-6 w-auto object-contain">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">CEFE EDUCA</span>
+            </div>
+            <h3 class="text-2xl font-black text-cruzeiroNavy font-display mt-1">
+              Conclua seu Ensino Médio
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Atendimento personalizado diretamente com a equipe do polo AlunoTec.
+            </p>
+          </div>
+
+          <!-- PONTOS FORTES -->
+          <div class="space-y-3 mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-100 text-xs text-slate-700">
+            <div class="flex items-start gap-2.5">
+              <span class="text-alunoVerdeEscuro font-bold text-sm">✓</span>
+              <span><strong>Idade Mínima:</strong> A partir de 18 anos completos</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-alunoVerdeEscuro font-bold text-sm">✓</span>
+              <span><strong>Metodologia Flexível:</strong> Estude no seu tempo livre sem comprometer o trabalho</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-alunoVerdeEscuro font-bold text-sm">✓</span>
+              <span><strong>Certificado Válido:</strong> Reconhecido em faculdades, concursos públicos e empregos</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-alunoVerdeEscuro font-bold text-sm">✓</span>
+              <span><strong>Suporte Humanizado:</strong> Tutores disponíveis para tirar todas as dúvidas</span>
+            </div>
+          </div>
+
+          <!-- BOTÃO PRINCIPAL WHATSAPP POLO -->
+          <a href="https://wa.me/5548996191212?text=Ol%C3%A1!%20Tenho%20interesse%20no%20curso%3A%20EJA%20-%20Ensino%20M%C3%A9dio%20pelo%20Polo%20AlunoTec.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es." 
+             target="_blank"
+             class="w-full py-4 px-6 rounded-2xl bg-alunoVerde hover:bg-alunoVerdeHover text-slate-950 font-black text-sm uppercase tracking-wider text-center block transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 mb-3">
+            <span>💬 Falar no WhatsApp com o Polo</span>
+          </a>
+
+          <!-- BOTÃO PORTAL DO ALUNO EJA -->
+          <a href="https://avacefe.com.br/login/index.php" target="_blank"
+             class="w-full py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs uppercase text-center block transition-all">
+            Já sou Aluno • Acessar AVA Cefe Educa &rarr;
+          </a>
+
+          <div class="mt-4 pt-4 border-t border-slate-100 text-center">
+            <p class="text-[11px] text-slate-400">
+              Polo AlunoTec Araranguá • Av. Getúlio Vargas, 613, Centro<br>
+              Telefone / WhatsApp: (48) 99619-1212
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 5. DESCRIÇÃO DO CURSO & VANTAGENS OFICIAIS CEFE EDUCA -->
+  <!-- ========================================================= -->
+  <section class="py-14 sm:py-20 px-4 sm:px-6 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <!-- VISÃO GERAL -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <span class="text-xs font-bold text-red-600 uppercase tracking-wider">Educação Básica a Distância</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cruzeiroNavy font-display leading-tight">
+            Sobre o EJA Ensino Médio do CEFE EDUCA
+          </h2>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+            A <strong>Educação de Jovens e Adultos – EJA do CEFE EDUCA</strong> é ofertada na modalidade a distância, com apoio pedagógico e estrutura autorizada pelo <strong>Conselho Estadual de Educação de Santa Catarina (CEE-SC)</strong>.
+          </p>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+            O curso é destinado a estudantes que desejam concluir seus estudos da Educação Básica com flexibilidade, organização e acompanhamento educacional, conquistando o diploma necessário para concorrer a melhores vagas de emprego, realizar concursos públicos ou ingressar na faculdade.
+          </p>
+          <div class="p-4 rounded-xl bg-blue-50 border border-blue-100 flex items-start gap-3">
+            <span class="text-blue-600 text-xl font-bold">★</span>
+            <p class="text-xs sm:text-sm text-blue-950 font-medium">
+              Com o apoio presencial do Polo AlunoTec em Araranguá, você não estuda sozinho: conta com auxílio local na matrícula, orientação nos estudos e acompanhamento durante toda a sua formação.
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold text-cruzeiroNavy font-display">Informações Importantes</h3>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-600 font-bold">•</span>
+              <span><strong>Quem pode se inscrever:</strong> Jovens e adultos a partir de 18 anos que já concluíram o Ensino Fundamental.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-600 font-bold">•</span>
+              <span><strong>Formato:</strong> Curricular, estruturado para aprendizagem eficiente.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-600 font-bold">•</span>
+              <span><strong>Ambiente Virtual:</strong> AVA completo com videoaulas e apostila digital inclusa.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-600 font-bold">•</span>
+              <span><strong>Certificação:</strong> Emitida com validade oficial em todo o território nacional.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4 VANTAGENS DO CURSO (OFICIAIS DO SITE DA CEFE EDUCA) -->
+      <div>
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Diferenciais Exclusivos</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-cruzeiroNavy font-display mt-1">
+            Vantagens do Curso EJA Cefe Educa
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-2">
+            Metodologia pensada para quem tem rotina corrida e precisa de praticidade para conquistar o diploma.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+              🎯
+            </div>
+            <h3 class="text-base font-bold text-cruzeiroNavy font-display mb-2">Conteúdo Prático e Direto</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Foco no que realmente importa, sem enrolação. Você aprende os conceitos fundamentais para a sua vida e carreira.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+              ⏰
+            </div>
+            <h3 class="text-base font-bold text-cruzeiroNavy font-display mb-2">Horários Flexíveis</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Aulas que se encaixam na rotina de cada estudante. Assista às videoaulas quando e onde quiser, até mesmo no celular.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+              🤝
+            </div>
+            <h3 class="text-base font-bold text-cruzeiroNavy font-display mb-2">Formação Humanizada</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Um olhar atento que vai além das notas. Respeitamos a sua história, seu tempo e seu processo individual de aprendizagem.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+              💬
+            </div>
+            <h3 class="text-base font-bold text-cruzeiroNavy font-display mb-2">Suporte Individualizado</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Acompanhamento de perto com tutores e professores qualificados, prontos para orientar seus estudos e tirar dúvidas.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 6. COMPONENTES CURRICULARES / DISCIPLINAS DO ENSINO MÉDIO -->
+  <!-- ========================================================= -->
+  <section class="py-14 sm:py-20 px-4 sm:px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Matriz Curricular</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cruzeiroNavy font-display mt-1">
+          Áreas do Conhecimento do Ensino Médio
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">
+          Disciplinas estruturadas conforme as diretrizes nacionais da Base Nacional Comum Curricular (BNCC).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Área 1 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="p-2.5 bg-blue-100 text-blue-700 rounded-xl text-xl">📖</span>
+            <div>
+              <h3 class="text-base font-bold text-cruzeiroNavy">Linguagens e suas Tecnologias</h3>
+              <span class="text-xs text-slate-500">Comunicação, interpretação e expressão</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-600 pl-4 list-disc">
+            <li>Língua Portuguesa e Literatura Brasileira</li>
+            <li>Produção Textual e Redação para Concursos / ENEM</li>
+            <li>Língua Estrangeira Moderna (Inglês)</li>
+            <li>Artes Visuais e Culturais</li>
+            <li>Educação Física e Saúde</li>
+          </ul>
+        </div>
+
+        <!-- Área 2 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="p-2.5 bg-emerald-100 text-emerald-700 rounded-xl text-xl">📐</span>
+            <div>
+              <h3 class="text-base font-bold text-cruzeiroNavy">Matemática e suas Tecnologias</h3>
+              <span class="text-xs text-slate-500">Raciocínio lógico e aplicações práticas</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-600 pl-4 list-disc">
+            <li>Matemática Básica e Financeira Aplicada</li>
+            <li>Álgebra, Funções e Equações</li>
+            <li>Geometria Plana e Espacial</li>
+            <li>Estatística, Gráficos e Probabilidade</li>
+          </ul>
+        </div>
+
+        <!-- Área 3 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="p-2.5 bg-amber-100 text-amber-700 rounded-xl text-xl">🔬</span>
+            <div>
+              <h3 class="text-base font-bold text-cruzeiroNavy">Ciências da Natureza e suas Tecnologias</h3>
+              <span class="text-xs text-slate-500">Compreensão do mundo natural e tecnologia</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-600 pl-4 list-disc">
+            <li>Biologia Geral, Ecologia e Corpo Humano</li>
+            <li>Física e Princípios Tecnológicos do Cotidiano</li>
+            <li>Química Geral, Meio Ambiente e Transformações</li>
+          </ul>
+        </div>
+
+        <!-- Área 4 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="p-2.5 bg-purple-100 text-purple-700 rounded-xl text-xl">🌍</span>
+            <div>
+              <h3 class="text-base font-bold text-cruzeiroNavy">Ciências Humanas e Sociais Aplicadas</h3>
+              <span class="text-xs text-slate-500">Sociedade, história, cidadania e ética</span>
+            </div>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-600 pl-4 list-disc">
+            <li>História do Brasil e História Geral</li>
+            <li>Geografia Geral e Espaço Brasileiro</li>
+            <li>Filosofia e Pensamento Crítico</li>
+            <li>Sociologia, Ética e Cidadania</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 7. DOCUMENTAÇÃO NECESSÁRIA E PASSO A PASSO -->
+  <!-- ========================================================= -->
+  <section class="py-14 sm:py-20 px-4 sm:px-6 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-6 space-y-6">
+        <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Matrícula Simples e Rápida</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-cruzeiroNavy font-display leading-tight">
+          Documentos Necessários para Matrícula no Polo AlunoTec
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Você pode enviar os documentos digitalizados diretamente pelo WhatsApp ou trazer pessoalmente no Polo em Araranguá:
+        </p>
+
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+            <span class="text-red-600 font-bold text-base">📄</span>
+            <div class="text-xs sm:text-sm">
+              <strong class="text-slate-800 block">Documento de Identidade</strong>
+              <span class="text-slate-500">RG ou CNH (frente e verso legíveis).</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+            <span class="text-red-600 font-bold text-base">💳</span>
+            <div class="text-xs sm:text-sm">
+              <strong class="text-slate-800 block">CPF</strong>
+              <span class="text-slate-500">Caso não conste no RG.</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+            <span class="text-red-600 font-bold text-base">🎓</span>
+            <div class="text-xs sm:text-sm">
+              <strong class="text-slate-800 block">Histórico Escolar do Ensino Fundamental</strong>
+              <span class="text-slate-500">Comprovação de conclusão do 9° ano ou anos anteriores para aproveitamento.</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+            <span class="text-red-600 font-bold text-base">🏠</span>
+            <div class="text-xs sm:text-sm">
+              <strong class="text-slate-800 block">Comprovante de Residência</strong>
+              <span class="text-slate-500">Conta de água, luz ou internet recente.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 bg-gradient-to-br from-[#002855] to-[#001A38] text-white p-8 sm:p-10 rounded-3xl shadow-xl space-y-6">
+        <span class="text-xs font-bold text-alunoVerde uppercase tracking-wider">Como Funciona o Curso</span>
+        <h3 class="text-2xl font-bold font-display">
+          Do início dos estudos até o seu Certificado Oficial
+        </h3>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-200">
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-alunoVerde text-slate-950 font-black flex items-center justify-center shrink-0 text-xs">1</span>
+            <div>
+              <strong class="text-white block">Matrícula no Polo</strong>
+              <span>Envie seus documentos pelo WhatsApp ou no Polo em Araranguá e tenha sua matrícula confirmada rapidamente.</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-alunoVerde text-slate-950 font-black flex items-center justify-center shrink-0 text-xs">2</span>
+            <div>
+              <strong class="text-white block">Acesso ao AVA Cefe Educa</strong>
+              <span>Receba seu login e senha para acessar as videoaulas, apostilas e exercícios pelo computador ou celular.</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-alunoVerde text-slate-950 font-black flex items-center justify-center shrink-0 text-xs">3</span>
+            <div>
+              <strong class="text-white block">Estudo no seu Ritmo</strong>
+              <span>Organize sua rotina de estudos conforme seu tempo livre e tire dúvidas com tutores online.</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-alunoVerde text-slate-950 font-black flex items-center justify-center shrink-0 text-xs">4</span>
+            <div>
+              <strong class="text-white block">Certificação Reconhecida</strong>
+              <span>Ao concluir as avaliações com êxito, receba seu certificado com validade oficial em todo o Brasil.</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/5548996191212?text=Ol%C3%A1!%20Quero%20iniciar%20minha%20matr%C3%ADcula%20no%20EJA%20Ensino%20M%C3%A9dio%20pelo%20Polo%20AlunoTec." 
+           target="_blank"
+           class="inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-alunoVerde hover:bg-alunoVerdeHover text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md">
+          <span>Iniciar Matrícula via WhatsApp</span> &rarr;
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 8. CURSO RELACIONADO: ENSINO FUNDAMENTAL -->
+  <!-- ========================================================= -->
+  <section class="py-14 sm:py-16 px-4 sm:px-6 bg-slate-100 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 text-center sm:text-left">
+        <div>
+          <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Cursos Relacionados</span>
+          <h2 class="text-2xl font-black text-cruzeiroNavy font-display mt-1">Conheça também o EJA Ensino Fundamental</h2>
+        </div>
+        <a href="index.html#eja" class="text-xs font-bold text-cruzeiroAzul hover:underline flex items-center gap-1">
+          Ver todos os cursos EJA &rarr;
+        </a>
+      </div>
+
+      <div class="max-w-md mx-auto sm:mx-0">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-200 flex flex-col justify-between group">
+          <a href="eja-fundamental.html" class="relative block overflow-hidden aspect-[16/10] bg-slate-100">
+            <img src="Design/curso-eja-fundamental.jpg" alt="EJA - Ensino Fundamental" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 left-3 bg-amber-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">EM ALTA</span>
+          </a>
+
+          <div class="p-5 flex flex-col justify-between flex-1">
+            <div>
+              <div class="mb-2.5">
+                <div class="h-6 flex items-center">
+                  <img src="Design/cefe-educa logo.png" alt="Cefe Educa EJA" class="h-5.5 sm:h-6 w-auto object-contain max-w-[95px]">
+                </div>
+              </div>
+
+              <a href="eja-fundamental.html" class="block group/title">
+                <h3 class="text-xl font-extrabold text-[#002855] font-display leading-snug mb-3 group-hover/title:text-cruzeiroAzul transition-colors">
+                  EJA - Ensino Fundamental (6°, 7°, 8° e 9° Ano)
+                </h3>
+              </a>
+
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                Recupere seus estudos com aulas online fáceis de acompanhar no celular. Ideal para quem tem a partir de 15 anos.
+              </p>
+            </div>
+
+            <div>
+              <a href="eja-fundamental.html" 
+                 class="w-full py-3 rounded-full bg-[#002855] hover:bg-cruzeiroAzul text-white font-extrabold text-sm text-center block transition-all shadow-sm">
+                Ensino Fundamental
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 9. FOOTER INSTITUCIONAL COMPLETO -->
+  <!-- ========================================================= -->
+  <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-800 text-xs sm:text-sm">
+    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      
+      <!-- Coluna 1 -->
+      <div class="space-y-4">
+        <a href="index.html" class="inline-block bg-white p-2.5 rounded-xl shadow-md">
+          <img src="Design/logo aluno tec PNG.png" alt="AlunoTec" class="h-12 w-auto object-contain">
+        </a>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          AlunoTec Centro Educacional — Polo Autorizado da Cruzeiro do Sul Virtual e Cefe Educa EJA em Araranguá - SC.
+        </p>
+        <div class="flex items-center gap-3 pt-2">
+          <img src="Design/cefe-educa logo.png" alt="Cefe Educa" class="h-6 w-auto object-contain bg-white p-1 rounded">
+          <img src="Design/logo cruzeiro do sul PNG.png" alt="Cruzeiro do Sul" class="h-5 w-auto object-contain bg-white p-1 rounded">
+        </div>
+      </div>
+
+      <!-- Coluna 2 -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider font-display">Cefe Educa EJA</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="eja-medio.html" class="text-red-400 font-bold hover:underline">EJA - Ensino Médio</a></li>
+          <li><a href="eja-fundamental.html" class="hover:text-white transition-colors">EJA - Ensino Fundamental</a></li>
+          <li><a href="https://avacefe.com.br/login/index.php" target="_blank" class="hover:text-white transition-colors">Ambiente Virtual (AVA)</a></li>
+          <li><a href="index.html#eja" class="hover:text-white transition-colors">Como Funciona o EJA</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3 -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider font-display">Cruzeiro do Sul Virtual</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="pedagogia-semipresencial.html" class="hover:text-white transition-colors">Pedagogia (Semipresencial)</a></li>
+          <li><a href="index.html#catalogo" class="hover:text-white transition-colors">Graduação Tecnológica & Bacharelado</a></li>
+          <li><a href="index.html#catalogo" class="hover:text-white transition-colors">Pós-Graduação & MBA</a></li>
+          <li><a href="https://novoportal.cruzeirodosul.edu.br/" target="_blank" class="hover:text-white transition-colors">Portal do Aluno</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 4 -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold text-sm uppercase tracking-wider font-display">Polo Araranguá - SC</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li class="flex items-start gap-2">
+            <span>📍</span>
+            <span>Av. Getúlio Vargas, 613, Sala 02 - Centro, Araranguá - SC, 88900-013</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span>📞</span>
+            <a href="https://wa.me/5548996191212" target="_blank" class="hover:text-white transition-colors font-bold text-alunoVerde">(48) 99619-1212</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span>✉️</span>
+            <a href="mailto:cruzeiroadmaru@gmail.com" class="hover:text-white transition-colors">cruzeiroadmaru@gmail.com</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span>⏰</span>
+            <span>Seg a Sex: 08:30 - 12:00 | 13:30 - 20:00</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 pt-8 mt-8 border-t border-slate-900 text-center text-xs text-slate-400">
+      <p>© 2026 AlunoTec — Todos os direitos reservados. Polo Autorizado Cruzeiro do Sul Virtual & Cefe Educa EJA.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
