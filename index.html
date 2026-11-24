@@ -97,6 +97,21 @@
       transform: translateY(-4px);
       box-shadow: 0 16px 32px -8px rgba(0, 43, 127, 0.12);
     }
+
+    /* Degradê de Fogo (Vermelho, Laranja, Amarelo) nos Cards Em Alta */
+    .card-claretiano.em-alta::before {
+      background: linear-gradient(90deg, #ef4444 0%, #f97316 50%, #eab308 100%) !important;
+      height: 7px;
+    }
+    .card-claretiano.em-alta:hover::before {
+      height: 9px;
+    }
+    .badge-fogo {
+      background: linear-gradient(90deg, #ef4444 0%, #f97316 50%, #eab308 100%);
+      color: #ffffff;
+      font-weight: 800;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+    }
   </style>
 </head>
 <body class="bg-fundoSite text-slate-800 font-sans antialiased">
@@ -134,9 +149,9 @@
 
         <!-- Portal Cefe Educa EJA -->
         <a href="https://avacefe.com.br/login/index.php" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-emerald-700 hover:bg-emerald-600 text-white font-semibold transition-all shadow-sm"
+           class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-red-600 hover:bg-red-700 text-white font-semibold transition-all shadow-sm"
            title="Acesse a plataforma de aulas do EJA Cefe Educa">
-          <svg class="w-3.5 h-3.5 text-emerald-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
           Portal do Aluno EJA
         </a>
       </div>
@@ -147,7 +162,7 @@
   <!-- ========================================================= -->
   <!-- 2. HEADER PRINCIPAL COM LOGOS OFICIAIS & NAVEGAÇÃO -->
   <!-- ========================================================= -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
       
       <!-- LOGOS PARCEIRAS: ALUNOTEC + CRUZEIRO + CEFE EDUCA -->
@@ -161,14 +176,14 @@
         <div class="hidden sm:block h-10 w-px bg-slate-300"></div>
 
         <!-- Selos de Polo Autorizado -->
-        <div class="hidden sm:flex items-center gap-4">
+        <div class="hidden sm:flex items-center gap-5">
           <div class="flex flex-col">
-            <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-600">Polo Autorizado</span>
+            <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-600 whitespace-nowrap">Polo Autorizado</span>
             <img src="Design/logo cruzeiro do sul PNG.png" alt="Cruzeiro do Sul Virtual" class="h-7 w-auto object-contain mt-0.5">
           </div>
           <div class="flex flex-col">
-            <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-600">Polo Oficial</span>
-            <img src="Design/cefe-educa logo.png" alt="Cefe Educa EJA" class="h-6 w-auto object-contain mt-0.5">
+            <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-600 whitespace-nowrap">Polo Autorizado</span>
+            <img src="Design/cefe-educa logo.png" alt="Cefe Educa EJA" class="h-9 sm:h-10 w-auto object-contain mt-0.5">
           </div>
         </div>
       </div>
@@ -176,15 +191,15 @@
       <!-- MENU DESKTOP COM MEGAMENU NO ITEM "CURSOS" -->
       <nav class="hidden xl:flex items-center gap-7 text-sm font-semibold text-slate-700">
         
-        <!-- ITEM COM MEGAMENU -->
+        <!-- ITEM COM MEGAMENU: ALINHADO PERFEITAMENTE ABAIXO DE "CURSOS" -->
         <div class="has-megamenu relative py-7">
           <a href="#catalogo" class="flex items-center gap-1 hover:text-cruzeiroAzul transition-colors cursor-pointer text-cruzeiroNavy font-bold">
             <span>Cursos</span>
             <svg class="w-4 h-4 text-slate-500 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </a>
 
-          <!-- MEGAMENU DROPDOWN EM TELA AMPLA -->
-          <div class="megamenu-panel fixed left-1/2 -translate-x-1/2 top-[120px] w-[95vw] max-w-7xl bg-white rounded-2xl shadow-2xl border border-slate-200 p-8 z-50">
+          <!-- MEGAMENU DROPDOWN ENCAIXADO LOGO ABAIXO DO ITEM CURSOS -->
+          <div class="megamenu-panel absolute left-0 top-full w-[880px] max-w-[calc(100vw-32px)] bg-white rounded-b-2xl shadow-2xl border border-slate-200 p-8 z-50">
             <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
               <div>
                 <h4 class="text-xl font-extrabold text-cruzeiroNavy font-display">Catálogo de Cursos do Polo AlunoTec</h4>
@@ -322,58 +337,51 @@
   </header>
 
   <!-- ========================================================= -->
-  <!-- 3. BANNER PRINCIPAL ROTATIVO - RÉPLICA CRUZEIRO DO SUL -->
+  <!-- 3. BANNER PRINCIPAL ROTATIVO EM ALTA RESOLUÇÃO (HD) - CRUZEIRO DO SUL -->
   <!-- ========================================================= -->
-  <section class="bg-[#00346B] py-3 sm:py-4 px-3 sm:px-5">
-    <div class="max-w-[1320px] mx-auto relative group/secao">
+  <section class="bg-[#00346B] py-4 sm:py-6 lg:py-8 px-3 sm:px-6">
+    <div class="max-w-[1440px] mx-auto relative group/secao">
       
-      <!-- GRID 2:1 EXATO (8 COLS ESQUERDA + 4 COLS DIREITA) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-3 items-stretch">
+      <!-- GRID 2:1 AMPLO (8 COLS ESQUERDA + 4 COLS DIREITA) COM TAMANHO EXPANDIDO NO DESKTOP -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 lg:gap-5 items-stretch">
         
         <!-- ========================================================= -->
-        <!-- COLUNA ESQUERDA: SLOT PRINCIPAL (PROPORÇÃO 664:376) -->
+        <!-- COLUNA ESQUERDA: SLOT PRINCIPAL MAIOR NO DESKTOP -->
         <!-- ========================================================= -->
         <div id="slotPrincipal" onclick="clicarBannerSlot(0)" 
-             class="lg:col-span-8 relative rounded overflow-hidden shadow-lg bg-[#002855] aspect-[664/376] w-full group cursor-pointer">
+             class="lg:col-span-8 relative rounded-xl overflow-hidden shadow-2xl bg-[#002855] aspect-[16/9] lg:aspect-[664/376] min-h-[300px] sm:min-h-[420px] lg:min-h-[480px] xl:min-h-[520px] w-full group cursor-pointer border border-blue-800/40">
           
-          <img id="imgPrincipal" src="Design/banner-cruzeiro-principal-1.jpg" alt="ENEM Estrela VIP - Cruzeiro do Sul" 
+          <img id="imgPrincipal" src="Design/banner-1-enem-hd.png" alt="ENEM Estrela VIP - Cruzeiro do Sul" 
                class="banner-slot-anim w-full h-full object-cover object-center group-hover:scale-[1.015]">
 
           <!-- SETAS DE NAVEGAÇÃO DO CARROSSEL ROTATIVO -->
           <button onclick="rotacionarAnterior(event)" aria-label="Banner anterior" 
-                  class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/55 hover:bg-black/80 text-white flex items-center justify-center transition-all shadow-md border border-white/20">
+                  class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/55 hover:bg-black/85 text-white flex items-center justify-center transition-all shadow-lg border border-white/20">
             &#10094;
           </button>
           <button onclick="rotacionarProximo(event)" aria-label="Próximo banner" 
-                  class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/55 hover:bg-black/80 text-white flex items-center justify-center transition-all shadow-md border border-white/20">
+                  class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/55 hover:bg-black/85 text-white flex items-center justify-center transition-all shadow-lg border border-white/20">
             &#10095;
           </button>
-
-          <!-- INDICADORES (DOTS) -->
-          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm">
-            <button onclick="irParaBanner(0, event)" aria-label="Ir para banner 1" class="btn-dot w-7 h-2 rounded-full bg-alunoVerde transition-all"></button>
-            <button onclick="irParaBanner(1, event)" aria-label="Ir para banner 2" class="btn-dot w-2 h-2 rounded-full bg-white/60 transition-all"></button>
-            <button onclick="irParaBanner(2, event)" aria-label="Ir para banner 3" class="btn-dot w-2 h-2 rounded-full bg-white/60 transition-all"></button>
-          </div>
 
         </div>
 
         <!-- ========================================================= -->
         <!-- COLUNA DIREITA: DOIS SLOTS LATERAIS QUE ROTACIONAM JUNTO -->
         <!-- ========================================================= -->
-        <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 gap-2.5 sm:gap-3 h-full">
+        <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 gap-3 sm:gap-4 h-full">
           
           <!-- SLOT LATERAL SUPERIOR -->
           <div id="slotLateral1" onclick="clicarBannerSlot(1)" 
-               class="relative rounded overflow-hidden shadow-lg cursor-pointer group bg-[#002855] aspect-[322/182] lg:aspect-auto h-full">
-            <img id="imgLateral1" src="Design/banner-cruzeiro-lateral-1.jpg" alt="Esquenta Black Friday Cruzeiro do Sul" 
+               class="relative rounded-xl overflow-hidden shadow-xl cursor-pointer group bg-[#002855] aspect-[16/9] lg:aspect-auto h-full border border-blue-800/40">
+            <img id="imgLateral1" src="Design/banner-2-blackfriday-hd.png" alt="Esquenta Black Friday Cruzeiro do Sul" 
                  class="banner-slot-anim w-full h-full object-cover object-center group-hover:scale-[1.03]">
           </div>
 
           <!-- SLOT LATERAL INFERIOR -->
           <div id="slotLateral2" onclick="clicarBannerSlot(2)" 
-               class="relative rounded overflow-hidden shadow-lg cursor-pointer group bg-[#002855] aspect-[322/184] lg:aspect-auto h-full">
-            <img id="imgLateral2" src="Design/banner-cruzeiro-lateral-2.jpg" alt="Transforme sua Carreira - Cruzeiro do Sul" 
+               class="relative rounded-xl overflow-hidden shadow-xl cursor-pointer group bg-[#002855] aspect-[16/9] lg:aspect-auto h-full border border-blue-800/40">
+            <img id="imgLateral2" src="Design/banner-3-transferencia-hd.png" alt="Transforme sua Carreira - Cruzeiro do Sul" 
                  class="banner-slot-anim w-full h-full object-cover object-center group-hover:scale-[1.03]">
           </div>
 
@@ -899,22 +907,22 @@
       });
     }
 
-    // Gerenciador do Carrossel Rotativo (Os 3 Banners Giram Entre Si no Grid)
+    // Gerenciador do Carrossel Rotativo com Imagens HD (1920x1080)
     const bannersRotativos = [
       {
-        img: 'Design/banner-cruzeiro-principal-1.jpg',
+        img: 'Design/banner-1-enem-hd.png',
         alt: 'ENEM Estrela VIP - Cruzeiro do Sul',
         origem: 'Banner 1 - ENEM Estrela VIP',
         curso: 'ENEM Estrela VIP / Graduação'
       },
       {
-        img: 'Design/banner-cruzeiro-lateral-1.jpg',
+        img: 'Design/banner-2-blackfriday-hd.png',
         alt: 'Esquenta Black Friday Cruzeiro do Sul',
         origem: 'Banner 2 - Esquenta Black Friday',
         curso: 'Bolsas de Desconto Polo AlunoTec'
       },
       {
-        img: 'Design/banner-cruzeiro-lateral-2.jpg',
+        img: 'Design/banner-3-transferencia-hd.png',
         alt: 'Transforme sua Carreira - Cruzeiro do Sul',
         origem: 'Banner 3 - Transforme sua Carreira',
         curso: 'Transferência & Graduação EAD'
@@ -947,17 +955,6 @@
         if (imgs[1]) { imgs[1].src = b1.img; imgs[1].alt = b1.alt; }
         if (imgs[2]) { imgs[2].src = b2.img; imgs[2].alt = b2.alt; }
 
-        // Atualiza os dots indicadores
-        document.querySelectorAll('.btn-dot').forEach((d, i) => {
-          if (i === bannerAtivo) {
-            d.classList.add('w-7', 'bg-alunoVerde');
-            d.classList.remove('w-2', 'bg-white/60');
-          } else {
-            d.classList.remove('w-7', 'bg-alunoVerde');
-            d.classList.add('w-2', 'bg-white/60');
-          }
-        });
-
         // Finaliza transição
         requestAnimationFrame(() => {
           imgs.forEach(img => img && img.classList.remove('trocando'));
@@ -974,11 +971,6 @@
     function rotacionarAnterior(e) {
       if (e) e.stopPropagation();
       atualizarSlotsVisuais(bannerAtivo - 1);
-    }
-
-    function irParaBanner(index, e) {
-      if (e) e.stopPropagation();
-      atualizarSlotsVisuais(index);
     }
 
     function clicarBannerSlot(slotOffset) {
@@ -1050,13 +1042,18 @@
           ? `<span class="text-blue-700 font-bold text-[11px] flex items-center gap-1">★ Cruzeiro do Sul Virtual</span>`
           : `<span class="text-emerald-700 font-bold text-[11px] flex items-center gap-1">● Cefe Educa EJA</span>`;
 
+        const cardEmAltaClass = curso.emAlta ? 'em-alta shadow-md' : 'shadow-sm';
+        const badgeEmAlta = curso.emAlta 
+          ? `<span class="badge-fogo px-2.5 py-1 rounded text-[10px] uppercase flex items-center gap-1 shadow-sm">🔥 Em Alta</span>` 
+          : '';
+
         return `
-          <div class="card-claretiano bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div class="card-claretiano ${cardEmAltaClass} bg-white rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
             <div>
               <!-- Topo do Card -->
               <div class="flex items-center justify-between gap-2 mb-3 pt-1">
                 ${badgeModalidade}
-                ${curso.emAlta ? `<span class="px-2 py-0.5 rounded bg-lime-100 text-alunoVerdeEscuro text-[10px] font-extrabold uppercase flex items-center gap-1 border border-lime-300">🔥 Em Alta</span>` : ''}
+                ${badgeEmAlta}
               </div>
 
               <!-- Instituição -->
@@ -1102,7 +1099,7 @@
     function trocarCategoria(cat, btn) {
       categoriaSelecionada = cat;
       somenteEmAlta = false;
-      document.getElementById('btnEmAlta').classList.remove('bg-alunoVerde', 'text-slate-950', 'border-alunoVerde');
+      document.getElementById('btnEmAlta').classList.remove('badge-fogo', 'border-transparent');
       document.getElementById('btnEmAlta').classList.add('bg-white', 'text-slate-700', 'border-slate-300');
 
       document.querySelectorAll('.btn-filtro').forEach(b => {
@@ -1121,10 +1118,10 @@
     function filtrarEmAlta(btn) {
       somenteEmAlta = !somenteEmAlta;
       if (somenteEmAlta) {
-        btn.classList.add('bg-alunoVerde', 'text-slate-950', 'border-alunoVerde');
+        btn.classList.add('badge-fogo', 'border-transparent');
         btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
       } else {
-        btn.classList.remove('bg-alunoVerde', 'text-slate-950', 'border-alunoVerde');
+        btn.classList.remove('badge-fogo', 'border-transparent');
         btn.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
       }
       renderizarCards();
