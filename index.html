@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AlunoTec - Polo Autorizado Cruzeiro do Sul Virtual & Cefe Educa EJA</title>
-  <meta name="description" content="Polo Autorizado AlunoTec. Bolsas exclusivas de até 70% em Graduação e Pós-Graduação EAD Cruzeiro do Sul e EJA Ensino Fundamental e Médio Cefe Educa. Reconhecido pelo MEC.">
+  <meta name="description" content="Polo AlunoTec Araranguá - SC. Cursos de Graduação e Pós-Graduação EAD e Semipresencial Cruzeiro do Sul e EJA Ensino Fundamental e Médio Cefe Educa. Bolsas de estudo de até 70%.">
   
-  <!-- Fontes Google -->
+  <!-- Fontes Google (Plus Jakarta Sans & Inter no estilo universitário da Cruzeiro do Sul) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS via CDN com personalização -->
+  <!-- Tailwind CSS CDN com paleta harmônica da AlunoTec e Cruzeiro do Sul -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -19,29 +19,18 @@
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Space Grotesk"', 'sans-serif'],
+            display: ['"Montserrat"', 'sans-serif'],
           },
           colors: {
-            brand: {
-              50: '#f0f7ff',
-              100: '#e0effe',
-              500: '#0284c7', // Azul moderno AlunoTec
-              600: '#0369a1',
-              700: '#075985',
-              900: '#0c4a6e',
-            },
-            accent: {
-              400: '#f59e0b',
-              500: '#d97706',
-            },
-            cruzeiro: {
-              500: '#002B7F',
-              600: '#001F5C'
-            },
-            cefe: {
-              500: '#10b981',
-              600: '#059669'
-            }
+            // Paleta extraída da Logo da AlunoTec e Cruzeiro do Sul
+            alunoVermelho: '#E30613',  // Vermelho da Logo AlunoTec & Barra Cards Claretiano
+            alunoVerde: '#A8CF04',     // Verde-limão 'Tec'
+            alunoAzul: '#009EE2',      // Azul ciano da Logo AlunoTec
+            cruzeiroAzul: '#002B7F',   // Azul Marinho Oficial Cruzeiro do Sul
+            cruzeiroNavy: '#001A4E',   // Azul Noturno Institucional
+            cruzeiroLight: '#0047BA',  // Azul Real Acentuado
+            cinzaTexto: '#334155',
+            fundoSite: '#F8FAFC'
           }
         }
       }
@@ -49,7 +38,22 @@
   </script>
 
   <style>
-    /* Pulsação sutil no botão flutuante */
+    /* MegaMenu Styles */
+    .has-megamenu:hover .megamenu-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .megamenu-panel {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    /* Animação do botão WhatsApp */
     @keyframes pulse-ring {
       0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
       70% { transform: scale(1); box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
@@ -58,450 +62,682 @@
     .pulse-btn {
       animation: pulse-ring 2.5s infinite;
     }
+
+    /* Barra Vermelha dos Cards no estilo Claretiano */
+    .card-claretiano {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s ease-in-out;
+    }
+    .card-claretiano::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #E30613 0%, #B91C1C 100%);
+      z-index: 10;
+      transition: height 0.2s ease;
+    }
+    .card-claretiano:hover::before {
+      height: 8px;
+    }
+    .card-claretiano:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(0, 43, 127, 0.12);
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-fundoSite text-slate-800 font-sans antialiased">
 
-  <!-- ========================================== -->
-  <!-- BARRA DE URGÊNCIA / MARKETING BANNER -->
-  <!-- ========================================== -->
-  <div class="bg-gradient-to-r from-amber-500 via-orange-600 to-amber-600 text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center flex items-center justify-center gap-2 shadow-md">
-    <span class="inline-block animate-bounce">🔥</span>
-    <span>Inscrições Abertas 2026: <strong>Bolsas de até 70% com o Polo AlunoTec!</strong> Vagas limitadas por polo.</span>
-    <a href="#simulador" class="underline hover:text-slate-100 ml-1 hidden sm:inline">Garantir Bolsa Agora &rarr;</a>
-  </div>
-
-  <!-- ========================================== -->
-  <!-- BARRA SUPERIOR: ÁREA DO ALUNO & SUPORTE -->
-  <!-- ========================================== -->
-  <div class="bg-slate-900 border-b border-slate-800 text-xs py-2 px-4 sm:px-8">
+  <!-- ========================================================= -->
+  <!-- 1. TOPBAR INSTITUCIONAL (PADRÃO UNIVERSITÁRIO CRUZEIRO) -->
+  <!-- ========================================================= -->
+  <div class="bg-cruzeiroNavy text-white text-xs py-2 px-4 sm:px-8 border-b border-blue-900/50">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-      <div class="flex items-center gap-4 text-slate-400">
-        <span class="flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-          Polo Autorizado Oficial: Cruzeiro do Sul Virtual & Cefe Educa EJA
-        </span>
-      </div>
       
-      <!-- BOTÕES DE LOGIN PARA ALUNOS ATUAIS -->
+      <!-- Contato e Polo Local -->
+      <div class="flex items-center gap-4 text-slate-300">
+        <span class="flex items-center gap-1.5 font-medium">
+          <svg class="w-3.5 h-3.5 text-alunoVerde" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+          Polo Oficial Araranguá - SC
+        </span>
+        <span class="hidden md:inline text-slate-500">•</span>
+        <a href="https://wa.me/5548996191212" target="_blank" class="hidden md:flex items-center gap-1 hover:text-white transition-colors">
+          <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
+          (48) 99619-1212
+        </a>
+      </div>
+
+      <!-- BOTÕES DE LOGIN PARA ÁREA DO ALUNO -->
       <div class="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
-        <span class="text-slate-400 font-medium hidden md:inline">Já é nosso aluno?</span>
+        <span class="text-slate-300 font-semibold hidden lg:inline">Ambiente Virtual:</span>
         
-        <!-- Login Cruzeiro do Sul -->
-        <a href="https://cruzeirodosul.blackboard.com/" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-950/80 hover:bg-blue-900 text-blue-300 border border-blue-800/80 transition-all text-xs font-semibold hover:shadow-sm"
-           title="Ambiente Virtual de Aprendizagem Cruzeiro do Sul">
-          <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
-          Área do Aluno Cruzeiro
+        <!-- Portal Cruzeiro do Sul -->
+        <a href="https://novoportal.cruzeirodosul.edu.br/" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-700 hover:bg-blue-600 text-white font-semibold transition-all shadow-sm"
+           title="Acesse o portal acadêmico da Cruzeiro do Sul">
+          <svg class="w-3.5 h-3.5 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+          Portal do Aluno Cruzeiro
         </a>
 
-        <!-- Login Cefe Educa EJA -->
-        <a href="https://www.cefeduca.com.br/" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800/80 transition-all text-xs font-semibold hover:shadow-sm"
-           title="Portal do Aluno Cefe Educa EJA">
-          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-          Área do Aluno EJA
+        <!-- Portal Cefe Educa EJA -->
+        <a href="https://avacefe.com.br/login/index.php" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-emerald-700 hover:bg-emerald-600 text-white font-semibold transition-all shadow-sm"
+           title="Acesse a plataforma de aulas do EJA Cefe Educa">
+          <svg class="w-3.5 h-3.5 text-emerald-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          Portal do Aluno EJA
         </a>
       </div>
+
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- NAVBAR PRINCIPAL -->
-  <!-- ========================================== -->
-  <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-lg border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+  <!-- ========================================================= -->
+  <!-- 2. HEADER PRINCIPAL COM LOGOS OFICIAIS & NAVEGAÇÃO -->
+  <!-- ========================================================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
       
-      <!-- LOGO ALUNOTEC -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center font-display font-bold text-2xl text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform">
-          A
-        </div>
-        <div>
-          <span class="text-2xl font-extrabold tracking-tight font-display text-white">
-            Aluno<span class="text-brand-500">Tec</span>
-          </span>
-          <span class="block text-[10px] tracking-widest text-slate-400 uppercase font-semibold -mt-1">
-            Educação & Tecnologia
-          </span>
-        </div>
-      </a>
+      <!-- LOGOS PARCEIRAS: ALUNOTEC + CRUZEIRO + CEFE EDUCA -->
+      <div class="flex items-center gap-4 sm:gap-6">
+        <!-- Logo AlunoTec Original -->
+        <a href="#" class="flex items-center gap-2 group">
+          <img src="Design/logo aluno tec PNG.png" alt="AlunoTec - Centro de Ensino a Distância" class="h-12 sm:h-16 w-auto object-contain transition-transform group-hover:scale-105">
+        </a>
 
-      <!-- MENU DESKTOP -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#cursos" class="hover:text-brand-500 transition-colors">Cursos & Bolsas</a>
-        <a href="#eja" class="hover:text-brand-500 transition-colors">EJA Ensino Médio/Fund.</a>
-        <a href="#graduacao" class="hover:text-brand-500 transition-colors">Graduação EAD</a>
-        <a href="#pos" class="hover:text-brand-500 transition-colors">Pós-Graduação</a>
-        <a href="#diferenciais" class="hover:text-brand-500 transition-colors">Por que o Polo AlunoTec?</a>
-        <a href="#faq" class="hover:text-brand-500 transition-colors">Dúvidas</a>
+        <!-- Separador visual -->
+        <div class="hidden sm:block h-10 w-px bg-slate-300"></div>
+
+        <!-- Selos de Polo Autorizado -->
+        <div class="hidden sm:flex items-center gap-4">
+          <div class="flex flex-col">
+            <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-600">Polo Autorizado</span>
+            <img src="Design/logo cruzeiro do sul PNG.png" alt="Cruzeiro do Sul Virtual" class="h-7 w-auto object-contain mt-0.5">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-600">Polo Oficial</span>
+            <img src="Design/cefe-educa logo.png" alt="Cefe Educa EJA" class="h-6 w-auto object-contain mt-0.5">
+          </div>
+        </div>
+      </div>
+
+      <!-- MENU DESKTOP COM MEGAMENU NO ITEM "CURSOS" -->
+      <nav class="hidden xl:flex items-center gap-7 text-sm font-semibold text-slate-700">
+        
+        <!-- ITEM COM MEGAMENU -->
+        <div class="has-megamenu relative py-7">
+          <a href="#catalogo" class="flex items-center gap-1 hover:text-cruzeiroAzul transition-colors cursor-pointer text-cruzeiroNavy font-bold">
+            <span>Cursos</span>
+            <svg class="w-4 h-4 text-slate-500 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </a>
+
+          <!-- MEGAMENU DROPDOWN EM TELA AMPLA -->
+          <div class="megamenu-panel fixed left-1/2 -translate-x-1/2 top-[120px] w-[95vw] max-w-7xl bg-white rounded-2xl shadow-2xl border border-slate-200 p-8 z-50">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+              <div>
+                <h4 class="text-xl font-extrabold text-cruzeiroNavy font-display">Catálogo de Cursos do Polo AlunoTec</h4>
+                <p class="text-xs text-slate-500">Graduação e Pós-Graduação Cruzeiro do Sul Virtual (EAD e Semipresencial) e EJA Cefe Educa.</p>
+              </div>
+              <a href="#catalogo" class="text-xs font-bold text-alunoVermelho hover:underline flex items-center gap-1">
+                Ver todos os cursos na página &rarr;
+              </a>
+            </div>
+
+            <div class="grid grid-cols-4 gap-6 text-xs max-h-[60vh] overflow-y-auto pr-2">
+              
+              <!-- Coluna 1: Computação & TICs -->
+              <div class="space-y-3">
+                <div class="flex items-center gap-2 font-bold text-sm text-cruzeiroAzul border-b border-blue-100 pb-2">
+                  <span>💻</span>
+                  <span>Computação & TICs</span>
+                </div>
+                <ul class="space-y-1.5 text-slate-600">
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Análise e Desenvolvimento de Sistemas')" class="hover:text-alunoVermelho transition-colors block">Análise e Desenv. de Sistemas</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Ciência da Computação')" class="hover:text-alunoVermelho transition-colors block">Ciência da Computação</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Engenharia de Software')" class="hover:text-alunoVermelho transition-colors block">Engenharia de Software</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Cibersegurança')" class="hover:text-alunoVermelho transition-colors block">Cibersegurança</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Inteligência Artificial')" class="hover:text-alunoVermelho transition-colors block">Inteligência Artificial</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Ciência de Dados')" class="hover:text-alunoVermelho transition-colors block">Ciência de Dados</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Desenvolvimento Full Stack')" class="hover:text-alunoVermelho transition-colors block">Desenvolvimento Full Stack</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Computação em Nuvem')" class="hover:text-alunoVermelho transition-colors block">Computação em Nuvem</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Redes de Computadores')" class="hover:text-alunoVermelho transition-colors block">Redes de Computadores</a></li>
+                </ul>
+              </div>
+
+              <!-- Coluna 2: Negócios, Gestão & Direito -->
+              <div class="space-y-3">
+                <div class="flex items-center gap-2 font-bold text-sm text-cruzeiroAzul border-b border-blue-100 pb-2">
+                  <span>💼</span>
+                  <span>Negócios & Gestão</span>
+                </div>
+                <ul class="space-y-1.5 text-slate-600">
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Ciências Contábeis')" class="hover:text-alunoVermelho transition-colors block">Ciências Contábeis</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão de Recursos Humanos')" class="hover:text-alunoVermelho transition-colors block">Gestão de Recursos Humanos</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Marketing Digital')" class="hover:text-alunoVermelho transition-colors block">Marketing Digital</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Logística')" class="hover:text-alunoVermelho transition-colors block">Logística</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão Financeira')" class="hover:text-alunoVermelho transition-colors block">Gestão Financeira</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Serviços Jurídicos e Notariais')" class="hover:text-alunoVermelho transition-colors block">Serviços Jurídicos e Notariais</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão Pública')" class="hover:text-alunoVermelho transition-colors block">Gestão Pública</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gestão Comercial')" class="hover:text-alunoVermelho transition-colors block">Gestão Comercial</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Administração Pública')" class="hover:text-alunoVermelho transition-colors block">Administração Pública</a></li>
+                </ul>
+              </div>
+
+              <!-- Coluna 3: Educação, Artes & Segurança -->
+              <div class="space-y-3">
+                <div class="flex items-center gap-2 font-bold text-sm text-cruzeiroAzul border-b border-blue-100 pb-2">
+                  <span>🎓</span>
+                  <span>Educação & Licenciaturas</span>
+                </div>
+                <ul class="space-y-1.5 text-slate-600">
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Pedagogia')" class="hover:text-alunoVermelho transition-colors block font-semibold text-cruzeiroAzul">Pedagogia (Semipresencial)</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Educação Especial')" class="hover:text-alunoVermelho transition-colors block">Educação Especial</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Educação Física')" class="hover:text-alunoVermelho transition-colors block">Educação Física</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Letras - Libras')" class="hover:text-alunoVermelho transition-colors block">Letras - Libras</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Matemática')" class="hover:text-alunoVermelho transition-colors block">Matemática</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Design Gráfico')" class="hover:text-alunoVermelho transition-colors block">Design Gráfico</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Gastronomia')" class="hover:text-alunoVermelho transition-colors block">Gastronomia</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Segurança Pública')" class="hover:text-alunoVermelho transition-colors block">Segurança Pública</a></li>
+                </ul>
+              </div>
+
+              <!-- Coluna 4: EJA Cefe Educa & Pós-Graduação -->
+              <div class="space-y-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div>
+                  <div class="flex items-center gap-2 font-bold text-sm text-emerald-700 border-b border-emerald-200 pb-1 mb-2">
+                    <span>📚</span>
+                    <span>EJA Cefe Educa</span>
+                  </div>
+                  <ul class="space-y-1 text-slate-700">
+                    <li><a href="#catalogo" onclick="trocarCategoria('eja')" class="hover:text-alunoVermelho font-semibold block">EJA Ensino Médio (1°, 2°, 3° Ano)</a></li>
+                    <li><a href="#catalogo" onclick="trocarCategoria('eja')" class="hover:text-alunoVermelho font-semibold block">EJA Fundamental (6° ao 9° Ano)</a></li>
+                  </ul>
+                </div>
+
+                <div class="pt-2">
+                  <div class="flex items-center gap-2 font-bold text-sm text-cruzeiroNavy border-b border-slate-200 pb-1 mb-2">
+                    <span>🏆</span>
+                    <span>Pós-Graduação & MBA</span>
+                  </div>
+                  <ul class="space-y-1 text-slate-700">
+                    <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-alunoVermelho block">Gestão Escolar e Coordenação</a></li>
+                    <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-alunoVermelho block">Psicopedagogia Clínica</a></li>
+                    <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-alunoVermelho block">MBA Liderança e RH</a></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <a href="#eja" class="hover:text-cruzeiroAzul transition-colors">EJA Supletivo</a>
+        <a href="#catalogo" onclick="filtrarPorModalidade('Semipresencial')" class="hover:text-cruzeiroAzul transition-colors">Semipresencial</a>
+        <a href="#catalogo" onclick="filtrarPorModalidade('EAD')" class="hover:text-cruzeiroAzul transition-colors">100% EAD</a>
+        <a href="#polo" class="hover:text-cruzeiroAzul transition-colors">O Polo AlunoTec</a>
+        <a href="#contato" class="hover:text-cruzeiroAzul transition-colors">Contato & Horários</a>
       </nav>
 
-      <!-- BOTÃO CTA DE CONTATO DIRETO -->
+      <!-- BOTÃO DE INSCRIÇÃO / BOLSA -->
       <div class="flex items-center gap-3">
-        <button onclick="abrirModalLead('Atendimento Consultor Geral')" 
-                class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-md shadow-brand-500/20 hover:shadow-brand-500/35 transition-all hover:-translate-y-0.5">
-          <svg class="w-4 h-4 text-emerald-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
-          Falar com Consultor
+        <button onclick="abrirModalLead('Header CTA - Garantir Bolsa')" 
+                class="px-5 py-3 rounded-lg bg-gradient-to-r from-alunoVermelho to-red-700 hover:from-red-600 hover:to-red-800 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 uppercase tracking-wide">
+          Inscreva-se com Bolsa
         </button>
 
-        <!-- Menu Mobile Button -->
-        <button id="btnMobileMenu" class="lg:hidden p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+        <!-- Botão Mobile Menu -->
+        <button id="btnMobileToggle" class="xl:hidden p-2 rounded-lg bg-slate-100 border border-slate-200 text-slate-700">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
       </div>
 
     </div>
 
-    <!-- MENU MOBILE RETRÁTIL -->
-    <div id="mobileMenu" class="hidden lg:hidden border-b border-slate-800 bg-slate-950 px-6 py-4 space-y-3">
-      <a href="#cursos" class="block py-2 text-slate-300 hover:text-white font-medium">Cursos & Bolsas</a>
-      <a href="#eja" class="block py-2 text-slate-300 hover:text-white font-medium">EJA Ensino Médio/Fund.</a>
-      <a href="#graduacao" class="block py-2 text-slate-300 hover:text-white font-medium">Graduação EAD</a>
-      <a href="#pos" class="block py-2 text-slate-300 hover:text-white font-medium">Pós-Graduação</a>
-      <a href="#diferenciais" class="block py-2 text-slate-300 hover:text-white font-medium">Por que o Polo AlunoTec?</a>
-      <a href="#faq" class="block py-2 text-slate-300 hover:text-white font-medium">Dúvidas Frequentes</a>
-      <button onclick="abrirModalLead('Menu Mobile')" class="w-full py-3 rounded-xl bg-brand-600 text-white font-semibold text-center block mt-3">
-        Falar no WhatsApp com Consultor
-      </button>
+    <!-- MENU MOBILE -->
+    <div id="mobileMenuPanel" class="hidden xl:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 shadow-xl">
+      <a href="#catalogo" class="block py-2 text-slate-800 font-bold border-b border-slate-100">Todos os Cursos Disponíveis</a>
+      <a href="#eja" class="block py-2 text-slate-800 font-bold border-b border-slate-100">EJA Supletivo (Ensino Médio e Fund.)</a>
+      <a href="#catalogo" onclick="filtrarPorModalidade('Semipresencial')" class="block py-2 text-slate-800 font-medium">Cursos Semipresenciais</a>
+      <a href="#catalogo" onclick="filtrarPorModalidade('EAD')" class="block py-2 text-slate-800 font-medium">Cursos 100% EAD</a>
+      <a href="#polo" class="block py-2 text-slate-800 font-medium">Polo Físico Araranguá</a>
+      <a href="#contato" class="block py-2 text-slate-800 font-medium">Endereço e Horários</a>
+      <div class="pt-2">
+        <button onclick="abrirModalLead('Mobile Menu')" class="w-full py-3 bg-alunoVermelho text-white font-bold rounded-lg text-sm text-center">
+          Quero Minha Bolsa pelo WhatsApp
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- ========================================== -->
-  <!-- HERO SECTION COM FORMULÁRIO DE CONVERSÃO -->
-  <!-- ========================================== -->
-  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-28">
-    <!-- Glow Effects -->
-    <div class="absolute top-1/4 -left-48 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-1/3 -right-48 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <!-- ========================================================= -->
+  <!-- 3. BANNER CARROSSEL INSTITUCIONAL (CRUZEIRO & CEFE EDUCA) -->
+  <!-- ========================================================= -->
+  <section class="relative bg-cruzeiroNavy overflow-hidden">
+    <!-- Slider Container -->
+    <div id="heroSlider" class="relative min-h-[460px] sm:min-h-[520px] flex items-center">
+      
+      <!-- SLIDE 1: EAD CRUZEIRO DO SUL (GRADUAÇÃO & PÓS) -->
+      <div class="slide-item active absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center">
+        <!-- Imagem de Fundo Desktop -->
+        <img src="Design/Estude em Casa.png" alt="EAD Cruzeiro do Sul - Estude em Casa" class="w-full h-full object-cover object-center hidden md:block opacity-90">
         
-        <!-- COLUNA ESQUERDA: COPY PERSUASIVA -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-          
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-xs sm:text-sm font-semibold">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            Matrículas Abertas com Descontos Especiais no Polo
-          </div>
-
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display text-white leading-tight">
-            Conquiste seu diploma e dê o próximo passo na sua carreira com o <br class="hidden sm:inline" />
-            <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-amber-300 bg-clip-text text-transparent">
-              Polo AlunoTec
-            </span>
-          </h1>
-
-          <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-            Estude 100% online com bolsas exclusivas de até <strong>70% de desconto</strong>. Cursos reconhecidos pelo MEC e conclusão rápida com todo suporte que você precisa.
-          </p>
-
-          <!-- Selos de Parceria e Autoridade -->
-          <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-4 text-xs font-semibold">
-            <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-200">
-              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-              Polo Autorizado Cruzeiro do Sul Virtual
-            </div>
-            <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-200">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              Polo Autorizado Cefe Educa EJA
-            </div>
-            <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-amber-400">
-              <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-              Diplomas Válidos em Todo o Brasil (MEC)
-            </div>
-          </div>
-
-          <!-- Mini Prova Social -->
-          <div class="pt-4 flex items-center justify-center lg:justify-start gap-4 text-slate-400 text-xs">
-            <div class="flex -space-x-2">
-              <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-[10px] text-white font-bold border-2 border-slate-950">VT</div>
-              <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] text-white font-bold border-2 border-slate-950">ML</div>
-              <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-[10px] text-white font-bold border-2 border-slate-950">RS</div>
-            </div>
-            <span>Centenas de alunos matriculados e formados através do nosso polo.</span>
-          </div>
-
-        </div>
-
-        <!-- COLUNA DIREITA: FORMULÁRIO RÁPIDO DE CAPTURA (SIMULADOR DE BOLSA) -->
-        <div id="simulador" class="lg:col-span-5">
-          <div class="bg-slate-900/90 border-2 border-brand-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-brand-500/10 backdrop-blur-md relative">
-            
-            <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-xs uppercase tracking-wider shadow-md">
-              Desconto Garantido
-            </div>
-
-            <div class="mb-6">
-              <h3 class="text-xl sm:text-2xl font-bold font-display text-white">
-                Simule sua Bolsa no Polo AlunoTec
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-400 mt-1">
-                Preencha abaixo para receber no seu WhatsApp o valor da mensalidade com até 70% de desconto.
+        <!-- Versão Mobile com Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-cruzeiroNavy via-cruzeiroNavy/90 to-transparent md:bg-opacity-40 flex items-center">
+          <div class="max-w-7xl mx-auto px-6 sm:px-12 w-full">
+            <div class="max-w-xl text-white space-y-4">
+              <span class="inline-block px-3 py-1 rounded bg-alunoVermelho text-white text-xs font-bold uppercase tracking-wider">
+                Bolsas de até 70% pelo Polo AlunoTec
+              </span>
+              <h1 class="text-3xl sm:text-5xl font-extrabold font-display leading-tight text-white drop-shadow-md">
+                Graduação & Pós-Graduação EAD
+              </h1>
+              <p class="text-slate-200 text-sm sm:text-base font-normal leading-relaxed drop-shadow">
+                Estude em casa com a tradição da Cruzeiro do Sul Virtual. Diplomas reconhecidos pelo MEC, flexibilidade total e suporte presencial no polo em Araranguá.
               </p>
-            </div>
-
-            <form id="heroLeadForm" onsubmit="handleHeroSubmit(event)" class="space-y-4">
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1.5">Seu Nome Completo *</label>
-                <input type="text" id="heroNome" required placeholder="Ex: João da Silva" 
-                       class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 transition-colors">
-              </div>
-
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1.5">Seu WhatsApp com DDD *</label>
-                <input type="tel" id="heroWhats" required placeholder="(00) 90000-0000" 
-                       class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 transition-colors">
-              </div>
-
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1.5">O que você deseja estudar? *</label>
-                <select id="heroModalidade" required onchange="atualizarCursosHero()" 
-                        class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-500 transition-colors">
-                  <option value="eja">EJA - Ensino Médio ou Fundamental (Concluir Estudos)</option>
-                  <option value="graduacao" selected>Graduação EAD (Cruzeiro do Sul Virtual)</option>
-                  <option value="pos">Pós-Graduação EAD (Cruzeiro do Sul Virtual)</option>
-                  <option value="outro">Ainda não decidi (Quero orientação)</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1.5">Curso de Interesse</label>
-                <input type="text" id="heroCurso" placeholder="Ex: Pedagogia, ADS, EJA Médio..." 
-                       class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 transition-colors">
-              </div>
-
-              <div class="pt-2">
-                <button type="submit" 
-                        class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-extrabold text-base shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all flex items-center justify-center gap-2">
-                  <svg class="w-5 h-5 text-slate-950" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
-                  Quero Minha Bolsa com o Polo AlunoTec
+              <div class="pt-2 flex flex-wrap gap-3">
+                <a href="#catalogo" class="px-6 py-3.5 rounded-lg bg-alunoVermelho hover:bg-red-700 text-white font-bold text-sm transition-all shadow-lg hover:shadow-red-600/30">
+                  Ver Cursos Disponíveis &rarr;
+                </a>
+                <button onclick="abrirModalLead('Banner 1 - Cruzeiro EAD')" class="px-6 py-3.5 rounded-lg bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-bold text-sm border border-white/30 transition-all">
+                  Simular Mensalidade com Desconto
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <p class="text-[11px] text-center text-slate-400">
-                🔒 Seus dados estão seguros. Atendimento humano e rápido pelo WhatsApp.
+      <!-- SLIDE 2: EJA CEFE EDUCA (ENSINO MÉDIO E FUNDAMENTAL) -->
+      <div class="slide-item opacity-0 pointer-events-none absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center">
+        <!-- Imagem do Banner EJA -->
+        <img src="Design/Banner Alunotec Desktop.png" alt="Termine seus Estudos EJA AlunoTec" class="w-full h-full object-cover object-center hidden md:block">
+        
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent md:bg-transparent flex items-center">
+          <div class="max-w-7xl mx-auto px-6 sm:px-12 w-full">
+            <div class="max-w-lg text-slate-900 md:text-slate-900 space-y-4">
+              <span class="inline-block px-3 py-1 rounded bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider">
+                Polo Oficial Cefe Educa
+              </span>
+              <h2 class="text-3xl sm:text-5xl font-extrabold font-display leading-tight text-white md:text-slate-950">
+                Termine seus Estudos no EJA
+              </h2>
+              <p class="text-slate-200 md:text-slate-700 text-sm sm:text-base leading-relaxed">
+                Supletivo do Ensino Médio e Fundamental 100% online. Certificado oficial válido para faculdades, concursos e empregos.
               </p>
-            </form>
-
+              <div class="pt-2 flex flex-wrap gap-3">
+                <button onclick="abrirModalLead('Banner 2 - EJA Cefe Educa', 'EJA Ensino Médio')" class="px-6 py-3.5 rounded-lg bg-alunoVermelho hover:bg-red-700 text-white font-bold text-sm transition-all shadow-lg">
+                  Concluir Meus Estudos Agora &rarr;
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
+
+    </div>
+
+    <!-- Controles do Banner Slider -->
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+      <button onclick="mudarSlide(0)" class="btn-dot w-8 h-2.5 rounded-full bg-white transition-all"></button>
+      <button onclick="mudarSlide(1)" class="btn-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all"></button>
     </div>
   </section>
 
-  <!-- ========================================== -->
-  <!-- AS TRÊS TRILHAS PRINCIPAIS DE FORMAÇÃO -->
-  <!-- ========================================== -->
-  <section class="py-16 bg-slate-900/50 border-y border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+  <!-- ========================================================= -->
+  <!-- 4. BARRA DE BUSCA RÁPIDA (ESTILO CRUZEIRO DO SUL) -->
+  <!-- ========================================================= -->
+  <section class="bg-white border-b border-slate-200 py-6 px-4 shadow-sm relative z-20">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
       
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white">
-          Escolha seu objetivo educacional
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-blue-50 text-cruzeiroAzul flex items-center justify-center font-bold text-xl">
+          🔍
+        </div>
+        <div>
+          <h3 class="font-bold text-cruzeiroNavy text-base">Encontre o curso certo para você</h3>
+          <p class="text-xs text-slate-500">Graduação EAD/Semipresencial, Pós-Graduação e EJA</p>
+        </div>
+      </div>
+
+      <!-- Formulário de Filtro Rápido -->
+      <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+        <div class="relative w-full sm:w-72">
+          <input type="text" id="inputBusca" oninput="aplicarFiltros()" placeholder="Qual curso você procura? (ex: Pedagogia, ADS, EJA...)" 
+                 class="w-full pl-4 pr-10 py-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul">
+          <span class="absolute right-3 top-3.5 text-slate-400">🔍</span>
+        </div>
+
+        <select id="selectModalidade" onchange="aplicarFiltros()" 
+                class="w-full sm:w-48 py-3 px-3 rounded-lg border border-slate-300 text-sm font-semibold text-slate-700 bg-white focus:outline-none focus:border-cruzeiroAzul">
+          <option value="todas">Todas as Modalidades</option>
+          <option value="EAD">100% EAD</option>
+          <option value="Semipresencial">Semipresencial</option>
+        </select>
+
+        <a href="#catalogo" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-cruzeiroNavy hover:bg-cruzeiroAzul text-white font-bold text-sm transition-all text-center whitespace-nowrap">
+          Buscar Cursos
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 5. CATÁLOGO DE CURSOS (ESTILO CLARETIANO COM BARRA VERMELHA) -->
+  <!-- ========================================================= -->
+  <section id="catalogo" class="py-16 px-4 sm:px-6 max-w-7xl mx-auto">
+    
+    <!-- Cabeçalho do Catálogo -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 border-b border-slate-200 pb-6">
+      <div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-red-50 text-alunoVermelho text-xs font-bold uppercase tracking-wider mb-2">
+          <span class="w-2 h-2 rounded-full bg-alunoVermelho"></span>
+          Cursos Autorizados no Polo AlunoTec
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-cruzeiroNavy font-display">
+          Escolha seu Curso e Garanta sua Bolsa
         </h2>
-        <p class="text-sm sm:text-base text-slate-400 mt-2">
-          Seja para concluir os estudos básicos ou conquistar um diploma universitário, temos o caminho ideal para você.
+        <p class="text-sm text-slate-600 mt-1">
+          Todos os cursos oficiais disponíveis para matrícula no Polo AlunoTec de Araranguá - SC.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- CARD 1: EJA CEFE EDUCA -->
-        <div id="eja" class="rounded-3xl p-7 bg-slate-900 border border-emerald-500/30 hover:border-emerald-500/60 transition-all group relative overflow-hidden flex flex-col justify-between">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
-          
-          <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold mb-4">
-              Polo Autorizado Cefe Educa
-            </div>
-            <h3 class="text-2xl font-bold font-display text-white mb-2">EJA - Ensino Médio & Fundamental</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              Não conseguiu terminar a escola no tempo regular? Conclua seus estudos 100% online, no seu tempo e com certificado válido em todo o Brasil.
-            </p>
-            <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
-              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Conclusão rápida e segura</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Aulas direto no celular ou computador</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Válido para concursos, faculdades e empregos</li>
-            </ul>
-          </div>
-
-          <button onclick="abrirModalLead('EJA Cefe Educa', 'EJA Ensino Médio/Fundamental')" 
-                  class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-sm transition-all text-center">
-            Concluir Meus Estudos &rarr;
-          </button>
-        </div>
-
-        <!-- CARD 2: GRADUAÇÃO CRUZEIRO DO SUL -->
-        <div id="graduacao" class="rounded-3xl p-7 bg-slate-900 border border-blue-500/40 hover:border-blue-500/70 transition-all group relative overflow-hidden flex flex-col justify-between shadow-xl shadow-blue-500/5">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
-          
-          <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold mb-4">
-              Polo Autorizado Cruzeiro do Sul Virtual
-            </div>
-            <h3 class="text-2xl font-bold font-display text-white mb-2">Graduação EAD</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              Bacharelados, Licenciaturas e Tecnólogos reconhecidos pelo MEC. Estude em uma das maiores instituições do país com bolsas especiais do Polo.
-            </p>
-            <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
-              <li class="flex items-center gap-2"><span class="text-blue-400 font-bold">✓</span> Bolsas de até 70% de desconto</li>
-              <li class="flex items-center gap-2"><span class="text-blue-400 font-bold">✓</span> Diploma idêntico ao presencial</li>
-              <li class="flex items-center gap-2"><span class="text-blue-400 font-bold">✓</span> Plataforma moderna e biblioteca digital</li>
-            </ul>
-          </div>
-
-          <button onclick="abrirModalLead('Graduação EAD', 'Graduação Cruzeiro do Sul')" 
-                  class="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-all text-center">
-            Ver Cursos com Bolsa &rarr;
-          </button>
-        </div>
-
-        <!-- CARD 3: PÓS-GRADUAÇÃO CRUZEIRO DO SUL -->
-        <div id="pos" class="rounded-3xl p-7 bg-slate-900 border border-indigo-500/30 hover:border-indigo-500/60 transition-all group relative overflow-hidden flex flex-col justify-between">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all"></div>
-          
-          <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold mb-4">
-              Polo Autorizado Cruzeiro do Sul Virtual
-            </div>
-            <h3 class="text-2xl font-bold font-display text-white mb-2">Pós-Graduação & MBA</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              Acelere sua evolução de carreira, aumento salarial ou pontuação em concursos públicos com especializações concluídas em 6 a 12 meses.
-            </p>
-            <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
-              <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✓</span> Conclusão em 6 a 12 meses</li>
-              <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✓</span> Certificado válido pelo MEC</li>
-              <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✓</span> Cursos nas áreas de Educação, Tech e Gestão</li>
-            </ul>
-          </div>
-
-          <button onclick="abrirModalLead('Pós-Graduação', 'Pós Cruzeiro do Sul')" 
-                  class="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition-all text-center">
-            Turbinar Meu Currículo &rarr;
-          </button>
-        </div>
-
+      <!-- Contador de Cursos Encontrados -->
+      <div class="text-right">
+        <span id="contadorCursos" class="text-xs font-bold text-slate-500 uppercase tracking-wider bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
+          Carregando cursos...
+        </span>
       </div>
+    </div>
+
+    <!-- ABAS DE NAVEGAÇÃO DE CURSOS (INSPIRADO NO CLARETIANO) -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs sm:text-sm font-bold no-scrollbar">
+      
+      <!-- BOTÃO DESTAQUE "CURSOS EM ALTA" -->
+      <button onclick="filtrarEmAlta(this)" id="btnEmAlta" 
+              class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-alunoVermelho transition-all whitespace-nowrap flex items-center gap-1.5 shadow-sm">
+        <span class="text-alunoVermelho">🔥</span>
+        <span>Cursos em Alta</span>
+      </button>
+
+      <button onclick="trocarCategoria('todos', this)" class="btn-filtro active px-5 py-2.5 rounded-lg bg-cruzeiroNavy text-white border border-cruzeiroNavy shadow-sm transition-all whitespace-nowrap">
+        Todos os Cursos
+      </button>
+
+      <button onclick="trocarCategoria('eja', this)" class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-emerald-600 transition-all whitespace-nowrap flex items-center gap-1.5">
+        <span class="text-emerald-600 font-extrabold">●</span>
+        <span>EJA Cefe Educa</span>
+      </button>
+
+      <button onclick="trocarCategoria('computacao', this)" class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-cruzeiroAzul transition-all whitespace-nowrap">
+        Computação & TICs
+      </button>
+
+      <button onclick="trocarCategoria('negocios', this)" class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-cruzeiroAzul transition-all whitespace-nowrap">
+        Negócios & Gestão
+      </button>
+
+      <button onclick="trocarCategoria('educacao', this)" class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-cruzeiroAzul transition-all whitespace-nowrap">
+        Educação (Licenciaturas)
+      </button>
+
+      <button onclick="trocarCategoria('artes', this)" class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-cruzeiroAzul transition-all whitespace-nowrap">
+        Artes & Design
+      </button>
+
+      <button onclick="trocarCategoria('seguranca', this)" class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-cruzeiroAzul transition-all whitespace-nowrap">
+        Segurança & Serviços
+      </button>
+
+      <button onclick="trocarCategoria('pos', this)" class="btn-filtro px-5 py-2.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:border-cruzeiroAzul transition-all whitespace-nowrap">
+        Pós-Graduação & MBA
+      </button>
 
     </div>
+
+    <!-- GRID DE CARDS COM BARRA VERMELHA (ESTILO CLARETIANO) -->
+    <div id="gridCursos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Renderizado via JavaScript -->
+    </div>
+
   </section>
 
-  <!-- ========================================== -->
-  <!-- CATÁLOGO DINÂMICO DE CURSOS COM FILTROS -->
-  <!-- ========================================== -->
-  <section id="cursos" class="py-20">
+  <!-- ========================================================= -->
+  <!-- 6. SEÇÃO EJA CEFE EDUCA (DETALHADA DO SITE CEFEEDUCA.COM.BR) -->
+  <!-- ========================================================= -->
+  <section id="eja" class="py-16 bg-white border-y border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-        <div>
-          <span class="text-brand-500 text-xs font-bold uppercase tracking-wider">Catálogo Selecionado</span>
-          <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mt-1">
-            Cursos Disponíveis no Polo AlunoTec
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-emerald-100 text-emerald-800 font-bold text-xs uppercase tracking-wide">
+            <span>🎓</span> Polo Oficial Cefe Educa - Araranguá
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-cruzeiroNavy font-display leading-tight">
+            EJA Supletivo a Distância:<br />
+            <span class="text-emerald-600">Conclua seus estudos no seu tempo</span>
           </h2>
-          <p class="text-sm text-slate-400 mt-1">
-            Escolha seu curso e fale diretamente com o consultor do polo para garantir as melhores condições.
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            O Cefe Educa EJA é a oportunidade para jovens e adultos que não concluíram o Ensino Fundamental ou Médio na idade certa. Metodologia moderna, 100% online, com suporte de professores e certificação reconhecida e homologada.
           </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-xs font-bold text-emerald-700 uppercase">Ensino Fundamental</span>
+              <h4 class="text-base font-extrabold text-slate-900 mt-1">6° ao 9° Ano</h4>
+              <p class="text-xs text-slate-500 mt-1">A partir de 15 anos. Material didático simples e interativo direto no celular.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-xs font-bold text-emerald-700 uppercase">Ensino Médio</span>
+              <h4 class="text-base font-extrabold text-slate-900 mt-1">1°, 2° e 3° Ano</h4>
+              <p class="text-xs text-slate-500 mt-1">A partir de 18 anos. Certificado publicado em Diário Oficial, válido para faculdades e concursos.</p>
+            </div>
+
+          </div>
+
+          <div class="pt-2">
+            <button onclick="abrirModalLead('Seção EJA Cefe Educa', 'EJA Ensino Médio')" 
+                    class="px-8 py-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md transition-all flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
+              Quero Me Inscrever no EJA pelo WhatsApp
+            </button>
+          </div>
         </div>
 
-        <!-- Campo de Busca em Tempo Real -->
-        <div class="w-full md:w-72">
-          <input type="text" id="campoBuscaCurso" oninput="filtrarCursos()" placeholder="🔍 Buscar curso por nome..." 
-                 class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-brand-500">
+        <div class="lg:col-span-6">
+          <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-100">
+            <img src="Design/Banner Alunotec Desktop.png" alt="Termine seus Estudos no Polo AlunoTec" class="w-full h-auto object-cover">
+          </div>
         </div>
-      </div>
 
-      <!-- Abas de Filtro de Categoria -->
-      <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs sm:text-sm font-semibold">
-        <button onclick="trocarCategoria('todos', this)" class="btn-categoria active px-5 py-2.5 rounded-xl bg-brand-600 text-white border border-brand-500 shadow-sm transition-all whitespace-nowrap">
-          Todos os Cursos
-        </button>
-        <button onclick="trocarCategoria('eja', this)" class="btn-categoria px-5 py-2.5 rounded-xl bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-all whitespace-nowrap">
-          EJA (Fundamental & Médio)
-        </button>
-        <button onclick="trocarCategoria('graduacao', this)" class="btn-categoria px-5 py-2.5 rounded-xl bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-all whitespace-nowrap">
-          Graduação EAD
-        </button>
-        <button onclick="trocarCategoria('pos', this)" class="btn-categoria px-5 py-2.5 rounded-xl bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-all whitespace-nowrap">
-          Pós-Graduação & MBA
-        </button>
-      </div>
-
-      <!-- Grid de Cursos (Renderizado dinamicamente via JS) -->
-      <div id="gridCursos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Injetado pelo courses.js -->
-      </div>
-
-      <div class="mt-12 text-center p-8 rounded-3xl bg-slate-900/60 border border-slate-800 text-slate-300">
-        <p class="text-base font-medium">Não encontrou o curso que estava procurando?</p>
-        <p class="text-xs text-slate-400 mt-1">Como polo autorizado, temos mais de 100 opções disponíveis no catálogo completo da instituição.</p>
-        <button onclick="abrirModalLead('Consulta Outros Cursos', 'Outro Curso')" 
-                class="mt-4 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs border border-slate-700 transition-all">
-          Consultar Lista Completa com Consultor &rarr;
-        </button>
       </div>
 
     </div>
   </section>
 
-  <!-- ========================================== -->
-  <!-- DIFERENCIAIS: POR QUE O POLO ALUNOTEC? -->
-  <!-- ========================================== -->
-  <section id="diferenciais" class="py-20 bg-slate-900/40 border-y border-slate-800/80">
+  <!-- ========================================================= -->
+  <!-- 7. CONHEÇA NOSSO POLO FÍSICO EM ARARANGUÁ - SC -->
+  <!-- ========================================================= -->
+  <section id="polo" class="py-16 px-4 sm:px-6 max-w-7xl mx-auto">
+    <div class="bg-gradient-to-br from-cruzeiroNavy to-blue-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl overflow-hidden relative">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        
+        <!-- Foto Real da Fachada -->
+        <div class="lg:col-span-6">
+          <div class="rounded-2xl overflow-hidden border-2 border-blue-400/30 shadow-2xl">
+            <img src="Design/fachada alunotec.png" alt="Fachada do Polo AlunoTec Cruzeiro do Sul e EJA em Araranguá" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-[11px] text-blue-200 text-center mt-2">
+            📍 Sede física do Polo AlunoTec na Av. Sete de Setembro, 1917 - Centro, Araranguá - SC
+          </p>
+        </div>
+
+        <!-- Informações do Polo e Horários -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-500/20 text-blue-300 font-bold text-xs uppercase tracking-wider border border-blue-400/20">
+            Atendimento Presencial e Online
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-extrabold font-display leading-tight">
+            Polo AlunoTec Araranguá:<br />
+            <span class="text-alunoVerde">Mais de 1.000 alunos formados</span>
+          </h3>
+
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Presente desde 2017 em Araranguá, o Polo AlunoTec conta com infraestrutura completa para te apoiar em todo o processo acadêmico: matrícula, entrega de documentos, orientação e provas dos cursos semipresenciais.
+          </p>
+
+          <!-- Quadro de Horários Extraído de Informações.txt -->
+          <div class="bg-blue-900/40 border border-blue-700/50 rounded-xl p-4 text-xs space-y-2">
+            <div class="font-bold text-sm text-alunoVerde mb-1">🕒 Horários de Atendimento no Polo:</div>
+            <div class="grid grid-cols-2 gap-2 text-slate-200">
+              <div><strong>Segunda-feira:</strong> 09:30 às 21:00</div>
+              <div><strong>Quinta-feira:</strong> 09:30 às 18:00</div>
+              <div><strong>Terça-feira:</strong> 09:30 às 18:00</div>
+              <div><strong>Sexta-feira:</strong> 09:30 às 18:00</div>
+              <div><strong>Quarta-feira:</strong> 09:30 às 21:00</div>
+              <div><strong>Sáb. e Dom.:</strong> Fechado</div>
+            </div>
+          </div>
+
+          <!-- Botão de Visita ou Contato -->
+          <div class="pt-2 flex flex-wrap gap-3">
+            <a href="https://wa.me/5548996191212" target="_blank" 
+               class="px-6 py-3 rounded-lg bg-alunoVermelho hover:bg-red-700 text-white font-bold text-xs sm:text-sm transition-all shadow-md">
+              Falar no WhatsApp do Polo &rarr;
+            </a>
+            <a href="#contato" class="px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition-all">
+              Ver Localização no Mapa
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 8. FORMULÁRIO DE CAPTAÇÃO / SIMULAÇÃO DE BOLSA -->
+  <!-- ========================================================= -->
+  <section id="simulador" class="py-16 bg-slate-100 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200 text-center">
+        
+        <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-alunoVermelho text-xs font-bold uppercase tracking-wider mb-2">
+          Bolsas Especiais do Polo AlunoTec
+        </span>
+
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-cruzeiroNavy font-display">
+          Simule sua bolsa e garanta até 70% de desconto
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2 max-w-xl mx-auto">
+          Preencha o formulário abaixo para receber a simulação das mensalidades com as bolsas exclusivas do Polo AlunoTec diretamente no seu WhatsApp e e-mail.
+        </p>
+
+        <form onsubmit="handleFormGeralSubmit(event)" class="mt-8 text-left grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Seu Nome Completo *</label>
+            <input type="text" id="simulaNome" required placeholder="Ex: Maria dos Santos" 
+                   class="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp com DDD *</label>
+            <input type="tel" id="simulaWhats" required placeholder="(48) 90000-0000" 
+                   class="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Seu E-mail (Opcional)</label>
+            <input type="email" id="simulaEmail" placeholder="seuemail@exemplo.com" 
+                   class="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Modalidade Desejada *</label>
+            <select id="simulaModalidade" class="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm font-semibold text-slate-700 focus:outline-none focus:border-cruzeiroAzul">
+              <option value="Graduação EAD">Graduação 100% EAD (Cruzeiro do Sul)</option>
+              <option value="Graduação Semipresencial">Graduação Semipresencial (Cruzeiro do Sul)</option>
+              <option value="EJA Ensino Médio">EJA - Ensino Médio Completo (Cefe Educa)</option>
+              <option value="EJA Ensino Fundamental">EJA - Ensino Fundamental (Cefe Educa)</option>
+              <option value="Pós-Graduação EAD">Pós-Graduação & MBA EAD</option>
+            </select>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1">Curso de Interesse</label>
+            <input type="text" id="simulaCurso" placeholder="Ex: Pedagogia, Análise e Desenv. de Sistemas, EJA Médio..." 
+                   class="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul">
+          </div>
+
+          <div class="sm:col-span-2 pt-2">
+            <button type="submit" 
+                    class="w-full py-4 rounded-xl bg-gradient-to-r from-alunoVermelho to-red-700 hover:from-red-600 hover:to-red-800 text-white font-extrabold text-sm sm:text-base shadow-lg transition-all hover:shadow-red-600/30 uppercase tracking-wider flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"></path></svg>
+              Quero Minha Bolsa com o Polo AlunoTec
+            </button>
+          </div>
+
+        </form>
+
+        <p class="text-[11px] text-slate-400 mt-4">
+          🔒 Atendimento exclusivo do Polo AlunoTec. Seus dados estão seguros e não são compartilhados com terceiros.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 9. CONTATO & LOCALIZAÇÃO OFICIAL -->
+  <!-- ========================================================= -->
+  <section id="contato" class="py-16 bg-white border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-brand-500 text-xs font-bold uppercase tracking-wider">Vantagem Exclusiva</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mt-1">
-          Por que fazer sua matrícula com o Polo AlunoTec?
-        </h2>
-        <p class="text-sm sm:text-base text-slate-400 mt-2">
-          Ao se matricular conosco, você tem o melhor dos dois mundos: a chancela e o diploma oficial da instituição com o carinho e suporte de um atendimento local humanizado.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-          <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center font-bold text-xl mb-4">
-            🏷️
-          </div>
-          <h4 class="text-lg font-bold text-white mb-2">Bolsas Especiais do Polo</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Condições e descontos de até 70% aplicados diretamente na sua mensalidade durante todo o curso.
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-blue-100 text-cruzeiroAzul flex items-center justify-center font-bold text-lg mb-3">📍</div>
+          <h4 class="font-extrabold text-slate-900 text-base mb-1">Endereço do Polo</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Av. Sete de Setembro, 1917 - Centro<br />
+            Araranguá - SC, 88900-049, Brasil
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xl mb-4">
-            🤝
-          </div>
-          <h4 class="text-lg font-bold text-white mb-2">Suporte Humanizado</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Nada de falar com robôs sem fim. Nossa equipe te ajuda em cada passo: da documentação ao primeiro acesso no portal.
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg mb-3">📱</div>
+          <h4 class="font-extrabold text-slate-900 text-base mb-1">WhatsApp & Telefone</h4>
+          <p class="text-xs text-slate-600 leading-relaxed mb-2">
+            Fale diretamente com nossa consultoria do polo:
           </p>
+          <a href="https://wa.me/5548996191212" target="_blank" class="text-sm font-bold text-cruzeiroAzul hover:underline block">
+            (48) 99619-1212
+          </a>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold text-xl mb-4">
-            📜
-          </div>
-          <h4 class="text-lg font-bold text-white mb-2">Diploma Reconhecido MEC</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Seu diploma é emitido diretamente pela Cruzeiro do Sul ou Cefe Educa, com validade plena em todo território nacional.
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-red-100 text-alunoVermelho flex items-center justify-center font-bold text-lg mb-3">✉️</div>
+          <h4 class="font-extrabold text-slate-900 text-base mb-1">E-mail Oficial</h4>
+          <p class="text-xs text-slate-600 leading-relaxed mb-2">
+            Envio de dúvidas e documentações de matrícula:
           </p>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-xl mb-4">
-            📱
-          </div>
-          <h4 class="text-lg font-bold text-white mb-2">100% de Flexibilidade</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Estude nos seus horários, no celular, tablet ou computador, conciliando perfeitamente trabalho e família.
-          </p>
+          <a href="mailto:cruzeiroadmaru@gmail.com" class="text-xs font-bold text-slate-800 hover:underline block">
+            cruzeiroadmaru@gmail.com
+          </a>
         </div>
 
       </div>
@@ -509,276 +745,364 @@
     </div>
   </section>
 
-  <!-- ========================================== -->
-  <!-- PERGUNTAS FREQUENTES (FAQ) ACCORDION -->
-  <!-- ========================================== -->
-  <section id="faq" class="py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      
-      <div class="text-center mb-12">
-        <span class="text-brand-500 text-xs font-bold uppercase tracking-wider">Tire suas Dúvidas</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mt-1">
-          Perguntas Frequentes
-        </h2>
-      </div>
-
-      <div class="space-y-4" id="faqAccordion">
-        
-        <!-- FAQ 1 -->
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-white flex justify-between items-center text-sm sm:text-base">
-            <span>O diploma e certificado têm a mesma validade do presencial?</span>
-            <span class="faq-icon text-brand-500 text-xl font-bold">+</span>
-          </button>
-          <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Sim! Conforme a legislação brasileira e as diretrizes do MEC, o diploma emitido em cursos EAD tem exatamente o mesmo valor legal de um curso presencial, inclusive sem menção à modalidade no documento. No caso do EJA pelo Cefe Educa, a certificação é publicada em Diário Oficial.
-          </div>
-        </div>
-
-        <!-- FAQ 2 -->
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-white flex justify-between items-center text-sm sm:text-base">
-            <span>Por que é melhor fazer a matrícula através do Polo AlunoTec?</span>
-            <span class="faq-icon text-brand-500 text-xl font-bold">+</span>
-          </button>
-          <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Ao se inscrever pelo Polo AlunoTec, você tem acesso a cupons de bolsas exclusivas negociadas para nossa região, além de atendimento personalizado para conferência de documentos, auxílio com a plataforma e suporte contínuo durante seus estudos.
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-white flex justify-between items-center text-sm sm:text-base">
-            <span>Quem tem direito a fazer o EJA Ensino Médio ou Fundamental?</span>
-            <span class="faq-icon text-brand-500 text-xl font-bold">+</span>
-          </button>
-          <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Para o EJA Ensino Fundamental é necessário ter a partir de 15 anos completos. Para o EJA Ensino Médio, a idade mínima é de 18 anos. Caso você já tenha feito algumas séries antigamente, podemos aproveitar suas matérias para que termine ainda mais rápido!
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-white flex justify-between items-center text-sm sm:text-base">
-            <span>Como funcionam as aulas e provas?</span>
-            <span class="faq-icon text-brand-500 text-xl font-bold">+</span>
-          </button>
-          <div class="faq-content hidden px-6 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed">
-            As aulas, videoaulas, apostilas e atividades são disponibilizadas 100% no Ambiente Virtual de Aprendizagem (Blackboard da Cruzeiro do Sul ou portal Cefe Educa). Você estuda nos horários em que preferir, no celular ou no computador.
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- SEÇÃO DE CONTATO / FORMULÁRIO GERAL -->
-  <!-- ========================================== -->
-  <section class="py-16 bg-slate-900/60 border-t border-slate-800">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-8">
-        <h3 class="text-2xl font-bold font-display text-white">Prefere falar por e-mail ou tirar dúvidas específicas?</h3>
-        <p class="text-xs sm:text-sm text-slate-400 mt-1">Envie uma mensagem direta para a nossa equipe do Polo AlunoTec.</p>
-      </div>
-
-      <form onsubmit="handleContatoSubmit(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <input type="text" id="contatoNome" required placeholder="Seu Nome" 
-                 class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
-        </div>
-        <div>
-          <input type="tel" id="contatoWhats" required placeholder="WhatsApp / Telefone" 
-                 class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
-        </div>
-        <div class="sm:col-span-2">
-          <input type="email" id="contatoEmail" placeholder="Seu E-mail (Opcional)" 
-                 class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
-        </div>
-        <div class="sm:col-span-2">
-          <textarea id="contatoMsg" rows="3" placeholder="Como podemos te ajudar? (Ex: Quero saber valor do curso X)" 
-                    class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500"></textarea>
-        </div>
-        <div class="sm:col-span-2 text-center">
-          <button type="submit" class="px-8 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm transition-all shadow-md">
-            Enviar Mensagem
-          </button>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- FOOTER -->
-  <!-- ========================================== -->
-  <footer class="bg-slate-950 border-t border-slate-800/80 py-12 text-slate-400 text-xs">
+  <!-- ========================================================= -->
+  <!-- 10. RODAPÉ INSTITUCIONAL (PADRÃO CRUZEIRO DO SUL) -->
+  <!-- ========================================================= -->
+  <footer class="bg-cruzeiroNavy text-white py-14 border-t-4 border-alunoVermelho text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-        <div class="space-y-3">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center font-bold text-white text-base">A</div>
-            <span class="text-lg font-bold text-white">AlunoTec</span>
-          </div>
-          <p class="text-slate-500 text-xs leading-relaxed">
-            Polo Autorizado dedicado a conectar alunos às melhores oportunidades educacionais com bolsas acessíveis e acompanhamento de ponta a ponta.
+        
+        <!-- Coluna 1: AlunoTec -->
+        <div class="space-y-4">
+          <img src="Design/logo aluno tec PNG.png" alt="AlunoTec" class="h-14 w-auto brightness-0 invert">
+          <p class="text-slate-300 leading-relaxed text-xs">
+            Polo Autorizado dedicado a conectar a comunidade de Araranguá e região ao Ensino Superior de excelência e à conclusão escolar.
+          </p>
+          <p class="text-[11px] text-slate-400">
+            Av. Sete de Setembro, 1917 - Centro, Araranguá - SC
           </p>
         </div>
 
-        <div>
-          <h5 class="font-bold text-white mb-3">Modalidades</h5>
-          <ul class="space-y-2">
+        <!-- Coluna 2: Cruzeiro do Sul Virtual -->
+        <div class="space-y-3">
+          <h5 class="font-extrabold text-sm uppercase tracking-wider text-white border-b border-blue-900 pb-2">
+            Cruzeiro do Sul Virtual
+          </h5>
+          <ul class="space-y-1.5 text-slate-300">
+            <li><a href="#catalogo" onclick="filtrarPorModalidade('EAD')" class="hover:text-white transition-colors">Graduação 100% EAD</a></li>
+            <li><a href="#catalogo" onclick="filtrarPorModalidade('Semipresencial')" class="hover:text-white transition-colors">Graduação Semipresencial</a></li>
+            <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-white transition-colors">Pós-Graduação e MBA</a></li>
+            <li><a href="https://novoportal.cruzeirodosul.edu.br/" target="_blank" class="text-blue-300 hover:underline">Área do Aluno Cruzeiro</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Cefe Educa EJA -->
+        <div class="space-y-3">
+          <h5 class="font-extrabold text-sm uppercase tracking-wider text-white border-b border-blue-900 pb-2">
+            Cefe Educa EJA
+          </h5>
+          <ul class="space-y-1.5 text-slate-300">
             <li><a href="#eja" class="hover:text-white transition-colors">EJA Ensino Fundamental</a></li>
             <li><a href="#eja" class="hover:text-white transition-colors">EJA Ensino Médio</a></li>
-            <li><a href="#graduacao" class="hover:text-white transition-colors">Graduação EAD</a></li>
-            <li><a href="#pos" class="hover:text-white transition-colors">Pós-Graduação & MBA</a></li>
+            <li><a href="https://avacefe.com.br/login/index.php" target="_blank" class="text-emerald-300 hover:underline">Portal do Aluno EJA</a></li>
           </ul>
         </div>
 
-        <div>
-          <h5 class="font-bold text-white mb-3">Área do Aluno (Acesso AVA)</h5>
-          <ul class="space-y-2">
-            <li><a href="https://cruzeirodosul.blackboard.com/" target="_blank" rel="noopener" class="text-blue-400 hover:underline">Portal Cruzeiro do Sul Virtual</a></li>
-            <li><a href="https://www.cefeduca.com.br/" target="_blank" rel="noopener" class="text-emerald-400 hover:underline">Portal Cefe Educa EJA</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="font-bold text-white mb-3">Canais Oficiais</h5>
-          <p class="mb-1 text-slate-300">alunotec.com.br</p>
-          <p class="mb-1 text-slate-400">Atendimento via WhatsApp e E-mail</p>
-          <div class="mt-3">
-            <span class="inline-block px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] text-emerald-400">
-              ● Atendimento Online
-            </span>
+        <!-- Coluna 4: Horários e Canais -->
+        <div class="space-y-3">
+          <h5 class="font-extrabold text-sm uppercase tracking-wider text-white border-b border-blue-900 pb-2">
+            Atendimento
+          </h5>
+          <p class="text-slate-300">WhatsApp: <strong>(48) 99619-1212</strong></p>
+          <p class="text-slate-300">E-mail: <strong>cruzeiroadmaru@gmail.com</strong></p>
+          <div class="pt-2 text-[11px] text-slate-400 leading-relaxed">
+            Seg e Qua: 09:30 às 21:00<br />
+            Ter, Qui e Sex: 09:30 às 18:00
           </div>
         </div>
+
       </div>
 
-      <div class="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-        <p>© 2026 AlunoTec. Todos os direitos reservados. Polo Credenciado Oficial.</p>
-        <p>Desenvolvido com Antigravity • Preparado para CRM AlunoTec</p>
+      <!-- Copyright Oficial Conforme Informações.txt -->
+      <div class="pt-8 border-t border-blue-900/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
+        <p>© 2017 AlunoTec - Centro de ensino a distância</p>
+        <p>Polo Autorizado Cruzeiro do Sul Virtual & Cefe Educa EJA</p>
       </div>
 
     </div>
   </footer>
 
-  <!-- ========================================== -->
-  <!-- BOTÃO FLUTUANTE DE WHATSAPP (CONVERSÃO) -->
-  <!-- ========================================== -->
+  <!-- ========================================================= -->
+  <!-- 11. BOTÃO FLUTUANTE DE WHATSAPP -->
+  <!-- ========================================================= -->
   <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-    <!-- Balão de chamada (aparece com delay) -->
-    <div id="whatsBubble" class="hidden sm:flex items-center gap-2 bg-white text-slate-900 text-xs font-semibold py-2 px-3.5 rounded-2xl shadow-xl border border-slate-200">
-      <span>Tire dúvidas sobre bolsas agora!</span>
+    <div id="whatsBubble" class="hidden sm:flex items-center gap-2 bg-white text-slate-900 text-xs font-bold py-2 px-3.5 rounded-2xl shadow-2xl border border-slate-200">
+      <span>Dúvidas sobre cursos e bolsas? Fale comigo!</span>
       <button onclick="document.getElementById('whatsBubble').remove()" class="text-slate-400 hover:text-slate-600 font-bold ml-1">✕</button>
     </div>
 
-    <!-- Botão Pulsante -->
-    <button onclick="abrirModalLead('Botao Flutuante Whats', 'Geral')" 
-            class="pulse-btn relative w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-xl shadow-[#25D366]/40 transition-transform hover:scale-110"
-            title="Fale Conosco pelo WhatsApp">
-      <!-- Badge de 1 mensagem -->
-      <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center border-2 border-slate-950">
+    <a href="https://wa.me/5548996191212?text=Olá,%20Polo%20AlunoTec!%20Gostaria%20de%20tirar%20dúvidas%20sobre%20as%20bolsas%20de%20estudo." 
+       target="_blank" rel="noopener noreferrer" 
+       class="pulse-btn relative w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl shadow-[#25D366]/50 transition-transform hover:scale-110"
+       title="Fale Conosco no WhatsApp">
+      <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-alunoVermelho text-white text-[10px] font-bold flex items-center justify-center border-2 border-white">
         1
       </span>
       <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zM12.05 20.24c-1.52 0-3-.4-4.31-1.16l-.31-.18-3.2.84.85-3.12-.2-.32a8.04 8.04 0 01-1.24-4.29c0-4.48 3.65-8.13 8.13-8.13 2.17 0 4.21.85 5.75 2.38 1.53 1.54 2.38 3.58 2.38 5.75 0 4.49-3.65 8.13-8.06 8.13zm4.45-6.09c-.24-.12-1.44-.71-1.66-.79-.23-.08-.39-.12-.56.12-.17.24-.65.79-.8 1.15-.15.35-.3.4-.55.27-.24-.12-1.03-.38-1.97-1.21-.73-.65-1.22-1.45-1.36-1.7-.15-.24-.02-.38.11-.5.11-.11.24-.28.37-.43.12-.14.16-.24.24-.4.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.24-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.17 1.59.1.48-.07 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.11-.23-.17-.47-.29z"/>
       </svg>
-    </button>
+    </a>
   </div>
 
-  <!-- ========================================== -->
-  <!-- MODAL DE CAPTURA DE LEAD (MARKETING POPUP) -->
-  <!-- ========================================== -->
-  <div id="modalLead" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-700/80 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
-      <button onclick="fecharModalLead()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+  <!-- ========================================================= -->
+  <!-- 12. MODAL DE CAPTURA DE LEAD (BLINDAGEM DE COMISSÃO) -->
+  <!-- ========================================================= -->
+  <div id="modalLead" class="fixed inset-0 z-50 hidden bg-cruzeiroNavy/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl border-t-8 border-alunoVermelho">
+      <button onclick="fecharModalLead()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 p-2 font-bold text-lg">
         ✕
       </button>
 
       <div class="text-center mb-6">
-        <div class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-400 mx-auto flex items-center justify-center text-2xl mb-3">
-          🎓
-        </div>
-        <h3 class="text-xl font-bold font-display text-white" id="modalTitulo">
-          Garantir Bolsa no Polo AlunoTec
+        <span class="inline-block px-3 py-1 rounded bg-red-100 text-alunoVermelho text-xs font-bold uppercase tracking-wider mb-2">
+          Polo AlunoTec
+        </span>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-cruzeiroNavy font-display" id="modalTitulo">
+          Garantir Bolsa para Este Curso
         </h3>
-        <p class="text-xs text-slate-400 mt-1" id="modalSubtitulo">
-          Informe seu WhatsApp para receber a simulação com até 70% de desconto.
+        <p class="text-xs text-slate-500 mt-1" id="modalSubtitulo">
+          Atendimento humano no WhatsApp com a equipe do polo de Araranguá.
         </p>
       </div>
 
-      <form id="modalForm" onsubmit="handleModalSubmit(event)" class="space-y-4">
+      <form onsubmit="handleModalSubmit(event)" class="space-y-4 text-left">
         <input type="hidden" id="modalOrigem" value="Modal">
         <input type="hidden" id="modalModalidade" value="Geral">
 
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Seu Nome *</label>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Seu Nome *</label>
           <input type="text" id="modalNome" required placeholder="Como podemos te chamar?" 
-                 class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
+                 class="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul">
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Seu WhatsApp *</label>
-          <input type="tel" id="modalWhats" required placeholder="(DDD) 90000-0000" 
-                 class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
+          <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp com DDD *</label>
+          <input type="tel" id="modalWhats" required placeholder="(48) 90000-0000" 
+                 class="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul">
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Curso Desejado</label>
-          <input type="text" id="modalCurso" placeholder="Ex: EJA Ensino Médio, Pedagogia..." 
-                 class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
+          <label class="block text-xs font-bold text-slate-700 mb-1">Curso Escolhido</label>
+          <input type="text" id="modalCurso" readonly 
+                 class="w-full px-4 py-3 rounded-lg bg-slate-100 border border-slate-300 text-sm font-semibold text-cruzeiroNavy">
         </div>
 
         <button type="submit" 
-                class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-extrabold text-sm shadow-md transition-all flex items-center justify-center gap-2">
-          <span>Abrir no WhatsApp com Desconto</span> &rarr;
+                class="w-full py-4 rounded-xl bg-gradient-to-r from-alunoVermelho to-red-700 hover:from-red-600 hover:to-red-800 text-white font-extrabold text-sm uppercase tracking-wide shadow-md transition-all flex items-center justify-center gap-2">
+          <span>Receber Bolsa no WhatsApp</span> &rarr;
         </button>
       </form>
     </div>
   </div>
 
-  <!-- SCRIPTS DO SISTEMA ALUNOTEC -->
+  <!-- SCRIPTS -->
   <script src="js/leads.js"></script>
   <script src="js/courses.js"></script>
-  
+
   <script>
-    // Gerenciamento do Menu Mobile
-    const btnMobile = document.getElementById('btnMobileMenu');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (btnMobile) {
-      btnMobile.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+    // Gerenciador do Menu Mobile
+    const btnMobileToggle = document.getElementById('btnMobileToggle');
+    const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+    if (btnMobileToggle) {
+      btnMobileToggle.addEventListener('click', () => {
+        mobileMenuPanel.classList.toggle('hidden');
       });
     }
 
-    // Gerenciamento de FAQ (Accordion)
-    function toggleFaq(btn) {
-      const content = btn.nextElementSibling;
-      const icon = btn.querySelector('.faq-icon');
-      const isHidden = content.classList.contains('hidden');
-      
-      // Fecha todos
-      document.querySelectorAll('.faq-content').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.faq-icon').forEach(el => el.textContent = '+');
+    // Gerenciador do Slider
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide-item');
+    const dots = document.querySelectorAll('.btn-dot');
 
-      if (isHidden) {
-        content.classList.remove('hidden');
-        icon.textContent = '−';
+    function mudarSlide(index) {
+      slideIndex = index;
+      slides.forEach((s, i) => {
+        if (i === index) {
+          s.classList.remove('opacity-0', 'pointer-events-none');
+          s.classList.add('opacity-100');
+        } else {
+          s.classList.add('opacity-0', 'pointer-events-none');
+          s.classList.remove('opacity-100');
+        }
+      });
+      dots.forEach((d, i) => {
+        if (i === index) {
+          d.classList.add('w-8', 'bg-white');
+          d.classList.remove('w-2.5', 'bg-white/40');
+        } else {
+          d.classList.remove('w-8', 'bg-white');
+          d.classList.add('w-2.5', 'bg-white/40');
+        }
+      });
+    }
+
+    // Alternância automática de slides a cada 6 segundos
+    setInterval(() => {
+      slideIndex = (slideIndex + 1) % slides.length;
+      mudarSlide(slideIndex);
+    }, 6000);
+
+    // Sistema de Filtros de Cursos
+    let categoriaSelecionada = 'todos';
+    let somenteEmAlta = false;
+
+    function renderizarCards() {
+      const grid = document.getElementById('gridCursos');
+      const termoBusca = (document.getElementById('inputBusca').value || '').toLowerCase();
+      const modalidadeFiltro = document.getElementById('selectModalidade').value;
+
+      const filtrados = AlunoTecCursos.filter(curso => {
+        // Filtro Categoria
+        const bateCategoria = categoriaSelecionada === 'todos' || curso.area === categoriaSelecionada;
+        
+        // Filtro Em Alta
+        const bateEmAlta = !somenteEmAlta || curso.emAlta === true;
+
+        // Filtro Modalidade
+        let bateModalidade = true;
+        if (modalidadeFiltro !== 'todas') {
+          bateModalidade = curso.modalidade.toLowerCase().includes(modalidadeFiltro.toLowerCase());
+        }
+
+        // Filtro Busca
+        const bateBusca = curso.nome.toLowerCase().includes(termoBusca) || 
+                          curso.descricao.toLowerCase().includes(termoBusca) ||
+                          curso.polo.toLowerCase().includes(termoBusca);
+
+        return bateCategoria && bateEmAlta && bateModalidade && bateBusca;
+      });
+
+      // Atualiza contador
+      document.getElementById('contadorCursos').textContent = `${filtrados.length} cursos encontrados`;
+
+      if (filtrados.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-16 bg-white rounded-2xl border border-slate-200">
+            <span class="text-3xl">🔍</span>
+            <h4 class="text-lg font-bold text-slate-800 mt-2">Nenhum curso encontrado com esses filtros.</h4>
+            <p class="text-xs text-slate-500 mt-1">Experimente buscar por outro termo ou fale diretamente com a equipe do polo.</p>
+            <button onclick="limparFiltros()" class="mt-4 px-4 py-2 bg-cruzeiroNavy text-white rounded-lg text-xs font-bold">
+              Limpar Filtros
+            </button>
+          </div>
+        `;
+        return;
       }
+
+      grid.innerHTML = filtrados.map(curso => {
+        const isSemipresencial = curso.modalidade.includes('Semipresencial');
+        const badgeModalidade = isSemipresencial 
+          ? `<span class="px-2.5 py-1 rounded bg-blue-100 text-blue-800 text-[10px] font-extrabold uppercase">Semipresencial</span>`
+          : `<span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 text-[10px] font-extrabold uppercase">100% EAD</span>`;
+
+        const isCruzeiro = curso.polo.includes('Cruzeiro');
+        const poloBadge = isCruzeiro 
+          ? `<span class="text-blue-700 font-bold text-[11px] flex items-center gap-1">★ Cruzeiro do Sul Virtual</span>`
+          : `<span class="text-emerald-700 font-bold text-[11px] flex items-center gap-1">● Cefe Educa EJA</span>`;
+
+        return `
+          <div class="card-claretiano bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <!-- Topo do Card -->
+              <div class="flex items-center justify-between gap-2 mb-3 pt-1">
+                ${badgeModalidade}
+                ${curso.emAlta ? `<span class="px-2 py-0.5 rounded bg-red-50 text-alunoVermelho text-[10px] font-extrabold uppercase flex items-center gap-1">🔥 Em Alta</span>` : ''}
+              </div>
+
+              <!-- Instituição -->
+              <div class="mb-1">
+                ${poloBadge}
+              </div>
+
+              <!-- Título do Curso -->
+              <h3 class="text-lg font-extrabold text-cruzeiroNavy font-display leading-snug hover:text-alunoVermelho transition-colors mb-2">
+                ${curso.nome}
+              </h3>
+
+              <!-- Descrição -->
+              <p class="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
+                ${curso.descricao}
+              </p>
+
+              <!-- Atributos -->
+              <div class="space-y-1.5 py-3 border-y border-slate-100 text-xs text-slate-600 mb-6">
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400">Tipo:</span>
+                  <span class="font-semibold text-slate-800">${curso.tipo}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400">Duração:</span>
+                  <span class="font-semibold text-slate-800">${curso.duracao}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botão de Ação -->
+            <div>
+              <button onclick="abrirModalLead('Card Curso', '${curso.nome}', '${curso.modalidade}')" 
+                      class="w-full py-3 rounded-lg bg-cruzeiroNavy hover:bg-alunoVermelho text-white font-extrabold text-xs transition-colors shadow-sm uppercase tracking-wider flex items-center justify-center gap-2">
+                <span>Garantir Bolsa no Polo</span> &rarr;
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function trocarCategoria(cat, btn) {
+      categoriaSelecionada = cat;
+      somenteEmAlta = false;
+      document.getElementById('btnEmAlta').classList.remove('bg-alunoVermelho', 'text-white', 'border-alunoVermelho');
+      document.getElementById('btnEmAlta').classList.add('bg-white', 'text-slate-700', 'border-slate-300');
+
+      document.querySelectorAll('.btn-filtro').forEach(b => {
+        b.classList.remove('bg-cruzeiroNavy', 'text-white', 'border-cruzeiroNavy');
+        b.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
+      });
+
+      if (btn) {
+        btn.classList.add('bg-cruzeiroNavy', 'text-white', 'border-cruzeiroNavy');
+        btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
+      }
+
+      renderizarCards();
+    }
+
+    function filtrarEmAlta(btn) {
+      somenteEmAlta = !somenteEmAlta;
+      if (somenteEmAlta) {
+        btn.classList.add('bg-alunoVermelho', 'text-white', 'border-alunoVermelho');
+        btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
+      } else {
+        btn.classList.remove('bg-alunoVermelho', 'text-white', 'border-alunoVermelho');
+        btn.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
+      }
+      renderizarCards();
+    }
+
+    function filtrarPorCurso(nomeCurso) {
+      document.getElementById('inputBusca').value = nomeCurso;
+      categoriaSelecionada = 'todos';
+      somenteEmAlta = false;
+      renderizarCards();
+      document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function filtrarPorModalidade(mod) {
+      document.getElementById('selectModalidade').value = mod;
+      renderizarCards();
+      document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function aplicarFiltros() {
+      renderizarCards();
+    }
+
+    function limparFiltros() {
+      document.getElementById('inputBusca').value = '';
+      document.getElementById('selectModalidade').value = 'todas';
+      categoriaSelecionada = 'todos';
+      somenteEmAlta = false;
+      renderizarCards();
     }
 
     // Modal de Lead
-    function abrirModalLead(origem, curso = '', modalidade = 'Geral') {
+    function abrirModalLead(origem, curso = 'Curso Geral', modalidade = 'Geral') {
       document.getElementById('modalOrigem').value = origem;
       document.getElementById('modalCurso').value = curso;
       document.getElementById('modalModalidade').value = modalidade;
-      if (curso) {
-        document.getElementById('modalTitulo').textContent = `Bolsa para ${curso}`;
-      } else {
-        document.getElementById('modalTitulo').textContent = `Garantir Bolsa no Polo AlunoTec`;
-      }
+      document.getElementById('modalTitulo').textContent = `Bolsa para ${curso}`;
       document.getElementById('modalLead').classList.remove('hidden');
     }
 
@@ -786,148 +1110,49 @@
       document.getElementById('modalLead').classList.add('hidden');
     }
 
-    // Submissão do Formulário Principal do Hero
-    function handleHeroSubmit(e) {
-      e.preventDefault();
-      const nome = document.getElementById('heroNome').value;
-      const whatsapp = document.getElementById('heroWhats').value;
-      const modalidade = document.getElementById('heroModalidade').options[document.getElementById('heroModalidade').selectedIndex].text;
-      const curso = document.getElementById('heroCurso').value || modalidade;
-
-      const resultado = window.AlunoTecLeads.processarLead({
-        nome: nome,
-        whatsapp: whatsapp,
-        modalidade: modalidade,
-        curso_interesse: curso,
-        origem: 'formulario_hero'
-      });
-
-      window.open(resultado.whatsappUrl, '_blank');
-    }
-
-    // Submissão do Modal
     function handleModalSubmit(e) {
       e.preventDefault();
       const nome = document.getElementById('modalNome').value;
-      const whatsapp = document.getElementById('modalWhats').value;
-      const curso = document.getElementById('modalCurso').value || 'Não especificado';
-      const origem = document.getElementById('modalOrigem').value;
+      const whats = document.getElementById('modalWhats').value;
+      const curso = document.getElementById('modalCurso').value;
       const modalidade = document.getElementById('modalModalidade').value;
+      const origem = document.getElementById('modalOrigem').value;
 
-      const resultado = window.AlunoTecLeads.processarLead({
+      const res = window.AlunoTecLeads.processarLead({
         nome: nome,
-        whatsapp: whatsapp,
-        modalidade: modalidade,
+        whatsapp: whats,
         curso_interesse: curso,
+        modalidade: modalidade,
         origem: origem
       });
 
       fecharModalLead();
-      window.open(resultado.whatsappUrl, '_blank');
+      window.open(res.whatsappUrl, '_blank');
     }
 
-    // Submissão Contato Geral
-    function handleContatoSubmit(e) {
+    function handleFormGeralSubmit(e) {
       e.preventDefault();
-      const nome = document.getElementById('contatoNome').value;
-      const whatsapp = document.getElementById('contatoWhats').value;
-      const email = document.getElementById('contatoEmail').value;
-      const msg = document.getElementById('contatoMsg').value;
+      const nome = document.getElementById('simulaNome').value;
+      const whats = document.getElementById('simulaWhats').value;
+      const email = document.getElementById('simulaEmail').value;
+      const modalidade = document.getElementById('simulaModalidade').value;
+      const curso = document.getElementById('simulaCurso').value || modalidade;
 
-      const resultado = window.AlunoTecLeads.processarLead({
+      const res = window.AlunoTecLeads.processarLead({
         nome: nome,
-        whatsapp: whatsapp,
+        whatsapp: whats,
         email: email,
-        curso_interesse: msg || 'Dúvida geral',
-        origem: 'formulario_rodape'
+        modalidade: modalidade,
+        curso_interesse: curso,
+        origem: 'formulario_simulador_bolsa'
       });
 
-      alert('Recebemos sua mensagem! Estamos te direcionando para o atendimento no WhatsApp.');
-      window.open(resultado.whatsappUrl, '_blank');
+      window.open(res.whatsappUrl, '_blank');
     }
 
-    // Renderização dos Cursos e Filtros
-    let categoriaAtual = 'todos';
-
-    function renderizarCursos() {
-      const grid = document.getElementById('gridCursos');
-      const termoBusca = (document.getElementById('campoBuscaCurso').value || '').toLowerCase();
-      
-      const cursosFiltrados = AlunoTecCursos.filter(c => {
-        const bateCategoria = categoriaAtual === 'todos' || c.categoria === categoriaAtual;
-        const bateBusca = c.nome.toLowerCase().includes(termoBusca) || c.descricao.toLowerCase().includes(termoBusca);
-        return bateCategoria && bateBusca;
-      });
-
-      if (cursosFiltrados.length === 0) {
-        grid.innerHTML = `
-          <div class="col-span-full text-center py-12 text-slate-400">
-            <p class="text-base font-semibold">Nenhum curso encontrado para essa busca.</p>
-            <p class="text-xs mt-1">Fale com nosso consultor para checar a disponibilidade no polo.</p>
-          </div>
-        `;
-        return;
-      }
-
-      grid.innerHTML = cursosFiltrados.map(curso => {
-        const isCruzeiro = curso.polo.includes('Cruzeiro');
-        const badgeColor = isCruzeiro ? 'bg-blue-500/10 text-blue-400 border-blue-500/30' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
-        const poloTag = isCruzeiro ? 'Cruzeiro do Sul' : 'Cefe Educa';
-
-        return `
-          <div class="rounded-3xl p-6 bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between group hover:-translate-y-1 shadow-lg">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${badgeColor}">
-                  ${poloTag}
-                </span>
-                <span class="text-[11px] font-semibold text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-full">
-                  ${curso.tag}
-                </span>
-              </div>
-
-              <h4 class="text-lg font-bold font-display text-white group-hover:text-brand-400 transition-colors mb-2">
-                ${curso.nome}
-              </h4>
-
-              <p class="text-xs text-slate-400 leading-relaxed mb-4">
-                ${curso.descricao}
-              </p>
-
-              <div class="flex items-center gap-3 text-[11px] text-slate-400 mb-6 font-medium">
-                <span class="flex items-center gap-1">⏱️ ${curso.tempo}</span>
-                <span>•</span>
-                <span class="text-emerald-400 font-semibold">${curso.modalidade}</span>
-              </div>
-            </div>
-
-            <button onclick="abrirModalLead('Card Curso', '${curso.nome}', '${curso.polo}')" 
-                    class="w-full py-3 rounded-xl bg-slate-800 hover:bg-brand-600 text-white font-bold text-xs transition-all flex items-center justify-center gap-2 group-hover:shadow-md">
-              <span>Garantir Bolsa para Este Curso</span> &rarr;
-            </button>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function trocarCategoria(cat, btn) {
-      categoriaAtual = cat;
-      document.querySelectorAll('.btn-categoria').forEach(b => {
-        b.classList.remove('bg-brand-600', 'text-white', 'border-brand-500');
-        b.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
-      });
-      btn.classList.add('bg-brand-600', 'text-white', 'border-brand-500');
-      btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
-      renderizarCursos();
-    }
-
-    function filtrarCursos() {
-      renderizarCursos();
-    }
-
-    // Inicializa os cursos na tela
+    // Inicialização
     document.addEventListener('DOMContentLoaded', () => {
-      renderizarCursos();
+      renderizarCards();
     });
   </script>
 
