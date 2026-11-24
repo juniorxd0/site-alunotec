@@ -313,76 +313,79 @@
   </header>
 
   <!-- ========================================================= -->
-  <!-- 3. BANNER CARROSSEL INSTITUCIONAL (CRUZEIRO & CEFE EDUCA) -->
+  <!-- 3. BANNER PRINCIPAL COM FORMATO CRUZEIRO DO SUL (SLIDER + LATERAIS) -->
   <!-- ========================================================= -->
-  <section class="relative bg-cruzeiroNavy overflow-hidden">
-    <!-- Slider Container -->
-    <div id="heroSlider" class="relative min-h-[460px] sm:min-h-[520px] flex items-center">
+  <section class="bg-cruzeiroNavy py-4 sm:py-6 px-4 sm:px-6 border-b border-blue-900/40">
+    <div class="max-w-7xl mx-auto">
       
-      <!-- SLIDE 1: EAD CRUZEIRO DO SUL (GRADUAÇÃO & PÓS) -->
-      <div class="slide-item active absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center">
-        <!-- Imagem de Fundo Desktop -->
-        <img src="Design/Estude em Casa.png" alt="EAD Cruzeiro do Sul - Estude em Casa" class="w-full h-full object-cover object-center hidden md:block opacity-90">
+      <!-- GRID FORMATO CRUZEIRO: SLIDER ESQUERDA (8 COLS) + BANNERS DIREITA (4 COLS) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5 items-stretch">
         
-        <!-- Versão Mobile com Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-cruzeiroNavy via-cruzeiroNavy/90 to-transparent md:bg-opacity-40 flex items-center">
-          <div class="max-w-7xl mx-auto px-6 sm:px-12 w-full">
-            <div class="max-w-xl text-white space-y-4">
-              <span class="inline-block px-3 py-1 rounded bg-alunoVerde text-slate-950 text-xs font-extrabold uppercase tracking-wider">
-                Bolsas de até 70% pelo Polo AlunoTec
-              </span>
-              <h1 class="text-3xl sm:text-5xl font-extrabold font-display leading-tight text-white drop-shadow-md">
-                Graduação & Pós-Graduação EAD
-              </h1>
-              <p class="text-slate-200 text-sm sm:text-base font-normal leading-relaxed drop-shadow">
-                Estude em casa com a tradição da Cruzeiro do Sul Virtual. Diplomas reconhecidos pelo MEC, flexibilidade total e suporte presencial no polo em Araranguá.
-              </p>
-              <div class="pt-2 flex flex-wrap gap-3">
-                <a href="#catalogo" class="px-6 py-3.5 rounded-lg bg-alunoVerde hover:bg-alunoVerdeEscuro text-slate-950 font-extrabold text-sm transition-all shadow-lg hover:shadow-lime-600/30">
-                  Ver Cursos Disponíveis &rarr;
-                </a>
-                <button onclick="abrirModalLead('Banner 1 - Cruzeiro EAD')" class="px-6 py-3.5 rounded-lg bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-bold text-sm border border-white/30 transition-all">
-                  Simular Mensalidade com Desconto
-                </button>
-              </div>
+        <!-- ========================================================= -->
+        <!-- COLUNA ESQUERDA: SLIDER CARROSSEL COM 3 BANNERS -->
+        <!-- ========================================================= -->
+        <div class="lg:col-span-8 relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900 flex flex-col justify-center min-h-[260px] sm:min-h-[380px] lg:min-h-[420px] group border border-blue-800/40">
+          
+          <!-- SLIDES DO CARROSSEL -->
+          <div id="heroSlider" class="relative w-full h-full min-h-[260px] sm:min-h-[380px] lg:min-h-[420px]">
+            
+            <!-- SLIDE 1 (ENEM ESTRELA VIP) -->
+            <div class="slide-item active absolute inset-0 transition-opacity duration-700 ease-in-out cursor-pointer" onclick="abrirModalLead('Banner 1 - ENEM Estrela VIP')">
+              <img src="Design/banner-cruzeiro-principal-1.jpg" alt="ENEM Estrela VIP - Cruzeiro do Sul" class="w-full h-full object-cover object-center">
             </div>
+
+            <!-- SLIDE 2 (Bolsas Polo AlunoTec) -->
+            <div class="slide-item opacity-0 pointer-events-none absolute inset-0 transition-opacity duration-700 ease-in-out cursor-pointer" onclick="abrirModalLead('Banner 2 - Bolsas Polo AlunoTec')">
+              <img src="Design/banner-cruzeiro-principal-1.jpg" alt="Bolsas de Estudo Polo AlunoTec" class="w-full h-full object-cover object-center filter hue-rotate-15">
+            </div>
+
+            <!-- SLIDE 3 (Vestibular e Transferência) -->
+            <div class="slide-item opacity-0 pointer-events-none absolute inset-0 transition-opacity duration-700 ease-in-out cursor-pointer" onclick="abrirModalLead('Banner 3 - Vestibular & Matrículas')">
+              <img src="Design/banner-cruzeiro-principal-1.jpg" alt="Condições Especiais Polo AlunoTec" class="w-full h-full object-cover object-center filter brightness-105">
+            </div>
+
           </div>
+
+          <!-- BOTÕES DE NAVEGAÇÃO DO SLIDER (SETAS ESQUERDA / DIREITA) -->
+          <button onclick="slideAnterior(event)" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-950/60 hover:bg-slate-950 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm border border-white/20">
+            &#10094;
+          </button>
+          <button onclick="proximoSlide(event)" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-950/60 hover:bg-slate-950 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm border border-white/20">
+            &#10095;
+          </button>
+
+          <!-- INDICADORES (DOTS) -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-slate-950/40 px-3 py-1.5 rounded-full backdrop-blur-sm">
+            <button onclick="mudarSlide(0)" class="btn-dot w-8 h-2.5 rounded-full bg-alunoVerde transition-all"></button>
+            <button onclick="mudarSlide(1)" class="btn-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all"></button>
+            <button onclick="mudarSlide(2)" class="btn-dot w-2.5 h-2.5 rounded-full bg-white/50 transition-all"></button>
+          </div>
+
         </div>
+
+        <!-- ========================================================= -->
+        <!-- COLUNA DIREITA: DOIS BANNERS FIXOS EMPILHADOS -->
+        <!-- ========================================================= -->
+        <div class="lg:col-span-4 flex flex-col gap-4 sm:gap-5 justify-between">
+          
+          <!-- BANNER 1 (SUPERIOR DIREITA - ESQUENTA BLACK FRIDAY) -->
+          <div onclick="abrirModalLead('Banner Lateral Topo - Esquenta Black Friday')" 
+               class="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer group border border-blue-800/40 hover:border-alunoVerde transition-all flex-1 min-h-[160px] sm:min-h-[195px] flex items-center bg-slate-900">
+            <img src="Design/banner-cruzeiro-lateral-1.jpg" alt="Esquenta Black Friday Cruzeiro do Sul" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-blue-950/10 group-hover:bg-transparent transition-colors"></div>
+          </div>
+
+          <!-- BANNER 2 (INFERIOR DIREITA - TRANSFORME SUA CARREIRA / TRANSFERÊNCIA) -->
+          <div onclick="abrirModalLead('Banner Lateral Base - Transferência 50%')" 
+               class="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer group border border-blue-800/40 hover:border-alunoVerde transition-all flex-1 min-h-[160px] sm:min-h-[195px] flex items-center bg-slate-900">
+            <img src="Design/banner-cruzeiro-lateral-2.jpg" alt="Transforme sua Carreira - Cruzeiro do Sul" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-blue-950/10 group-hover:bg-transparent transition-colors"></div>
+          </div>
+
+        </div>
+
       </div>
 
-      <!-- SLIDE 2: EJA CEFE EDUCA (ENSINO MÉDIO E FUNDAMENTAL) -->
-      <div class="slide-item opacity-0 pointer-events-none absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center">
-        <!-- Imagem do Banner EJA -->
-        <img src="Design/Banner Alunotec Desktop.png" alt="Termine seus Estudos EJA AlunoTec" class="w-full h-full object-cover object-center hidden md:block">
-        
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent md:bg-transparent flex items-center">
-          <div class="max-w-7xl mx-auto px-6 sm:px-12 w-full">
-            <div class="max-w-lg text-slate-900 md:text-slate-900 space-y-4">
-              <span class="inline-block px-3 py-1 rounded bg-alunoVerde text-slate-950 text-xs font-extrabold uppercase tracking-wider">
-                Polo Oficial Cefe Educa
-              </span>
-              <h2 class="text-3xl sm:text-5xl font-extrabold font-display leading-tight text-white md:text-slate-950">
-                Termine seus Estudos no EJA
-              </h2>
-              <p class="text-slate-200 md:text-slate-700 text-sm sm:text-base leading-relaxed">
-                Supletivo do Ensino Médio e Fundamental 100% online. Certificado oficial válido para faculdades, concursos e empregos.
-              </p>
-              <div class="pt-2 flex flex-wrap gap-3">
-                <button onclick="abrirModalLead('Banner 2 - EJA Cefe Educa', 'EJA Ensino Médio')" class="px-6 py-3.5 rounded-lg bg-alunoVerde hover:bg-alunoVerdeEscuro text-slate-950 font-extrabold text-sm transition-all shadow-lg">
-                  Concluir Meus Estudos Agora &rarr;
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Controles do Banner Slider -->
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
-      <button onclick="mudarSlide(0)" class="btn-dot w-8 h-2.5 rounded-full bg-white transition-all"></button>
-      <button onclick="mudarSlide(1)" class="btn-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all"></button>
     </div>
   </section>
 
@@ -901,15 +904,15 @@
       });
     }
 
-    // Gerenciador do Slider
+    // Gerenciador do Slider Formato Cruzeiro do Sul
     let slideIndex = 0;
     const slides = document.querySelectorAll('.slide-item');
     const dots = document.querySelectorAll('.btn-dot');
 
     function mudarSlide(index) {
-      slideIndex = index;
+      slideIndex = (index + slides.length) % slides.length;
       slides.forEach((s, i) => {
-        if (i === index) {
+        if (i === slideIndex) {
           s.classList.remove('opacity-0', 'pointer-events-none');
           s.classList.add('opacity-100');
         } else {
@@ -918,21 +921,30 @@
         }
       });
       dots.forEach((d, i) => {
-        if (i === index) {
-          d.classList.add('w-8', 'bg-white');
-          d.classList.remove('w-2.5', 'bg-white/40');
+        if (i === slideIndex) {
+          d.classList.add('w-8', 'bg-alunoVerde');
+          d.classList.remove('w-2.5', 'bg-white/50');
         } else {
-          d.classList.remove('w-8', 'bg-white');
-          d.classList.add('w-2.5', 'bg-white/40');
+          d.classList.remove('w-8', 'bg-alunoVerde');
+          d.classList.add('w-2.5', 'bg-white/50');
         }
       });
     }
 
-    // Alternância automática de slides a cada 6 segundos
+    function proximoSlide(e) {
+      if (e) e.stopPropagation();
+      mudarSlide(slideIndex + 1);
+    }
+
+    function slideAnterior(e) {
+      if (e) e.stopPropagation();
+      mudarSlide(slideIndex - 1);
+    }
+
+    // Alternância automática de slides a cada 5 segundos
     setInterval(() => {
-      slideIndex = (slideIndex + 1) % slides.length;
-      mudarSlide(slideIndex);
-    }, 6000);
+      mudarSlide(slideIndex + 1);
+    }, 5000);
 
     // Sistema de Filtros de Cursos
     let categoriaSelecionada = 'todos';
