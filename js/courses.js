@@ -633,15 +633,17 @@ const AlunoTecCursos = [
   // ==========================================
   {
     id: 'pedagogia',
-    nome: 'Pedagogia (Licenciatura)',
+    nome: 'Pedagogia (Semipresencial)',
     area: 'educacao',
     polo: 'Cruzeiro do Sul Virtual',
     tipo: 'Licenciatura',
     modalidade: 'Semipresencial',
-    duracao: '4 anos (8 semestres)',
+    duracao: '8 semestres',
     descricao: 'Habilitação para docência na Educação Infantil, anos iniciais do Fundamental, coordenação pedagógica e gestão escolar.',
     emAlta: true,
-    tag: 'Em Alta'
+    tag: 'Em Alta',
+    imagem: 'Design/curso-pedagogia.jpg',
+    link: 'pedagogia-semipresencial.html'
   },
   {
     id: 'artes-visuais',

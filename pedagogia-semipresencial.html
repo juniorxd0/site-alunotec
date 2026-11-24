@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedagogia (Semipresencial) - Cruzeiro do Sul Virtual | Polo AlunoTec Araranguá</title>
+  <meta name="description" content="Graduação em Pedagogia Semipresencial da Cruzeiro do Sul Virtual no Polo AlunoTec em Araranguá - SC. Formação reconhecida pelo MEC, 8 semestres e bolsas de estudo exclusivas.">
+  <link rel="icon" type="image/png" href="Design/logo aluno tec PNG.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alunoVerde: '#A8CF04',
+            alunoVerdeHover: '#95BA03',
+            alunoVerdeEscuro: '#7EA600',
+            cruzeiroAzul: '#004A99',
+            cruzeiroNavy: '#002855',
+            cruzeiroDeep: '#001A38',
+            cruzeiroAmarelo: '#F5A623',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Accordion transitions */
+    .semestre-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease-out, opacity 0.25s ease-in;
+      opacity: 0;
+    }
+    .semestre-content.aberto {
+      max-height: 800px;
+      opacity: 1;
+    }
+    .accordion-icon {
+      transition: transform 0.3s ease;
+    }
+    .accordion-icon.rotacionado {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-alunoVerde selection:text-slate-950">
+
+  <!-- ========================================================= -->
+  <!-- 1. TOPBAR INSTITUCIONAL -->
+  <!-- ========================================================= -->
+  <div class="bg-cruzeiroNavy text-white py-2.5 px-4 sm:px-6 text-xs border-b border-blue-900/60 relative z-50">
+    <div class="max-w-[1560px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      
+      <!-- Informações Rápidas -->
+      <div class="flex items-center gap-4 text-[11px] sm:text-xs text-blue-200">
+        <span class="flex items-center gap-1.5 font-medium">
+          <span class="w-2 h-2 rounded-full bg-alunoVerde animate-pulse"></span>
+          Polo Oficial Araranguá - SC
+        </span>
+        <span class="text-blue-400">•</span>
+        <a href="https://wa.me/5548996191212" target="_blank" class="hover:text-white transition-colors flex items-center gap-1 font-semibold">
+          <span>💬</span> (48) 99619-1212
+        </a>
+      </div>
+
+      <!-- Links Diretos aos Portais do Aluno -->
+      <div class="flex items-center gap-2.5 sm:gap-4 text-xs">
+        <span class="text-slate-300 font-bold hidden lg:inline text-xs">Ambiente Virtual:</span>
+        
+        <a href="https://novoportal.cruzeirodosul.edu.br/" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-blue-700 hover:bg-blue-600 text-white text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          <span class="bg-white p-0.5 sm:p-1 rounded flex items-center justify-center shrink-0 shadow-xs">
+            <img src="Design/logo cruzeiro do sul PNG.png" alt="Cruzeiro do Sul" class="h-4 sm:h-5 w-auto object-contain">
+          </span>
+          <span>Portal do Aluno Cruzeiro</span>
+        </a>
+
+        <a href="https://avacefe.com.br/login/index.php" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          <span class="bg-white p-0.5 sm:p-1 rounded flex items-center justify-center shrink-0 shadow-xs">
+            <img src="Design/cefe-educa logo.png" alt="Cefe Educa" class="h-4 sm:h-5 w-auto object-contain">
+          </span>
+          <span>Portal do Aluno EJA</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 2. HEADER PRINCIPAL -->
+  <!-- ========================================================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm relative">
+    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 h-20 sm:h-24 lg:h-26 flex items-center justify-between">
+      
+      <!-- LOGOS PARCEIRAS: ALUNOTEC + CRUZEIRO + CEFE EDUCA -->
+      <div class="flex items-center gap-4 sm:gap-6">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <img src="Design/logo aluno tec PNG.png" alt="AlunoTec - Centro de Ensino a Distância" class="h-14 sm:h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105">
+        </a>
+
+        <div class="hidden sm:block h-10 w-px bg-slate-300"></div>
+
+        <div class="hidden sm:flex flex-col items-center justify-center">
+          <span class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 whitespace-nowrap mb-1">Polo Autorizado</span>
+          <div class="flex items-center gap-3.5">
+            <img src="Design/logo cruzeiro do sul PNG.png" alt="Cruzeiro do Sul Virtual" class="h-7 w-auto object-contain">
+            <div class="h-5 w-px bg-slate-300"></div>
+            <img src="Design/cefe-educa logo.png" alt="Cefe Educa EJA" class="h-8 sm:h-9 w-auto object-contain">
+          </div>
+        </div>
+      </div>
+
+      <!-- NAVEGAÇÃO -->
+      <nav class="hidden xl:flex items-center gap-6 2xl:gap-8 text-sm font-semibold text-slate-700">
+        <a href="index.html#catalogo" class="hover:text-cruzeiroAzul transition-colors flex items-center gap-1">
+          <span>&larr;</span> <span>Todos os Cursos</span>
+        </a>
+        <a href="index.html#catalogo" class="hover:text-cruzeiroAzul transition-colors whitespace-nowrap">EAD</a>
+        <a href="index.html#eja" class="hover:text-cruzeiroAzul transition-colors whitespace-nowrap">EJA Supletivo</a>
+        <a href="index.html#polo" class="hover:text-cruzeiroAzul transition-colors whitespace-nowrap">O Polo AlunoTec</a>
+        <a href="index.html#contato" class="hover:text-cruzeiroAzul transition-colors whitespace-nowrap">Contato & Horários</a>
+      </nav>
+
+      <!-- BOTÃO INSCREVA-SE -->
+      <div class="flex items-center gap-3">
+        <button onclick="abrirModalLead('Página Pedagogia - Header CTA')" 
+                class="px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl bg-alunoVerde hover:bg-alunoVerdeHover text-slate-950 font-black text-xs sm:text-sm shadow-md shadow-lime-500/25 hover:shadow-lg hover:shadow-lime-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all uppercase tracking-wider border border-lime-400/50 flex items-center gap-2 whitespace-nowrap">
+          <span>Inscreva-se</span>
+          <svg class="w-4 h-4 text-slate-950 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- 3. BREADCRUMBS -->
+  <!-- ========================================================= -->
+  <div class="bg-slate-100 border-b border-slate-200 py-3 px-4 sm:px-6 text-xs text-slate-600">
+    <div class="max-w-7xl mx-auto flex items-center gap-2 flex-wrap">
+      <a href="index.html" class="hover:text-cruzeiroAzul font-semibold">Início</a>
+      <span>/</span>
+      <a href="index.html#catalogo" class="hover:text-cruzeiroAzul font-semibold">Graduação</a>
+      <span>/</span>
+      <a href="index.html#catalogo" class="hover:text-cruzeiroAzul font-semibold">Educação</a>
+      <span>/</span>
+      <span class="text-cruzeiroNavy font-bold">Pedagogia (Semipresencial)</span>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 4. HERO SECTION DO CURSO -->
+  <!-- ========================================================= -->
+  <section class="bg-gradient-to-b from-[#002855] via-[#00346B] to-[#002855] text-white py-10 sm:py-14 lg:py-16 px-4 sm:px-6 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
+      
+      <!-- COLUNA ESQUERDA: APRESENTAÇÃO DO CURSO -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- SELOS E BADGES -->
+        <div class="flex items-center gap-2.5 flex-wrap">
+          <span class="px-3 py-1 rounded-full bg-amber-400 text-slate-950 font-black text-[11px] uppercase tracking-wider shadow-sm">
+            🔥 EM ALTA
+          </span>
+          <span class="px-3 py-1 rounded-full bg-blue-500/30 text-blue-200 border border-blue-400/30 font-bold text-xs uppercase">
+            Semipresencial
+          </span>
+          <span class="px-3 py-1 rounded-full bg-blue-500/30 text-blue-200 border border-blue-400/30 font-bold text-xs uppercase">
+            Licenciatura
+          </span>
+          <span class="px-3 py-1 rounded-full bg-lime-400/20 text-lime-300 border border-lime-400/30 font-bold text-xs">
+            ★ Nota Máxima MEC
+          </span>
+        </div>
+
+        <!-- TÍTULO -->
+        <div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display tracking-tight text-white leading-tight">
+            Pedagogia <span class="text-alunoVerde block text-2xl sm:text-3xl lg:text-4xl font-extrabold mt-1">(Semipresencial)</span>
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+            Transforme a educação com a graduação em Pedagogia Semipresencial da Cruzeiro do Sul Virtual no Polo AlunoTec. Estude com flexibilidade online e suporte presencial completo em Araranguá - SC.
+          </p>
+        </div>
+
+        <!-- FOTO OFICIAL DO CURSO EM ALTA RESOLUÇÃO -->
+        <div class="rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 aspect-[16/10] bg-slate-900 group">
+          <img src="Design/curso-pedagogia.jpg" alt="Graduação em Pedagogia Semipresencial - Cruzeiro do Sul Virtual" 
+               class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+        </div>
+
+        <!-- GRID DE CARDS COM METADADOS DO CURSO (ESTILO CRUZEIRO DO SUL) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+          
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10 text-center">
+            <span class="block text-blue-200 text-xs font-medium">Duração</span>
+            <span class="block text-white font-extrabold text-sm sm:text-base mt-0.5">8 semestres</span>
+            <span class="block text-slate-400 text-[10px]">4 anos (3.200h)</span>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10 text-center">
+            <span class="block text-blue-200 text-xs font-medium">Início das Aulas</span>
+            <span class="block text-alunoVerde font-extrabold text-sm sm:text-base mt-0.5">Início Imediato</span>
+            <span class="block text-slate-400 text-[10px]">Sem taxa de inscrição</span>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10 text-center">
+            <span class="block text-blue-200 text-xs font-medium">Grau Acadêmico</span>
+            <span class="block text-white font-extrabold text-sm sm:text-base mt-0.5">Licenciatura</span>
+            <span class="block text-slate-400 text-[10px]">Habilitação Docente</span>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10 text-center">
+            <span class="block text-blue-200 text-xs font-medium">Modalidade</span>
+            <span class="block text-white font-extrabold text-sm sm:text-base mt-0.5">Semipresencial</span>
+            <span class="block text-slate-400 text-[10px]">4.0i com Polo</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- COLUNA DIREITA: CARD LATERAL DE BOLSA E CAPTAÇÃO DE LEAD -->
+      <div class="lg:col-span-5 sticky top-28">
+        <div class="bg-white text-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl border-4 border-alunoVerde/40 relative">
+          
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-alunoVerde text-slate-950 font-black text-xs uppercase px-4 py-1 rounded-full shadow-md whitespace-nowrap">
+            Bolsa Exclusiva Polo Araranguá
+          </div>
+
+          <div class="text-center mt-2 mb-6">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Cruzeiro do Sul Virtual</span>
+            <h3 class="text-2xl font-black text-cruzeiroNavy font-display mt-1">
+              Garanta até 70% de Bolsa
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Simule sua bolsa e mensalidade direto no WhatsApp da equipe do Polo AlunoTec.
+            </p>
+          </div>
+
+          <!-- BOTÃO PRINCIPAL WHATSAPP DIRETO -->
+          <a href="https://wa.me/5548996191212?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20bolsa%20do%20curso%20de%20Pedagogia%20(Semipresencial)%20no%20Polo%20AlunoTec%20de%20Ararangu%C3%A1." 
+             target="_blank" 
+             class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-2.5 transition-all transform hover:-translate-y-0.5 mb-4">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zM12.05 20.24c-1.52 0-3-.4-4.31-1.16l-.31-.18-3.2.84.85-3.12-.2-.32a8.04 8.04 0 01-1.24-4.29c0-4.48 3.65-8.13 8.13-8.13 2.17 0 4.21.85 5.75 2.38 1.53 1.54 2.38 3.58 2.38 5.75 0 4.49-3.65 8.13-8.06 8.13zm4.45-6.09c-.24-.12-1.44-.71-1.66-.79-.23-.08-.39-.12-.56.12-.17.24-.65.79-.8 1.15-.15.35-.3.4-.55.27-.24-.12-1.03-.38-1.97-1.21-.73-.65-1.22-1.45-1.36-1.7-.15-.24-.02-.38.11-.5.11-.11.24-.28.37-.43.12-.14.16-.24.24-.4.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.24-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.17 1.59.1.48-.07 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.11-.23-.17-.47-.29z"/></svg>
+            <span>Falar no WhatsApp do Polo</span>
+          </a>
+
+          <!-- FORMULÁRIO RÁPIDO DE SIMULAÇÃO -->
+          <form onsubmit="enviarSimulacaoPedagogia(event)" class="space-y-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Seu Nome Completo *</label>
+              <input type="text" id="leadNome" required placeholder="Ex: Ana Paula da Silva" 
+                     class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp com DDD *</label>
+              <input type="tel" id="leadTelefone" required placeholder="(48) 99999-9999" 
+                     class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Forma de Ingresso Desejada</label>
+              <select id="leadIngresso" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-cruzeiroAzul bg-white">
+                <option value="Bolsa ENEM">Nota do ENEM (Maior desconto)</option>
+                <option value="Vestibular Online">Vestibular Online Gratuito</option>
+                <option value="Transferência">Transferência de Faculdade</option>
+                <option value="Segunda Graduação">Segunda Graduação (Portador de Diploma)</option>
+              </select>
+            </div>
+
+            <button type="submit" 
+                    class="w-full py-3 rounded-lg bg-cruzeiroNavy hover:bg-cruzeiroAzul text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow-md mt-2">
+              Quero Simular Minha Mensalidade &rarr;
+            </button>
+          </form>
+
+          <!-- VANTAGENS DO POLO -->
+          <div class="mt-6 pt-5 border-t border-slate-200 text-xs text-slate-600 space-y-2">
+            <div class="flex items-center gap-2 text-emerald-700 font-semibold">
+              <span>✔</span> <span>Matrícula 100% online ou no polo físico</span>
+            </div>
+            <div class="flex items-center gap-2 text-emerald-700 font-semibold">
+              <span>✔</span> <span>Diploma reconhecido pelo MEC idêntico ao presencial</span>
+            </div>
+            <div class="flex items-center gap-2 text-emerald-700 font-semibold">
+              <span>✔</span> <span>Polo físico com suporte presencial em Araranguá</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 5. CONHEÇA O CURSO (TEXTO OFICIAL CRUZEIRO DO SUL) -->
+  <!-- ========================================================= -->
+  <section class="py-14 sm:py-20 px-4 sm:px-6 bg-white">
+    <div class="max-w-5xl mx-auto space-y-12">
+      
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-widest text-cruzeiroAzul">Apresentação</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cruzeiroNavy font-display mt-1">
+          Conheça o curso de Pedagogia (Semipresencial)
+        </h2>
+        
+        <div class="prose prose-slate max-w-none text-slate-700 mt-6 leading-relaxed space-y-4 text-sm sm:text-base">
+          <p>
+            Com a flexibilidade de cursar disciplinas em EAD e o suporte das aulas práticas presenciais, a <strong>Faculdade de Pedagogia Semipresencial da Cruzeiro do Sul Virtual</strong> oferece uma formação completa e atualizada para os desafios contemporâneos da educação. O curso prepara você para compreender e intervir nas realidades educacionais, desenvolvendo projetos pedagógicos inovadores e inclusivos que utilizam o conhecimento para transformar vidas.
+          </p>
+          <p>
+            A <strong>Pedagogia</strong> é a ciência que estuda os processos de ensino e aprendizagem, sendo fundamental para a construção de uma sociedade mais justa e equilibrada. Seu foco está no desenvolvimento humano e na formação de cidadãos críticos, permitindo uma atuação estratégica e transformadora em diversas frentes da educação formal e não formal.
+          </p>
+        </div>
+      </div>
+
+      <!-- PILARES PEDAGÓGICOS -->
+      <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200">
+        <h3 class="text-lg sm:text-xl font-bold text-cruzeiroNavy font-display mb-4">
+          Grade curricular com foco em práticas pedagógicas e gestão escolar:
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700">
+          <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <span class="text-xl text-cruzeiroAzul">📖</span>
+            <div>
+              <strong class="text-cruzeiroNavy block mb-0.5">Didática:</strong>
+              Estudo dos diferentes métodos e técnicas de ensino para otimizar o processo de aprendizagem dos alunos.
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <span class="text-xl text-cruzeiroAzul">🧠</span>
+            <div>
+              <strong class="text-cruzeiroNavy block mb-0.5">Psicologia da Educação:</strong>
+              Compreensão das etapas do desenvolvimento humano e de como os processos psicológicos influenciam a aprendizagem.
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <span class="text-xl text-cruzeiroAzul">⚖️</span>
+            <div>
+              <strong class="text-cruzeiroNavy block mb-0.5">Políticas e Organização da Educação:</strong>
+              Análise da estrutura, diretrizes e legislação do sistema educacional brasileiro.
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <span class="text-xl text-cruzeiroAzul">🎨</span>
+            <div>
+              <strong class="text-cruzeiroNavy block mb-0.5">Educação Infantil e Ensino Fundamental:</strong>
+              Bases teóricas e práticas para a docência e o lúdico nestas etapas cruciais da formação.
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <span class="text-xl text-cruzeiroAzul">✍️</span>
+            <div>
+              <strong class="text-cruzeiroNavy block mb-0.5">Alfabetização e Letramento:</strong>
+              Metodologias e práticas eficazes para o domínio da leitura, escrita e interpretação textual.
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <span class="text-xl text-cruzeiroAzul">🤝</span>
+            <div>
+              <strong class="text-cruzeiroNavy block mb-0.5">Educação Inclusiva & Libras:</strong>
+              Competências para acolher a diversidade, necessidades especiais e garantir educação para todos.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERFIL PROFISSIONAL -->
+      <div class="border-l-4 border-alunoVerde pl-6 py-2">
+        <h4 class="text-lg font-bold text-cruzeiroNavy">Perfil do Profissional</h4>
+        <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+          O profissional de Pedagogia é um agente de transformação social. É essencial ter empatia, paciência, criatividade e excelente capacidade de comunicação. Gostar de estudar, pesquisar e trabalhar em equipe são características importantes para quem deseja seguir carreira na área, buscando sempre inovar nas práticas educativas.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 6. MERCADO DE TRABALHO E ÁREAS DE ATUAÇÃO -->
+  <!-- ========================================================= -->
+  <section class="py-14 sm:py-20 px-4 sm:px-6 bg-slate-100 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto space-y-10">
+      
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-widest text-cruzeiroAzul">Carreira</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cruzeiroNavy font-display mt-1">
+          Mercado de Trabalho em Alta
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          De acordo com o MEC, o Brasil ultrapassa <strong>2,4 milhões de professores</strong>. Além disso, segundo a <strong>FGV</strong>, os pedagogos são responsáveis por <strong>65,7% do resultado de aprendizagem</strong> no ensino fundamental, evidenciando a altíssima demanda por profissionais qualificados.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <div class="bg-white p-5 rounded-2xl shadow-xs border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-cruzeiroAzul font-bold text-lg flex items-center justify-center mb-3">
+            🏫
+          </div>
+          <h4 class="font-bold text-cruzeiroNavy text-base">Docência Infantil e Fundamental</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Atuação direta em creches, pré-escolas e anos iniciais do Ensino Fundamental (1º ao 5º ano).
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-xs border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-cruzeiroAzul font-bold text-lg flex items-center justify-center mb-3">
+            📋
+          </div>
+          <h4 class="font-bold text-cruzeiroNavy text-base">Gestão e Coordenação Escolar</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Direção, supervisão escolar, orientação educacional e elaboração do projeto pedagógico institucional.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-xs border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-cruzeiroAzul font-bold text-lg flex items-center justify-center mb-3">
+            💼
+          </div>
+          <h4 class="font-bold text-cruzeiroNavy text-base">Pedagogia Empresarial</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Desenvolvimento de treinamentos corporativos, clima organizacional e programas de capacitação em RH.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-xs border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-cruzeiroAzul font-bold text-lg flex items-center justify-center mb-3">
+            🏥
+          </div>
+          <h4 class="font-bold text-cruzeiroNavy text-base">Pedagogia Hospitalar e ONGs</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Acompanhamento educacional de crianças e adolescentes internados e projetos sociais do terceiro setor.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-xs border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-cruzeiroAzul font-bold text-lg flex items-center justify-center mb-3">
+            💻
+          </div>
+          <h4 class="font-bold text-cruzeiroNavy text-base">Design Instrucional & EAD</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Criação de trilhas de aprendizagem, videoaulas, conteúdos didáticos e tecnologias educacionais.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-xs border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-cruzeiroAzul font-bold text-lg flex items-center justify-center mb-3">
+            🏛️
+          </div>
+          <h4 class="font-bold text-cruzeiroNavy text-base">Concursos Públicos</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Alta oferta de vagas para professores e pedagogos em redes municipais, estaduais e federais.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 7. MATRIZ CURRICULAR OFICIAL (8 SEMESTRES - CRUZEIRO DO SUL) -->
+  <!-- ========================================================= -->
+  <section class="py-14 sm:py-20 px-4 sm:px-6 bg-white" id="matriz">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-cruzeiroAzul">Grade Completa</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cruzeiroNavy font-display mt-1">
+          Matriz Curricular Oficial
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">
+          Matriz curricular completa dos 8 semestres da Cruzeiro do Sul Virtual. Clique em cada semestre para ver as disciplinas e cargas horárias:
+        </p>
+      </div>
+
+      <!-- ACORDEÃO DOS 8 SEMESTRES -->
+      <div class="space-y-3" id="accordionSemestres">
+        
+        <!-- 1° SEMESTRE (ABERTO POR PADRÃO) -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleSemestre(1)" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-cruzeiroNavy text-white font-bold text-xs flex items-center justify-center">1°</span>
+              <span class="font-bold text-cruzeiroNavy text-sm sm:text-base">1° Semestre</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500">
+              <span class="hidden sm:inline">8 disciplinas • 370h</span>
+              <svg id="icon-1" class="w-5 h-5 accordion-icon rotacionado" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </button>
+          <div id="content-1" class="semestre-content aberto px-6 py-4 bg-white border-t border-slate-100">
+            <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <div class="py-2.5 flex justify-between"><span>Psicologia da Educação</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Ambientação Digital</span><span class="font-bold text-slate-700">20h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Plano de Acompanhamento de Carreira em Pedagogia</span><span class="font-bold text-slate-700">10h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Atividade de Extensão: Integração de Competências para Transformar o Eu</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Filosofia</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Prática de Leitura e Escrita</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Legislação da Educação Básica e Políticas Educacionais</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>História da Educação</span><span class="font-bold text-slate-700">60h</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2° SEMESTRE -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleSemestre(2)" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-blue-100 text-cruzeiroNavy font-bold text-xs flex items-center justify-center">2°</span>
+              <span class="font-bold text-cruzeiroNavy text-sm sm:text-base">2° Semestre</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500">
+              <span class="hidden sm:inline">7 disciplinas • 390h</span>
+              <svg id="icon-2" class="w-5 h-5 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </button>
+          <div id="content-2" class="semestre-content px-6 py-4 bg-white border-t border-slate-100">
+            <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <div class="py-2.5 flex justify-between"><span>Educação Infantil: Currículo</span><span class="font-bold text-slate-700">80h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Educação: Jogos e Brincadeiras</span><span class="font-bold text-slate-700">80h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Pensamento, Linguagem e Desenvolvimento Humano</span><span class="font-bold text-slate-700">80h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Plano de Acompanhamento de Carreira em Pedagogia I</span><span class="font-bold text-slate-700">10h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Paradigmas Educacionais e Inovação</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Atividades de Extensão: O Eu, o Outro e a Sociedade</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Corpo, Movimento e Psicomotricidade</span><span class="font-bold text-slate-700">60h</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3° SEMESTRE -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleSemestre(3)" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-blue-100 text-cruzeiroNavy font-bold text-xs flex items-center justify-center">3°</span>
+              <span class="font-bold text-cruzeiroNavy text-sm sm:text-base">3° Semestre</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500">
+              <span class="hidden sm:inline">8 disciplinas • 370h</span>
+              <svg id="icon-3" class="w-5 h-5 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </button>
+          <div id="content-3" class="semestre-content px-6 py-4 bg-white border-t border-slate-100">
+            <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <div class="py-2.5 flex justify-between"><span>Alfabetização e Letramento</span><span class="font-bold text-slate-700">80h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Plano de Acompanhamento de Carreira em Pedagogia II</span><span class="font-bold text-slate-700">10h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Metodologia de Pesquisa</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Sociologia</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Leitura e Produção de Textos e Imagens de Diferentes Gêneros</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Gestão Ambiental e Responsabilidade Social</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Atividades de Extensão: Integração de Competências I</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Fundamentos Metodológicos do Ensino de História e Geografia</span><span class="font-bold text-slate-700">60h</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4° SEMESTRE -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleSemestre(4)" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-blue-100 text-cruzeiroNavy font-bold text-xs flex items-center justify-center">4°</span>
+              <span class="font-bold text-cruzeiroNavy text-sm sm:text-base">4° Semestre</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500">
+              <span class="hidden sm:inline">8 disciplinas • 370h</span>
+              <svg id="icon-4" class="w-5 h-5 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </button>
+          <div id="content-4" class="semestre-content px-6 py-4 bg-white border-t border-slate-100">
+            <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <div class="py-2.5 flex justify-between"><span>Plano de Acompanhamento de Carreira III</span><span class="font-bold text-slate-700">10h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Avaliação Educacional</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Processo de Pensamento Lógico - Matemático</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Organização do Trabalho Docente</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Fundamentos Metodológicos do Ensino de Ciências</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Fundamentos Metodológicos do Ensino de Matemática</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Fundamentos Metodológicos do Ensino de Arte e Música</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Atividades de Extensão: Integração de Competências II</span><span class="font-bold text-slate-700">40h</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5° SEMESTRE -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleSemestre(5)" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-blue-100 text-cruzeiroNavy font-bold text-xs flex items-center justify-center">5°</span>
+              <span class="font-bold text-cruzeiroNavy text-sm sm:text-base">5° Semestre</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500">
+              <span class="hidden sm:inline">9 disciplinas • 390h</span>
+              <svg id="icon-5" class="w-5 h-5 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </button>
+          <div id="content-5" class="semestre-content px-6 py-4 bg-white border-t border-slate-100">
+            <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <div class="py-2.5 flex justify-between"><span>Economia da Educação</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Educação, Movimentos Populares e Transformação</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Escola, Currículo e Sociedade</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Escola, Família e Comunidade</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Plano de Carreira IV</span><span class="font-bold text-slate-700">10h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Educação Emocional e Gestão de Pessoas</span><span class="font-bold text-slate-700">80h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Seminários Temáticos em Educação</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Neurociência e Educação</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Atividades de Extensão III</span><span class="font-bold text-slate-700">40h</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6° SEMESTRE -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleSemestre(6)" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-blue-100 text-cruzeiroNavy font-bold text-xs flex items-center justify-center">6°</span>
+              <span class="font-bold text-cruzeiroNavy text-sm sm:text-base">6° Semestre</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500">
+              <span class="hidden sm:inline">8 disciplinas • 430h (com Estágio)</span>
+              <svg id="icon-6" class="w-5 h-5 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </button>
+          <div id="content-6" class="semestre-content px-6 py-4 bg-white border-t border-slate-100">
+            <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <div class="py-2.5 flex justify-between"><span>Língua Brasileira de Sinais - Libras</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Organização e Gestão do Planejamento Educacional</span><span class="font-bold text-slate-700">80h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Projeto Integrador Transdisciplinar em Pedagogia</span><span class="font-bold text-slate-700">20h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Plano de Carreira V</span><span class="font-bold text-slate-700">10h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Projeto de Intervenção Pedagógico</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between bg-blue-50/50 px-2 rounded"><span>Estágio Supervisionado em Educação Infantil</span><span class="font-black text-cruzeiroNavy">150h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Atividades de Extensão IV</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Prática de Ensino em Educação Infantil</span><span class="font-bold text-slate-700">30h</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7° SEMESTRE -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleSemestre(7)" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-blue-100 text-cruzeiroNavy font-bold text-xs flex items-center justify-center">7°</span>
+              <span class="font-bold text-cruzeiroNavy text-sm sm:text-base">7° Semestre</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500">
+              <span class="hidden sm:inline">7 disciplinas • 390h (com Estágio)</span>
+              <svg id="icon-7" class="w-5 h-5 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </button>
+          <div id="content-7" class="semestre-content px-6 py-4 bg-white border-t border-slate-100">
+            <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <div class="py-2.5 flex justify-between"><span>Educação de Jovens e Adultos (EJA)</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Educação Inclusiva</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between bg-blue-50/50 px-2 rounded"><span>Estágio Supervisionado nos Anos Iniciais do Fundamental</span><span class="font-black text-cruzeiroNavy">150h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Formação de Grupos e Desenvolvimento Humano</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Plano de Carreira VI</span><span class="font-bold text-slate-700">10h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Atividades de Extensão V</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Prática de Ensino nos Anos Iniciais do Fundamental</span><span class="font-bold text-slate-700">30h</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8° SEMESTRE -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+          <button onclick="toggleSemestre(8)" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center justify-center">8°</span>
+              <span class="font-bold text-cruzeiroNavy text-sm sm:text-base">8° Semestre (Conclusão & TCC)</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-500">
+              <span class="hidden sm:inline">9 disciplinas • 410h (com Estágio)</span>
+              <svg id="icon-8" class="w-5 h-5 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </button>
+          <div id="content-8" class="semestre-content px-6 py-4 bg-white border-t border-slate-100">
+            <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <div class="py-2.5 flex justify-between"><span>Educação e Saúde</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between bg-blue-50/50 px-2 rounded"><span>Estágio Supervisionado em Gestão Educacional</span><span class="font-black text-cruzeiroNavy">100h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Estatística Aplicada à Educação</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Educação Não-Formal</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Superdotação e Altas Habilidades</span><span class="font-bold text-slate-700">40h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Diversidade Étnico-Cultural</span><span class="font-bold text-slate-700">60h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Prática de Ensino em Gestão Educacional</span><span class="font-bold text-slate-700">20h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Plano de Carreira VII</span><span class="font-bold text-slate-700">10h</span></div>
+              <div class="py-2.5 flex justify-between"><span>Atividades de Extensão VI</span><span class="font-bold text-slate-700">40h</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 8. DIFERENCIAIS DE FAZER NO POLO ALUNOTEC (ARARANGUÁ) -->
+  <!-- ========================================================= -->
+  <section class="py-14 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-cruzeiroNavy to-slate-900 text-white">
+    <div class="max-w-5xl mx-auto space-y-12">
+      
+      <div class="text-center">
+        <span class="text-xs font-black uppercase tracking-widest text-alunoVerde">Polo Autorizado</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display mt-1 text-white">
+          Por que fazer sua faculdade no Polo AlunoTec?
+        </h2>
+        <p class="text-slate-300 text-sm max-w-2xl mx-auto mt-2">
+          Você une toda a força de uma das maiores universidades do Brasil ao suporte próximo e acolhedor de quem está pertinho de você em Araranguá.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-alunoVerde text-slate-950 font-black text-xl flex items-center justify-center">
+            📍
+          </div>
+          <h4 class="font-bold text-lg text-white">Estrutura Física no Centro</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Localizado na Av. Sete de Setembro, 1917, com computadores, biblioteca digital, salas climatizadas e atendimento presencial sempre que você precisar.
+          </p>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-alunoVerde text-slate-950 font-black text-xl flex items-center justify-center">
+            🤝
+          </div>
+          <h4 class="font-bold text-lg text-white">Acompanhamento Humanizado</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Aqui você não fala com robôs. Nossa equipe local te auxilia com matrículas, envio de documentos, agendamento de provas e orientação acadêmica.
+          </p>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-alunoVerde text-slate-950 font-black text-xl flex items-center justify-center">
+            💰
+          </div>
+          <h4 class="font-bold text-lg text-white">Bolsas e Parcerias Locais</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Descontos exclusivos do polo válidos durante todo o curso, com opções especiais via ENEM, convênios com empresas da região e transferência.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- BANNER CTA INTERNO -->
+      <div class="bg-gradient-to-r from-alunoVerde to-alunoVerdeEscuro text-slate-950 p-8 rounded-3xl shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-black font-display leading-tight">
+            Pronto para transformar vidas através da educação?
+          </h3>
+          <p class="text-xs sm:text-sm font-semibold text-slate-800 mt-1">
+            Fale agora com a nossa equipe no Polo de Araranguá e garanta sua bolsa especial para Pedagogia.
+          </p>
+        </div>
+
+        <a href="https://wa.me/5548996191212?text=Ol%C3%A1%2C%20quero%20garantir%20minha%20bolsa%20para%20o%20curso%20de%20Pedagogia%20(Semipresencial)%20no%20Polo%20AlunoTec!" 
+           target="_blank" 
+           class="px-8 py-4 rounded-xl bg-cruzeiroNavy hover:bg-cruzeiroAzul text-white font-extrabold text-sm sm:text-base whitespace-nowrap shadow-xl transition-all transform hover:-translate-y-0.5 text-center">
+          Quero Minha Bolsa &rarr;
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 9. FOOTER OFICIAL -->
+  <!-- ========================================================= -->
+  <footer class="bg-[#001A38] text-slate-400 py-12 px-4 sm:px-6 border-t border-blue-900/40 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div>
+        <img src="Design/logo aluno tec PNG.png" alt="AlunoTec" class="h-10 w-auto object-contain mx-auto md:mx-0 brightness-110">
+        <p class="mt-2 text-slate-400 text-xs max-w-sm">
+          AlunoTec Centro Educacional — Polo Autorizado da Cruzeiro do Sul Virtual e Cefe Educa EJA em Araranguá - SC.
+        </p>
+      </div>
+
+      <div class="space-y-1">
+        <p class="font-bold text-white text-sm">Polo Presencial Araranguá</p>
+        <p>Av. Sete de Setembro, 1917 - Centro, Araranguá - SC</p>
+        <p>WhatsApp: <a href="https://wa.me/5548996191212" class="text-alunoVerde hover:underline font-bold">(48) 99619-1212</a> | E-mail: cruzeiroadmaru@gmail.com</p>
+      </div>
+
+      <div>
+        <a href="index.html" class="inline-block px-5 py-2.5 rounded-lg bg-blue-900/60 hover:bg-blue-800 text-white font-bold transition-all">
+          &larr; Voltar à Página Principal
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT PARA ACORDEÃO E FORMULÁRIO -->
+  <script>
+    function toggleSemestre(num) {
+      const content = document.getElementById(`content-${num}`);
+      const icon = document.getElementById(`icon-${num}`);
+      const estaAberto = content.classList.contains('aberto');
+
+      if (estaAberto) {
+        content.classList.remove('aberto');
+        icon.classList.remove('rotacionado');
+      } else {
+        content.classList.add('aberto');
+        icon.classList.add('rotacionado');
+      }
+    }
+
+    function enviarSimulacaoPedagogia(e) {
+      e.preventDefault();
+      const nome = document.getElementById('leadNome').value;
+      const tel = document.getElementById('leadTelefone').value;
+      const ingresso = document.getElementById('leadIngresso').value;
+
+      const texto = `Olá, meu nome é ${nome} (${tel}). Gostaria de simular a bolsa para o curso de Pedagogia (Semipresencial) através do ingresso: ${ingresso}.`;
+      const url = `https://wa.me/5548996191212?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    }
+
+    function abrirModalLead(origem) {
+      const texto = `Olá! Vim pela página do curso de Pedagogia (Semipresencial) e quero garantir minha bolsa no Polo AlunoTec.`;
+      const url = `https://wa.me/5548996191212?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
