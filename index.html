@@ -64,6 +64,15 @@
       animation: pulse-ring 2.5s infinite;
     }
 
+    /* Transição suave de rotação dos 3 banners */
+    .banner-slot-anim {
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .banner-slot-anim.trocando {
+      opacity: 0.25;
+      transform: scale(0.97);
+    }
+
     /* Barra Verde dos Cards no estilo Claretiano */
     .card-claretiano {
       position: relative;
@@ -313,71 +322,59 @@
   </header>
 
   <!-- ========================================================= -->
-  <!-- 3. BANNER PRINCIPAL - RÉPLICA EXATA CRUZEIRO DO SUL -->
+  <!-- 3. BANNER PRINCIPAL ROTATIVO - RÉPLICA CRUZEIRO DO SUL -->
   <!-- ========================================================= -->
   <section class="bg-[#00346B] py-3 sm:py-4 px-3 sm:px-5">
-    <div class="max-w-[1320px] mx-auto">
+    <div class="max-w-[1320px] mx-auto relative group/secao">
       
       <!-- GRID 2:1 EXATO (8 COLS ESQUERDA + 4 COLS DIREITA) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-3 items-stretch">
         
         <!-- ========================================================= -->
-        <!-- COLUNA ESQUERDA: SLIDER CARROSSEL (PROPORÇÃO 664:376) -->
+        <!-- COLUNA ESQUERDA: SLOT PRINCIPAL (PROPORÇÃO 664:376) -->
         <!-- ========================================================= -->
-        <div class="lg:col-span-8 relative rounded overflow-hidden shadow-lg bg-[#002855] aspect-[664/376] w-full group">
+        <div id="slotPrincipal" onclick="clicarBannerSlot(0)" 
+             class="lg:col-span-8 relative rounded overflow-hidden shadow-lg bg-[#002855] aspect-[664/376] w-full group cursor-pointer">
           
-          <!-- SLIDES DO CARROSSEL -->
-          <div id="heroSlider" class="relative w-full h-full">
-            
-            <!-- SLIDE 1 (ENEM ESTRELA VIP) -->
-            <div class="slide-item active absolute inset-0 transition-opacity duration-500 ease-in-out cursor-pointer" onclick="abrirModalLead('Banner 1 - ENEM Estrela VIP')">
-              <img src="Design/banner-cruzeiro-principal-1.jpg" alt="ENEM Estrela VIP - Cruzeiro do Sul" class="w-full h-full object-cover object-center">
-            </div>
+          <img id="imgPrincipal" src="Design/banner-cruzeiro-principal-1.jpg" alt="ENEM Estrela VIP - Cruzeiro do Sul" 
+               class="banner-slot-anim w-full h-full object-cover object-center group-hover:scale-[1.015]">
 
-            <!-- SLIDE 2 (Slot pronto para o seu 2º banner) -->
-            <div class="slide-item opacity-0 pointer-events-none absolute inset-0 transition-opacity duration-500 ease-in-out cursor-pointer" onclick="abrirModalLead('Banner 2 - Bolsas Polo AlunoTec')">
-              <img src="Design/banner-cruzeiro-principal-1.jpg" alt="Bolsas de Estudo Polo AlunoTec" class="w-full h-full object-cover object-center">
-            </div>
-
-            <!-- SLIDE 3 (Slot pronto para o seu 3º banner) -->
-            <div class="slide-item opacity-0 pointer-events-none absolute inset-0 transition-opacity duration-500 ease-in-out cursor-pointer" onclick="abrirModalLead('Banner 3 - Vestibular & Matrículas')">
-              <img src="Design/banner-cruzeiro-principal-1.jpg" alt="Condições Especiais Polo AlunoTec" class="w-full h-full object-cover object-center">
-            </div>
-
-          </div>
-
-          <!-- SETAS DE NAVEGAÇÃO DO SLIDER -->
-          <button onclick="slideAnterior(event)" aria-label="Banner anterior" class="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/45 hover:bg-black/75 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <!-- SETAS DE NAVEGAÇÃO DO CARROSSEL ROTATIVO -->
+          <button onclick="rotacionarAnterior(event)" aria-label="Banner anterior" 
+                  class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/55 hover:bg-black/80 text-white flex items-center justify-center transition-all shadow-md border border-white/20">
             &#10094;
           </button>
-          <button onclick="proximoSlide(event)" aria-label="Próximo banner" class="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/45 hover:bg-black/75 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <button onclick="rotacionarProximo(event)" aria-label="Próximo banner" 
+                  class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/55 hover:bg-black/80 text-white flex items-center justify-center transition-all shadow-md border border-white/20">
             &#10095;
           </button>
 
           <!-- INDICADORES (DOTS) -->
-          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/35 px-2.5 py-1 rounded-full">
-            <button onclick="mudarSlide(0)" aria-label="Ir para banner 1" class="btn-dot w-7 h-2 rounded-full bg-alunoVerde transition-all"></button>
-            <button onclick="mudarSlide(1)" aria-label="Ir para banner 2" class="btn-dot w-2 h-2 rounded-full bg-white/60 transition-all"></button>
-            <button onclick="mudarSlide(2)" aria-label="Ir para banner 3" class="btn-dot w-2 h-2 rounded-full bg-white/60 transition-all"></button>
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm">
+            <button onclick="irParaBanner(0, event)" aria-label="Ir para banner 1" class="btn-dot w-7 h-2 rounded-full bg-alunoVerde transition-all"></button>
+            <button onclick="irParaBanner(1, event)" aria-label="Ir para banner 2" class="btn-dot w-2 h-2 rounded-full bg-white/60 transition-all"></button>
+            <button onclick="irParaBanner(2, event)" aria-label="Ir para banner 3" class="btn-dot w-2 h-2 rounded-full bg-white/60 transition-all"></button>
           </div>
 
         </div>
 
         <!-- ========================================================= -->
-        <!-- COLUNA DIREITA: DOIS BANNERS FIXOS EMPILHADOS (MESMA ALTURA TOTAL) -->
+        <!-- COLUNA DIREITA: DOIS SLOTS LATERAIS QUE ROTACIONAM JUNTO -->
         <!-- ========================================================= -->
         <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 gap-2.5 sm:gap-3 h-full">
           
-          <!-- BANNER 1 (SUPERIOR DIREITA - ESQUENTA BLACK FRIDAY) -->
-          <div onclick="abrirModalLead('Banner Lateral Topo - Esquenta Black Friday')" 
+          <!-- SLOT LATERAL SUPERIOR -->
+          <div id="slotLateral1" onclick="clicarBannerSlot(1)" 
                class="relative rounded overflow-hidden shadow-lg cursor-pointer group bg-[#002855] aspect-[322/182] lg:aspect-auto h-full">
-            <img src="Design/banner-cruzeiro-lateral-1.jpg" alt="Esquenta Black Friday Cruzeiro do Sul" class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-300">
+            <img id="imgLateral1" src="Design/banner-cruzeiro-lateral-1.jpg" alt="Esquenta Black Friday Cruzeiro do Sul" 
+                 class="banner-slot-anim w-full h-full object-cover object-center group-hover:scale-[1.03]">
           </div>
 
-          <!-- BANNER 2 (INFERIOR DIREITA - TRANSFORME SUA CARREIRA / TRANSFERÊNCIA) -->
-          <div onclick="abrirModalLead('Banner Lateral Base - Transferência 50%')" 
+          <!-- SLOT LATERAL INFERIOR -->
+          <div id="slotLateral2" onclick="clicarBannerSlot(2)" 
                class="relative rounded overflow-hidden shadow-lg cursor-pointer group bg-[#002855] aspect-[322/184] lg:aspect-auto h-full">
-            <img src="Design/banner-cruzeiro-lateral-2.jpg" alt="Transforme sua Carreira - Cruzeiro do Sul" class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-300">
+            <img id="imgLateral2" src="Design/banner-cruzeiro-lateral-2.jpg" alt="Transforme sua Carreira - Cruzeiro do Sul" 
+                 class="banner-slot-anim w-full h-full object-cover object-center group-hover:scale-[1.03]">
           </div>
 
         </div>
@@ -902,46 +899,97 @@
       });
     }
 
-    // Gerenciador do Slider Formato Cruzeiro do Sul
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.slide-item');
-    const dots = document.querySelectorAll('.btn-dot');
+    // Gerenciador do Carrossel Rotativo (Os 3 Banners Giram Entre Si no Grid)
+    const bannersRotativos = [
+      {
+        img: 'Design/banner-cruzeiro-principal-1.jpg',
+        alt: 'ENEM Estrela VIP - Cruzeiro do Sul',
+        origem: 'Banner 1 - ENEM Estrela VIP',
+        curso: 'ENEM Estrela VIP / Graduação'
+      },
+      {
+        img: 'Design/banner-cruzeiro-lateral-1.jpg',
+        alt: 'Esquenta Black Friday Cruzeiro do Sul',
+        origem: 'Banner 2 - Esquenta Black Friday',
+        curso: 'Bolsas de Desconto Polo AlunoTec'
+      },
+      {
+        img: 'Design/banner-cruzeiro-lateral-2.jpg',
+        alt: 'Transforme sua Carreira - Cruzeiro do Sul',
+        origem: 'Banner 3 - Transforme sua Carreira',
+        curso: 'Transferência & Graduação EAD'
+      }
+    ];
 
-    function mudarSlide(index) {
-      slideIndex = (index + slides.length) % slides.length;
-      slides.forEach((s, i) => {
-        if (i === slideIndex) {
-          s.classList.remove('opacity-0', 'pointer-events-none');
-          s.classList.add('opacity-100');
-        } else {
-          s.classList.add('opacity-0', 'pointer-events-none');
-          s.classList.remove('opacity-100');
-        }
-      });
-      dots.forEach((d, i) => {
-        if (i === slideIndex) {
-          d.classList.add('w-8', 'bg-alunoVerde');
-          d.classList.remove('w-2.5', 'bg-white/50');
-        } else {
-          d.classList.remove('w-8', 'bg-alunoVerde');
-          d.classList.add('w-2.5', 'bg-white/50');
-        }
-      });
+    let bannerAtivo = 0;
+    let rotacaoEmAndamento = false;
+
+    function atualizarSlotsVisuais(novoIndice) {
+      if (rotacaoEmAndamento) return;
+      rotacaoEmAndamento = true;
+      bannerAtivo = (novoIndice + bannersRotativos.length) % bannersRotativos.length;
+
+      const imgs = [
+        document.getElementById('imgPrincipal'),
+        document.getElementById('imgLateral1'),
+        document.getElementById('imgLateral2')
+      ];
+
+      // Inicia transição suave nos 3 quadros ao mesmo tempo
+      imgs.forEach(img => img && img.classList.add('trocando'));
+
+      setTimeout(() => {
+        const b0 = bannersRotativos[bannerAtivo];
+        const b1 = bannersRotativos[(bannerAtivo + 1) % bannersRotativos.length];
+        const b2 = bannersRotativos[(bannerAtivo + 2) % bannersRotativos.length];
+
+        if (imgs[0]) { imgs[0].src = b0.img; imgs[0].alt = b0.alt; }
+        if (imgs[1]) { imgs[1].src = b1.img; imgs[1].alt = b1.alt; }
+        if (imgs[2]) { imgs[2].src = b2.img; imgs[2].alt = b2.alt; }
+
+        // Atualiza os dots indicadores
+        document.querySelectorAll('.btn-dot').forEach((d, i) => {
+          if (i === bannerAtivo) {
+            d.classList.add('w-7', 'bg-alunoVerde');
+            d.classList.remove('w-2', 'bg-white/60');
+          } else {
+            d.classList.remove('w-7', 'bg-alunoVerde');
+            d.classList.add('w-2', 'bg-white/60');
+          }
+        });
+
+        // Finaliza transição
+        requestAnimationFrame(() => {
+          imgs.forEach(img => img && img.classList.remove('trocando'));
+          rotacaoEmAndamento = false;
+        });
+      }, 200);
     }
 
-    function proximoSlide(e) {
+    function rotacionarProximo(e) {
       if (e) e.stopPropagation();
-      mudarSlide(slideIndex + 1);
+      atualizarSlotsVisuais(bannerAtivo + 1);
     }
 
-    function slideAnterior(e) {
+    function rotacionarAnterior(e) {
       if (e) e.stopPropagation();
-      mudarSlide(slideIndex - 1);
+      atualizarSlotsVisuais(bannerAtivo - 1);
     }
 
-    // Alternância automática de slides a cada 5 segundos
+    function irParaBanner(index, e) {
+      if (e) e.stopPropagation();
+      atualizarSlotsVisuais(index);
+    }
+
+    function clicarBannerSlot(slotOffset) {
+      const idx = (bannerAtivo + slotOffset) % bannersRotativos.length;
+      const b = bannersRotativos[idx];
+      abrirModalLead(b.origem, b.curso);
+    }
+
+    // Rotação automática coordenada a cada 5 segundos
     setInterval(() => {
-      mudarSlide(slideIndex + 1);
+      atualizarSlotsVisuais(bannerAtivo + 1);
     }, 5000);
 
     // Sistema de Filtros de Cursos
