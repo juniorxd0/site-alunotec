@@ -22,14 +22,14 @@
             display: ['"Montserrat"', 'sans-serif'],
           },
           colors: {
-            // Paleta extraída da Logo da AlunoTec
-            alunoVerde: '#A8CF04',     // Verde-limão oficial AlunoTec
-            alunoVerdeEscuro: '#7EA600', // Verde AlunoTec com mais contraste para textos/botões
+            // Paleta refinada e sóbria AlunoTec
+            alunoVerde: '#A8CF04',       // Verde-limão oficial AlunoTec
+            alunoVerdeEscuro: '#7EA600', // Verde AlunoTec com contraste para textos/botões
             alunoVerdeHover: '#6D9100',
-            alunoAzul: '#009EE2',      // Azul ciano da Logo AlunoTec
-            cruzeiroAzul: '#002B7F',   // Azul Marinho Oficial Cruzeiro do Sul
-            cruzeiroNavy: '#001A4E',   // Azul Noturno Institucional
-            cruzeiroLight: '#0047BA',  // Azul Real
+            alunoAzul: '#009EE2',        // Azul ciano da Logo AlunoTec
+            cruzeiroAzul: '#475569',     // Cinza Ardósia neutro (substituindo azul vivo)
+            cruzeiroNavy: '#1E293B',     // Grafite Escuro Sofisticado (Slate-800)
+            cruzeiroLight: '#64748B',    // Cinza Médio Elegante
             cinzaTexto: '#334155',
             fundoSite: '#F8FAFC'
           }
@@ -119,7 +119,7 @@
   <!-- ========================================================= -->
   <!-- 1. TOPBAR INSTITUCIONAL (PADRÃO UNIVERSITÁRIO CRUZEIRO) -->
   <!-- ========================================================= -->
-  <div class="bg-cruzeiroNavy text-white text-xs py-2 px-4 sm:px-8 border-b border-blue-900/50">
+  <div class="bg-slate-900 text-white text-xs py-2 px-4 sm:px-8 border-b border-slate-800">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
       
       <!-- Contato e Polo Local -->
@@ -141,7 +141,7 @@
         
         <!-- Portal Cruzeiro do Sul -->
         <a href="https://novoportal.cruzeirodosul.edu.br/" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-blue-700 hover:bg-blue-600 text-white text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+           class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 border border-slate-700"
            title="Acesse o portal acadêmico da Cruzeiro do Sul">
           <span class="bg-white p-0.5 sm:p-1 rounded flex items-center justify-center shrink-0 shadow-xs">
             <img src="Design/logo cruzeiro do sul PNG.png" alt="Cruzeiro do Sul" class="h-4 sm:h-5 w-auto object-contain">
@@ -195,16 +195,16 @@
         
         <!-- ITEM COM MEGAMENU: CURSOS DESTACADO E MAIOR -->
         <div class="has-megamenu relative py-6">
-          <a href="#catalogo" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50/90 hover:bg-blue-100 text-cruzeiroNavy hover:text-cruzeiroAzul font-black text-[15px] sm:text-base border border-blue-200/80 shadow-xs transition-all cursor-pointer group/cursos">
+          <a href="#catalogo" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 hover:text-slate-950 font-black text-[15px] sm:text-base border border-slate-300 shadow-xs transition-all cursor-pointer group/cursos">
             <span class="tracking-tight">Cursos</span>
-            <svg class="w-4 h-4 text-blue-600 transition-transform duration-200 group-hover/cursos:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+            <svg class="w-4 h-4 text-slate-600 transition-transform duration-200 group-hover/cursos:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
           </a>
 
           <!-- MEGAMENU DROPDOWN ENCAIXADO LOGO ABAIXO DO ITEM CURSOS -->
           <div class="megamenu-panel absolute left-0 top-full w-[880px] max-w-[calc(100vw-32px)] bg-white rounded-b-2xl shadow-2xl border border-slate-200 p-8 z-50">
             <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
               <div>
-                <h4 class="text-xl font-extrabold text-cruzeiroNavy font-display">Catálogo de Cursos do Polo AlunoTec</h4>
+                <h4 class="text-xl font-extrabold text-slate-900 font-display">Catálogo de Cursos do Polo AlunoTec</h4>
                 <p class="text-xs text-slate-500">Graduação e Pós-Graduação Cruzeiro do Sul Virtual (EAD e Semipresencial) e EJA Cefe Educa.</p>
               </div>
               <a href="#catalogo" class="text-xs font-bold text-alunoVerdeEscuro hover:underline flex items-center gap-1">
@@ -216,7 +216,7 @@
               
               <!-- Coluna 1: Computação & TICs -->
               <div class="space-y-3">
-                <div class="flex items-center gap-2 font-bold text-sm text-cruzeiroAzul border-b border-blue-100 pb-2">
+                <div class="flex items-center gap-2 font-bold text-sm text-slate-800 border-b border-slate-200 pb-2">
                   <span>💻</span>
                   <span>Computação & TICs</span>
                 </div>
@@ -235,7 +235,7 @@
 
               <!-- Coluna 2: Negócios, Gestão & Direito -->
               <div class="space-y-3">
-                <div class="flex items-center gap-2 font-bold text-sm text-cruzeiroAzul border-b border-blue-100 pb-2">
+                <div class="flex items-center gap-2 font-bold text-sm text-slate-800 border-b border-slate-200 pb-2">
                   <span>💼</span>
                   <span>Negócios & Gestão</span>
                 </div>
@@ -254,12 +254,12 @@
 
               <!-- Coluna 3: Educação, Artes & Segurança -->
               <div class="space-y-3">
-                <div class="flex items-center gap-2 font-bold text-sm text-cruzeiroAzul border-b border-blue-100 pb-2">
+                <div class="flex items-center gap-2 font-bold text-sm text-slate-800 border-b border-slate-200 pb-2">
                   <span>🎓</span>
                   <span>Educação & Licenciaturas</span>
                 </div>
                 <ul class="space-y-1.5 text-slate-600">
-                  <li><a href="#catalogo" onclick="filtrarPorCurso('Pedagogia')" class="hover:text-alunoVerdeEscuro transition-colors block font-semibold text-cruzeiroAzul">Pedagogia (Semipresencial)</a></li>
+                  <li><a href="#catalogo" onclick="filtrarPorCurso('Pedagogia')" class="hover:text-alunoVerdeEscuro transition-colors block font-semibold text-slate-900">Pedagogia (Semipresencial)</a></li>
                   <li><a href="#catalogo" onclick="filtrarPorCurso('Educação Especial')" class="hover:text-alunoVerdeEscuro transition-colors block">Educação Especial</a></li>
                   <li><a href="#catalogo" onclick="filtrarPorCurso('Educação Física')" class="hover:text-alunoVerdeEscuro transition-colors block">Educação Física</a></li>
                   <li><a href="#catalogo" onclick="filtrarPorCurso('Letras - Libras')" class="hover:text-alunoVerdeEscuro transition-colors block">Letras - Libras</a></li>
@@ -284,7 +284,7 @@
                 </div>
 
                 <div class="pt-2">
-                  <div class="flex items-center gap-2 font-bold text-sm text-cruzeiroNavy border-b border-slate-200 pb-1 mb-2">
+                  <div class="flex items-center gap-2 font-bold text-sm text-slate-800 border-b border-slate-200 pb-1 mb-2">
                     <span>🏆</span>
                     <span>Pós-Graduação & MBA</span>
                   </div>
@@ -580,23 +580,23 @@
   <!-- 7. CONHEÇA NOSSO POLO FÍSICO EM ARARANGUÁ - SC -->
   <!-- ========================================================= -->
   <section id="polo" class="py-16 px-4 sm:px-6 max-w-7xl mx-auto">
-    <div class="bg-gradient-to-br from-cruzeiroNavy to-blue-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl overflow-hidden relative">
+    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 sm:p-12 text-white shadow-xl overflow-hidden relative border border-slate-700/50">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
         
         <!-- Foto Real da Fachada -->
         <div class="lg:col-span-6">
-          <div class="rounded-2xl overflow-hidden border-2 border-blue-400/30 shadow-2xl">
+          <div class="rounded-2xl overflow-hidden border-2 border-slate-600/40 shadow-2xl">
             <img src="Design/fachada alunotec.png" alt="Fachada do Polo AlunoTec Cruzeiro do Sul e EJA em Araranguá" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
           </div>
-          <p class="text-[11px] text-blue-200 text-center mt-2">
+          <p class="text-[11px] text-slate-400 text-center mt-2">
             📍 Sede física do Polo AlunoTec na Av. Sete de Setembro, 1917 - Centro, Araranguá - SC
           </p>
         </div>
 
         <!-- Informações do Polo e Horários -->
         <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-500/20 text-blue-300 font-bold text-xs uppercase tracking-wider border border-blue-400/20">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-slate-800 text-slate-300 font-bold text-xs uppercase tracking-wider border border-slate-700">
             Atendimento Presencial e Online
           </div>
 
@@ -610,7 +610,7 @@
           </p>
 
           <!-- Quadro de Horários Extraído de Informações.txt -->
-          <div class="bg-blue-900/40 border border-blue-700/50 rounded-xl p-4 text-xs space-y-2">
+          <div class="bg-slate-800/80 border border-slate-700 rounded-xl p-4 text-xs space-y-2">
             <div class="font-bold text-sm text-alunoVerde mb-1">🕒 Horários de Atendimento no Polo:</div>
             <div class="grid grid-cols-2 gap-2 text-slate-200">
               <div><strong>Segunda-feira:</strong> 09:30 às 21:00</div>
@@ -760,9 +760,9 @@
   </section>
 
   <!-- ========================================================= -->
-  <!-- 10. RODAPÉ INSTITUCIONAL (PADRÃO CRUZEIRO DO SUL) -->
+  <!-- 10. RODAPÉ INSTITUCIONAL (PADRÃO REFINADO) -->
   <!-- ========================================================= -->
-  <footer class="bg-cruzeiroNavy text-white py-14 border-t-4 border-alunoVerde text-xs">
+  <footer class="bg-slate-950 text-white py-14 border-t-4 border-alunoVerde text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
@@ -780,32 +780,32 @@
 
         <!-- Coluna 2: Cruzeiro do Sul Virtual -->
         <div class="space-y-3">
-          <h5 class="font-extrabold text-sm uppercase tracking-wider text-white border-b border-blue-900 pb-2">
+          <h5 class="font-extrabold text-sm uppercase tracking-wider text-white border-b border-slate-800 pb-2">
             Cruzeiro do Sul Virtual
           </h5>
           <ul class="space-y-1.5 text-slate-300">
             <li><a href="#catalogo" onclick="filtrarPorModalidade('EAD')" class="hover:text-white transition-colors">Graduação 100% EAD</a></li>
             <li><a href="#catalogo" onclick="filtrarPorModalidade('Semipresencial')" class="hover:text-white transition-colors">Graduação Semipresencial</a></li>
             <li><a href="#catalogo" onclick="trocarCategoria('pos')" class="hover:text-white transition-colors">Pós-Graduação e MBA</a></li>
-            <li><a href="https://novoportal.cruzeirodosul.edu.br/" target="_blank" class="text-blue-300 hover:underline">Área do Aluno Cruzeiro</a></li>
+            <li><a href="https://novoportal.cruzeirodosul.edu.br/" target="_blank" class="text-slate-300 hover:text-white hover:underline">Área do Aluno Cruzeiro</a></li>
           </ul>
         </div>
 
         <!-- Coluna 3: Cefe Educa EJA -->
         <div class="space-y-3">
-          <h5 class="font-extrabold text-sm uppercase tracking-wider text-white border-b border-blue-900 pb-2">
+          <h5 class="font-extrabold text-sm uppercase tracking-wider text-white border-b border-slate-800 pb-2">
             Cefe Educa EJA
           </h5>
           <ul class="space-y-1.5 text-slate-300">
             <li><a href="eja-fundamental.html" class="hover:text-white transition-colors">EJA Ensino Fundamental</a></li>
             <li><a href="eja-medio.html" class="hover:text-white transition-colors">EJA Ensino Médio</a></li>
-            <li><a href="https://avacefe.com.br/login/index.php" target="_blank" class="text-emerald-300 hover:underline">Portal do Aluno EJA</a></li>
+            <li><a href="https://avacefe.com.br/login/index.php" target="_blank" class="text-slate-300 hover:text-white hover:underline">Portal do Aluno EJA</a></li>
           </ul>
         </div>
 
         <!-- Coluna 4: Horários e Canais -->
         <div class="space-y-3">
-          <h5 class="font-extrabold text-sm uppercase tracking-wider text-white border-b border-blue-900 pb-2">
+          <h5 class="font-extrabold text-sm uppercase tracking-wider text-white border-b border-slate-800 pb-2">
             Atendimento
           </h5>
           <p class="text-slate-300">WhatsApp: <strong>(48) 99619-1212</strong></p>
@@ -819,7 +819,7 @@
       </div>
 
       <!-- Copyright Oficial Conforme Informações.txt -->
-      <div class="pt-8 border-t border-blue-900/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
+      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
         <p>© 2017 AlunoTec - Centro de ensino a distância</p>
         <p>Polo Autorizado Cruzeiro do Sul Virtual & Cefe Educa EJA</p>
       </div>
@@ -1079,34 +1079,34 @@
                   </div>
 
                   <a href="${linkDestino}" class="block group/title">
-                    <h3 class="text-xl font-extrabold text-[#002855] font-display leading-snug mb-4 group-hover/title:text-cruzeiroAzul transition-colors">
+                    <h3 class="text-xl font-extrabold text-slate-900 font-display leading-snug mb-4 group-hover/title:text-slate-700 transition-colors">
                       ${curso.nome}
                     </h3>
                   </a>
 
                   <!-- 3 Pills Verticais Conforme Imagem de Exemplo da Cruzeiro do Sul -->
                   <div class="space-y-2 mb-6">
-                    <div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-[#002855] text-xs font-semibold w-fit">
+                    <div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-slate-700 text-xs font-semibold w-fit">
                       <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                       <span>${curso.duracao || '8 semestres'}</span>
                     </div>
 
-                    <div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-[#002855] text-xs font-semibold w-fit">
+                    <div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-slate-700 text-xs font-semibold w-fit">
                       <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                       <span>Início Imediato</span>
                     </div>
 
-                    <div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-[#002855] text-xs font-semibold w-fit">
+                    <div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-slate-700 text-xs font-semibold w-fit">
                       <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
                       <span>${curso.tipo}</span>
                     </div>
                   </div>
                 </div>
 
-                <!-- Botão Inferior Formato Pílula Azul Marinho Conforme Imagem de Exemplo -->
+                <!-- Botão Inferior Formato Pílula Grafite Elegante -->
                 <div>
                   <a href="${linkDestino}" 
-                     class="w-full py-3 rounded-full bg-[#002855] hover:bg-cruzeiroAzul text-white font-extrabold text-sm text-center block transition-all shadow-sm">
+                     class="w-full py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-extrabold text-sm text-center block transition-all shadow-sm">
                     ${textoBotao}
                   </a>
                 </div>
@@ -1116,7 +1116,7 @@
         }
 
         const badgeModalidade = isSemipresencial 
-          ? `<span class="px-2.5 py-1 rounded bg-blue-100 text-blue-800 text-[10px] font-extrabold uppercase">Semipresencial</span>`
+          ? `<span class="px-2.5 py-1 rounded bg-slate-200 text-slate-800 text-[10px] font-extrabold uppercase">Semipresencial</span>`
           : `<span class="px-2.5 py-1 rounded bg-lime-100 text-alunoVerdeEscuro text-[10px] font-extrabold uppercase">100% EAD</span>`;
 
         const cardEmAltaClass = curso.emAlta ? 'em-alta shadow-md' : 'shadow-sm';
@@ -1139,7 +1139,7 @@
               </div>
 
               <!-- Título do Curso -->
-              <h3 class="text-lg font-extrabold text-cruzeiroNavy font-display leading-snug hover:text-alunoVerdeEscuro transition-colors mb-2">
+              <h3 class="text-lg font-extrabold text-slate-900 font-display leading-snug hover:text-alunoVerdeEscuro transition-colors mb-2">
                 <a href="${linkDestino}" class="hover:underline">${curso.nome}</a>
               </h3>
 
@@ -1161,10 +1161,10 @@
               </div>
             </div>
 
-            <!-- Botão Inferior Formato Pílula Azul Marinho Conforme Imagem de Exemplo -->
+            <!-- Botão Inferior Formato Pílula Grafite Elegante -->
             <div>
               <a href="${linkDestino}" 
-                 class="w-full py-3 rounded-full bg-[#002855] hover:bg-cruzeiroAzul text-white font-extrabold text-sm text-center block transition-all shadow-sm">
+                 class="w-full py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-extrabold text-sm text-center block transition-all shadow-sm">
                 ${textoBotao}
               </a>
             </div>
@@ -1180,12 +1180,12 @@
       document.getElementById('btnEmAlta').classList.add('bg-white', 'text-slate-700', 'border-slate-300');
 
       document.querySelectorAll('.btn-filtro').forEach(b => {
-        b.classList.remove('bg-cruzeiroNavy', 'text-white', 'border-cruzeiroNavy');
+        b.classList.remove('bg-slate-800', 'text-white', 'border-slate-800');
         b.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
       });
 
       if (btn) {
-        btn.classList.add('bg-cruzeiroNavy', 'text-white', 'border-cruzeiroNavy');
+        btn.classList.add('bg-slate-800', 'text-white', 'border-slate-800');
         btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
       }
 
